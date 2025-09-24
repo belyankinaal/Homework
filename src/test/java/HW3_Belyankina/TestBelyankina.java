@@ -3,16 +3,10 @@ package HW3_Belyankina;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverConditions.*;
+import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.webdriver;
+import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Condition.visible;
-
-import org.openqa.selenium.Keys;
 
 public class TestBelyankina extends WebHooks {
 
@@ -78,7 +72,6 @@ public class TestBelyankina extends WebHooks {
         issuePage.navigateBackToIssues();
         issuePage.refreshIssuesList();
         issuePage.waitForIssueCountToIncrease(countBefore);
-
 
         String countTextAfter = issuePage.getIssuesCountText();
         System.out.println("Количество задач после создания новой задачи: " + countTextAfter);
