@@ -1,14 +1,13 @@
 package HW3_Belyankina;
 
 import com.codeborne.selenide.SelenideElement;
-
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
-
 import org.openqa.selenium.By;
 
-import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.*;
 
 public class ProjectPage {
 
@@ -16,7 +15,6 @@ public class ProjectPage {
     private SelenideElement resolutionFilterButton = $(By.cssSelector("div[data-id='resolution']"));
     private SelenideElement unresolvedLabel = $(By.xpath("//label[@class='item-label checkbox' and @title='Не решен']"));
 
-    // Исправленный XPath для поиска счетчика задач
     private SelenideElement issuesCountElement = $(By.xpath("//span[contains(@class, 'results-count-total')] | //span[contains(text(), 'задач')] | //*[contains(text(), 'из')][not(contains(text(), 'избранных'))]"));
 
     private SelenideElement createIssueButton = $(By.id("create_link"));
@@ -39,14 +37,12 @@ public class ProjectPage {
         unresolvedLabel.shouldBe(visible).click();
         System.out.println("Ждем применения фильтра");
 
-        // Ждем обновления страницы
         sleep(2000);
         System.out.println("Закрываем меню ESC");
         actions().sendKeys(org.openqa.selenium.Keys.ESCAPE).perform();
     }
 
     public String getIssuesCountText() {
-        // Пробуем разные локаторы для счетчика
         SelenideElement countElement = findIssuesCountElement();
         countElement.shouldBe(visible);
         String text = countElement.getText();
@@ -55,7 +51,6 @@ public class ProjectPage {
     }
 
     private SelenideElement findIssuesCountElement() {
-        // Пробуем разные варианты локаторов
         String[] xpaths = {
                 "//span[contains(@class, 'results-count-total')]",
                 "//span[contains(@class, 'results-count')]",
@@ -72,7 +67,6 @@ public class ProjectPage {
             }
         }
 
-        // Если не нашли стандартный счетчик, ищем любой элемент с цифрами
         return $("body").find(By.xpath(".//*[text()[contains(., '1') or contains(., '2') or contains(., '3') or contains(., '4') or contains(., '5') or contains(., '6') or contains(., '7') or contains(., '8') or contains(., '9') or contains(., '0')]][not(self::script)]"));
     }
 
@@ -83,11 +77,9 @@ public class ProjectPage {
 
         System.out.println("Парсим текст: " + text);
 
-        // Ищем все числа в тексте
         Pattern pattern = Pattern.compile("\\d+");
         Matcher matcher = pattern.matcher(text.replaceAll("[\\s,]", ""));
 
-        // Берем последнее найденное число (обычно это общее количество)
         int lastNumber = 0;
         while (matcher.find()) {
             try {
@@ -114,9 +106,8 @@ public class ProjectPage {
         summaryTextarea.shouldBe(visible).setValue(summaryText);
         submitButton.shouldBe(visible).click();
 
-        // Ждем подтверждения создания задачи
         $(".aui-message-success").shouldBe(visible);
-        sleep(2000); // Даем время на сохранение
+        sleep(2000);
     }
 
     public String getNewIssueSummary() {
@@ -127,21 +118,21 @@ public class ProjectPage {
         String currentUrl = webdriver().driver().url();
         if (currentUrl.contains("browse")) {
             open(CustomProperties.getWebUrl() + "/projects/TEST/issues");
-            // Ждем загрузки страницы
+
             sleep(3000);
         }
     }
 
     public void refreshIssuesList() {
         refresh();
-        sleep(3000); // Ждем обновления
+        sleep(3000);
     }
 
     public void waitForIssueCountToIncrease(int initialCount) {
         System.out.println("Ожидаем увеличения счетчика с " + initialCount);
 
         long startTime = System.currentTimeMillis();
-        long timeout = 15000; // 15 секунд
+        long timeout = 15000;
 
         while (System.currentTimeMillis() - startTime < timeout) {
             String currentText = getIssuesCountText();
