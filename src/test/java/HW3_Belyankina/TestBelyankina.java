@@ -81,6 +81,7 @@ public class TestBelyankina extends WebHooks {
                 "Количество задач должно увеличиться на 1. Было: " + countBefore + ", стало: " + countAfter);
     }
 
+    //не успела запустить и проверить код на работоспособность, упал сайт
     @Test
     @DisplayName("Просмотр задачи")
     public void watchTaskTest() {
@@ -130,7 +131,6 @@ public class TestBelyankina extends WebHooks {
         loginPage.login(CustomProperties.getUserName(), CustomProperties.getUserPassword());
         webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
 
-        // Переход на страницу всех задач
         project.openProjectsMenu();
         project.selectTestProject();
         project.openIssuesPage();
@@ -139,13 +139,10 @@ public class TestBelyankina extends WebHooks {
         issuePage.clickViewAllIssues();
         webdriver().shouldHave(urlContaining("/issues"));
 
-        // Поиск задачи
         issuePage.searchForTask("TestSeleniumATHomework");
 
-        // Открытие найденной задачи
         issuePage.clickOnFoundTask();
 
-        // Проверки
         issuePage.verifyTaskStatus("Сделать");
         issuePage.verifyAffectedVersions("Version 2.0");
     }

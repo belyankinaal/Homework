@@ -155,85 +155,48 @@ public class ProjectPage {
         throw new AssertionError("Счетчик задач не увеличился за 15 секунд. Был: " + initialCount + ", остался: " + finalCount);
     }
 
-    // НОВЫЕ МЕТОДЫ ДЛЯ ПОИСКА И ПРОВЕРКИ ЗАДАЧИ
-
-    /**
-     * Поиск задачи по тексту в поле поиска
-     */
     public void searchForTask(String searchText) {
-        System.out.println("Ищем задачу с текстом: " + searchText);
         searchInput.shouldBe(visible).setValue(searchText).pressEnter();
-        sleep(3000); // Ждем загрузки результатов поиска
+        sleep(3000);
     }
 
-    /**
-     * Клик по первой найденной задаче
-     */
     public void clickOnFoundTask() {
-        System.out.println("Кликаем на найденную задачу");
         firstFoundTask.shouldBe(visible).click();
-        sleep(3000); // Ждем загрузки страницы задачи
+        sleep(3000);
     }
 
-    /**
-     * Проверка статуса задачи
-     * Ищем элемент статуса рядом с меткой "Статус"
-     */
     public void verifyTaskStatus(String expectedStatus) {
-        System.out.println("Проверяем статус задачи. Ожидаем: " + expectedStatus);
         $x("//dt[contains(text(), 'Статус')]/following-sibling::dd//span[contains(@class, 'jira-issue-status-lozenge')]")
                 .shouldHave(text(expectedStatus));
-        System.out.println("Статус задачи корректный: " + expectedStatus);
     }
 
-    /**
-     * Проверка затронутых версий
-     * Ищем элемент версий рядом с меткой "Затронуты версии"
-     */
     public void verifyAffectedVersions(String expectedVersion) {
-        System.out.println("Проверяем затронутые версии. Ожидаем: " + expectedVersion);
-        $x("//dt[contains(text(), 'Затронуты версии')]/following-sibling::dd//span[@title]")
+        $x("//dt[contains(text(), 'Затронута версия')]/following-sibling::dd//span[@title]")
                 .shouldHave(text(expectedVersion));
-        System.out.println("Затронутые версии корректные: " + expectedVersion);
     }
 
-    /**
-     * Универсальный метод для проверки всех деталей задачи
-     */
     public void verifyTaskDetails(String expectedStatus, String expectedVersion) {
         verifyTaskStatus(expectedStatus);
         verifyAffectedVersions(expectedVersion);
-        System.out.println("Все проверки задачи пройдены успешно");
     }
 
-    /**
-     * Ожидание загрузки страницы задачи
-     */
     public void waitForTaskPageLoad() {
         System.out.println("Ожидаем загрузки страницы задачи");
 
-        // Ждем появления ключа задачи или заголовка
         $(By.id("key-val")).shouldBe(visible);
         $(By.id("summary-val")).shouldBe(visible);
 
-        sleep(2000); // Дополнительная пауза для полной загрузки
+        sleep(2000);
     }
 
-    /**
-     * Получение ключа задачи (например, "TEST-121544")
-     */
     public String getTaskKey() {
         String key = $(By.id("key-val")).shouldBe(visible).getText();
         System.out.println("Ключ задачи: " + key);
         return key;
     }
 
-    /**
-     * Получение заголовка задачи
-     */
     public String getTaskSummary() {
         String summary = $(By.id("summary-val")).shouldBe(visible).getText();
-        System.out.println("Заголовок задачи: " + summary);
         return summary;
     }
 }
