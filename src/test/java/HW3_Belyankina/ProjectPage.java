@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -14,13 +15,15 @@ public class ProjectPage {
     private SelenideElement viewAllIssuesLink = $(By.xpath("//a[contains(text(), 'Посмотреть все задачи и фильтры')]"));
     private SelenideElement resolutionFilterButton = $(By.cssSelector("div[data-id='resolution']"));
     private SelenideElement unresolvedLabel = $(By.xpath("//label[@class='item-label checkbox' and @title='Не решен']"));
-
     private SelenideElement issuesCountElement = $(By.xpath("//span[contains(@class, 'results-count-total')] | //span[contains(text(), 'задач')] | //*[contains(text(), 'из')][not(contains(text(), 'избранных'))]"));
-
     private SelenideElement createIssueButton = $(By.id("create_link"));
     private SelenideElement summaryTextarea = $(By.id("summary"));
     private SelenideElement newIssueSummary = $(By.id("summary-val"));
     private SelenideElement submitButton = $(By.id("create-issue-submit"));
+
+    // Новые элементы для поиска и проверки задачи
+    private SelenideElement searchInput = $(By.id("searcher-query"));
+    private SelenideElement firstFoundTask = $(By.cssSelector("a.issue-link[data-issue-key*='TEST-']"));
 
     public void clickViewAllIssues() {
         viewAllIssuesLink.shouldBe(visible).click();
@@ -150,5 +153,87 @@ public class ProjectPage {
         String finalText = getIssuesCountText();
         int finalCount = extractNumberFromText(finalText);
         throw new AssertionError("Счетчик задач не увеличился за 15 секунд. Был: " + initialCount + ", остался: " + finalCount);
+    }
+
+    // НОВЫЕ МЕТОДЫ ДЛЯ ПОИСКА И ПРОВЕРКИ ЗАДАЧИ
+
+    /**
+     * Поиск задачи по тексту в поле поиска
+     */
+    public void searchForTask(String searchText) {
+        System.out.println("Ищем задачу с текстом: " + searchText);
+        searchInput.shouldBe(visible).setValue(searchText).pressEnter();
+        sleep(3000); // Ждем загрузки результатов поиска
+    }
+
+    /**
+     * Клик по первой найденной задаче
+     */
+    public void clickOnFoundTask() {
+        System.out.println("Кликаем на найденную задачу");
+        firstFoundTask.shouldBe(visible).click();
+        sleep(3000); // Ждем загрузки страницы задачи
+    }
+
+    /**
+     * Проверка статуса задачи
+     * Ищем элемент статуса рядом с меткой "Статус"
+     */
+    public void verifyTaskStatus(String expectedStatus) {
+        System.out.println("Проверяем статус задачи. Ожидаем: " + expectedStatus);
+        $x("//dt[contains(text(), 'Статус')]/following-sibling::dd//span[contains(@class, 'jira-issue-status-lozenge')]")
+                .shouldHave(text(expectedStatus));
+        System.out.println("Статус задачи корректный: " + expectedStatus);
+    }
+
+    /**
+     * Проверка затронутых версий
+     * Ищем элемент версий рядом с меткой "Затронуты версии"
+     */
+    public void verifyAffectedVersions(String expectedVersion) {
+        System.out.println("Проверяем затронутые версии. Ожидаем: " + expectedVersion);
+        $x("//dt[contains(text(), 'Затронуты версии')]/following-sibling::dd//span[@title]")
+                .shouldHave(text(expectedVersion));
+        System.out.println("Затронутые версии корректные: " + expectedVersion);
+    }
+
+    /**
+     * Универсальный метод для проверки всех деталей задачи
+     */
+    public void verifyTaskDetails(String expectedStatus, String expectedVersion) {
+        verifyTaskStatus(expectedStatus);
+        verifyAffectedVersions(expectedVersion);
+        System.out.println("Все проверки задачи пройдены успешно");
+    }
+
+    /**
+     * Ожидание загрузки страницы задачи
+     */
+    public void waitForTaskPageLoad() {
+        System.out.println("Ожидаем загрузки страницы задачи");
+
+        // Ждем появления ключа задачи или заголовка
+        $(By.id("key-val")).shouldBe(visible);
+        $(By.id("summary-val")).shouldBe(visible);
+
+        sleep(2000); // Дополнительная пауза для полной загрузки
+    }
+
+    /**
+     * Получение ключа задачи (например, "TEST-121544")
+     */
+    public String getTaskKey() {
+        String key = $(By.id("key-val")).shouldBe(visible).getText();
+        System.out.println("Ключ задачи: " + key);
+        return key;
+    }
+
+    /**
+     * Получение заголовка задачи
+     */
+    public String getTaskSummary() {
+        String summary = $(By.id("summary-val")).shouldBe(visible).getText();
+        System.out.println("Заголовок задачи: " + summary);
+        return summary;
     }
 }
