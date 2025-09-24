@@ -21,5 +21,21 @@
             <version>5.13.4</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>7.10.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>2.13.9</version>
+        </dependency>
+
+
     </dependencies>
+
 </project>
