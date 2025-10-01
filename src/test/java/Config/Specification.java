@@ -17,7 +17,8 @@ public class Specification {
 
     public static RequestSpecification forReqres() {
         return new RequestSpecBuilder()
-                .setBaseUri("https://reqres.in")
+                .setBaseUri(ConfigReader.getProperty("api.url")) // https://reqres.in
+
                 .setContentType(ContentType.JSON)
                 .log(LogDetail.ALL)
                 .build();

@@ -50,5 +50,7 @@ public class Task2Test {
                 .body("data.email", notNullValue())
                 .body("data.first_name", notNullValue())
                 .body("data.last_name", notNullValue());
+
+
     }
 }

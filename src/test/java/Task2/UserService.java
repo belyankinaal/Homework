@@ -5,12 +5,12 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
 public class UserService {
-
     public Response createUser(String jsonBody) {
         return given()
                 .body(jsonBody)
+                .header("x-api-key", "reqres-free-v1")
                 .when()
-                .post("/users")
+                .post("/api/users")
                 .then()
                 .extract()
                 .response();
@@ -19,7 +19,7 @@ public class UserService {
     public Response getUser(int id) {
         return given()
                 .when()
-                .get("/users/" + id)
+                .get("/api/users/" + id)
                 .then()
                 .extract()
                 .response();
