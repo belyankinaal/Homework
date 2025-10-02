@@ -1,7 +1,12 @@
 package HW3_Belyankina;
 
+import model.Project;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pages.LoginPage;
+import pages.ProjectPage;
+import util.CustomProperties;
+import util.WebHooks;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.webdriver;

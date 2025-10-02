@@ -1,4 +1,4 @@
-package HW3_Belyankina;
+package model;
 
 import com.codeborne.selenide.SelenideElement;
 

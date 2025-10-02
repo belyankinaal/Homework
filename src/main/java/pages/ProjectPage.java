@@ -1,7 +1,8 @@
-package HW3_Belyankina;
+package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import util.CustomProperties;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
