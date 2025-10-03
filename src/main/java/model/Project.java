@@ -2,29 +2,26 @@ package model;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Condition.visible;
-
-import org.openqa.selenium.By;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class Project {
 
-    private SelenideElement projectsButton = $("#browse_link");
-    private SelenideElement testProjectLink = $("#admin_main_proj_link_lnk");
-    private SelenideElement issuesLink = $(By.linkText("Задачи")); // Новый элемент для кнопки "Задачи"
+    private SelenideElement projectsButton = $x("//*[@id='browse_link']");
+    private SelenideElement testProjectLink = $x("//*[@id='admin_main_proj_link_lnk']");
 
-    // Открыть меню проектов
+    // Исправленный локатор для кнопки "Задачи"
+    private SelenideElement issuesButton = $x("//span[@class='aui-nav-item-label' and @title='Задачи']/ancestor::a[1]");
+
     public void openProjectsMenu() {
         projectsButton.shouldBe(visible).click();
     }
 
-    // Выбрать тестовый проект
     public void selectTestProject() {
         testProjectLink.shouldBe(visible).click();
     }
 
-    // Перейти на страницу задач
     public void openIssuesPage() {
-        issuesLink.shouldBe(visible).click();
+        issuesButton.shouldBe(visible).click();
     }
 }

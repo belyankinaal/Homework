@@ -20,13 +20,13 @@ public class WebHooks {
 
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 30000;
-        Configuration.browserSize = null;
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         Configuration.browserCapabilities = options;
 
-        Selenide.open(CustomProperties.getWebUrl());
+        // Заменено по замечанию преподавателя
+        Selenide.open(CustomProperties.getProperty("web.url"));
         WebDriverRunner.getWebDriver().manage().window().maximize();
     }
 }

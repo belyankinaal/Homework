@@ -1,9 +1,9 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 import util.CustomProperties;
 
+import java.time.Duration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,21 +13,27 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ProjectPage {
 
-    private SelenideElement viewAllIssuesLink = $(By.xpath("//a[contains(text(), 'Посмотреть все задачи и фильтры')]"));
-    private SelenideElement resolutionFilterButton = $(By.cssSelector("div[data-id='resolution']"));
-    private SelenideElement unresolvedLabel = $(By.xpath("//label[@class='item-label checkbox' and @title='Не решен']"));
-    private SelenideElement issuesCountElement = $(By.xpath("//span[contains(@class, 'results-count-total')] | //span[contains(text(), 'задач')] | //*[contains(text(), 'из')][not(contains(text(), 'избранных'))]"));
-    private SelenideElement createIssueButton = $(By.id("create_link"));
-    private SelenideElement summaryTextarea = $(By.id("summary"));
-    private SelenideElement newIssueSummary = $(By.id("summary-val"));
-    private SelenideElement submitButton = $(By.id("create-issue-submit"));
+    // Обновлённые локаторы
+    private SelenideElement issuesMenuLink = $x("//a[@id='find_link']");
+    private SelenideElement issuesSearchLink = $x("//a[@id='issues_new_search_link_lnk']");
 
-    // Новые элементы для поиска и проверки задачи
-    private SelenideElement searchInput = $(By.id("searcher-query"));
-    private SelenideElement firstFoundTask = $(By.cssSelector("a.issue-link[data-issue-key*='TEST-']"));
+    private SelenideElement resolutionFilterButton = $x("div[data-id='resolution']");
+    private SelenideElement unresolvedLabel = $x("//label[@class='item-label checkbox' and @title='Не решен']");
+    private SelenideElement createIssueButton = $x("//a[@id='create_link']");
+
+    // ИСПРАВЛЕНО: summary — input, а не textarea
+    private SelenideElement summaryInput = $x("//input[@id='summary']");
+    private SelenideElement newIssueSummary = $x("//div[@id='summary-val']");
+
+    private SelenideElement submitButton = $x("//input[@id='create-issue-submit']");
+
+    private SelenideElement searchInput = $x("//input[@id='searcher-query']");
+    private SelenideElement firstFoundTask = $x("//a[contains(@class, 'issue-link') and contains(@data-issue-key, 'TEST-')]");
 
     public void clickViewAllIssues() {
-        viewAllIssuesLink.shouldBe(visible).click();
+        issuesMenuLink.shouldBe(visible).click();
+        issuesSearchLink.shouldBe(visible).click();
+        sleep(2000);
     }
 
     public boolean isResolutionFilterPresent() {
@@ -37,10 +43,8 @@ public class ProjectPage {
     public void removeResolutionFilter() {
         System.out.println("Нажимаем на 'Не Решен'");
         resolutionFilterButton.shouldBe(visible).click();
-
         unresolvedLabel.shouldBe(visible).click();
         System.out.println("Ждем применения фильтра");
-
         sleep(2000);
         System.out.println("Закрываем меню ESC");
         actions().sendKeys(org.openqa.selenium.Keys.ESCAPE).perform();
@@ -64,14 +68,14 @@ public class ProjectPage {
         };
 
         for (String xpath : xpaths) {
-            SelenideElement element = $(By.xpath(xpath));
+            SelenideElement element = $x(xpath);
             if (element.exists() && element.isDisplayed()) {
                 System.out.println("Найден счетчик по XPath: " + xpath);
                 return element;
             }
         }
 
-        return $("body").find(By.xpath(".//*[text()[contains(., '1') or contains(., '2') or contains(., '3') or contains(., '4') or contains(., '5') or contains(., '6') or contains(., '7') or contains(., '8') or contains(., '9') or contains(., '0')]][not(self::script)]"));
+        return $x("//*[matches(text(), '\\d')][not(self::script)]");
     }
 
     public int extractNumberFromText(String text) {
@@ -107,12 +111,16 @@ public class ProjectPage {
     }
 
     public void enterSummaryAndSubmit(String summaryText) {
-        summaryTextarea.shouldBe(visible).setValue(summaryText);
+        summaryInput.shouldBe(visible).click();
+        summaryInput.setValue(summaryText);
+
         submitButton.shouldBe(visible).click();
 
-        $(".aui-message-success").shouldBe(visible);
-        sleep(2000);
+        SelenideElement successMessage = $(".aui-message-success");
+        successMessage.shouldBe(visible);
+        successMessage.shouldNotBe(visible, Duration.ofSeconds(10));
     }
+
 
     public String getNewIssueSummary() {
         return newIssueSummary.shouldBe(visible).getText();
@@ -121,8 +129,7 @@ public class ProjectPage {
     public void navigateBackToIssues() {
         String currentUrl = webdriver().driver().url();
         if (currentUrl.contains("browse")) {
-            open(CustomProperties.getWebUrl() + "/projects/TEST/issues");
-
+            open(CustomProperties.getProperty("web.url") + "/projects/TEST/issues");
             sleep(3000);
         }
     }
@@ -143,7 +150,7 @@ public class ProjectPage {
             int currentCount = extractNumberFromText(currentText);
 
             if (currentCount > initialCount) {
-                System.out.println("Счетчик увеличился: было " + initialCount + ", стало " + currentCount);
+                System.out.println("Счетчик увеличился: было " + initialCount + ", стало: " + currentCount);
                 return;
             }
 
@@ -156,48 +163,41 @@ public class ProjectPage {
         throw new AssertionError("Счетчик задач не увеличился за 15 секунд. Был: " + initialCount + ", остался: " + finalCount);
     }
 
+    // В классе ProjectPage уже есть методы searchForTask и clickOnFoundTask
+// Их можно немного поправить или использовать как есть.
+
     public void searchForTask(String searchText) {
         searchInput.shouldBe(visible).setValue(searchText).pressEnter();
-        sleep(3000);
+        // Ждем появления результатов поиска — лучше не sleep, а проверка, что хотя бы одна задача появилась
+        firstFoundTask.shouldBe(visible);
     }
 
     public void clickOnFoundTask() {
         firstFoundTask.shouldBe(visible).click();
-        sleep(3000);
+        // Ждем загрузки страницы задачи
+        waitForTaskPageLoad();
     }
 
     public void verifyTaskStatus(String expectedStatus) {
-        $x("//dt[contains(text(), 'Статус')]/following-sibling::dd//span[contains(@class, 'jira-issue-status-lozenge')]")
-                .shouldHave(text(expectedStatus));
+        // Найдем элемент <strong> с текстом "Статус:"
+        $x("//strong[@class='name' and @title='Статус' and normalize-space(text())='Статус:']")
+                .shouldBe(visible);
+
+        // Проверим, что после этого strong есть span с id='status-val' и внутри нужный статус (по тексту)
+        $x("//strong[@class='name' and @title='Статус' and normalize-space(text())='Статус:']" +
+                "/following-sibling::span[@id='status-val']//span[contains(@class, 'jira-issue-status-lozenge') and contains(text(), '" + expectedStatus + "')]")
+                .shouldBe(visible);
     }
 
+
     public void verifyAffectedVersions(String expectedVersion) {
-        $x("//dt[contains(text(), 'Затронута версия')]/following-sibling::dd//span[@title]")
+        $x("//label[text()='Исправить в версиях:']/following-sibling::a")
                 .shouldHave(text(expectedVersion));
     }
 
-    public void verifyTaskDetails(String expectedStatus, String expectedVersion) {
-        verifyTaskStatus(expectedStatus);
-        verifyAffectedVersions(expectedVersion);
-    }
-
     public void waitForTaskPageLoad() {
-        System.out.println("Ожидаем загрузки страницы задачи");
-
-        $(By.id("key-val")).shouldBe(visible);
-        $(By.id("summary-val")).shouldBe(visible);
-
-        sleep(2000);
+        $x("//div[@id='key-val']").shouldBe(visible);
+        $x("//div[@id='summary-val']").shouldBe(visible);
     }
 
-    public String getTaskKey() {
-        String key = $(By.id("key-val")).shouldBe(visible).getText();
-        System.out.println("Ключ задачи: " + key);
-        return key;
-    }
-
-    public String getTaskSummary() {
-        String summary = $(By.id("summary-val")).shouldBe(visible).getText();
-        return summary;
-    }
 }

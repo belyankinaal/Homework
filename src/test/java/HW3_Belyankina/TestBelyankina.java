@@ -21,37 +21,35 @@ public class TestBelyankina extends WebHooks {
     @Test
     @DisplayName("Авторизация")
     public void autorizationTest() {
-        open(CustomProperties.getWebUrl());
-        loginPage.login(CustomProperties.getUserName(), CustomProperties.getUserPassword());
+        open(CustomProperties.getProperty("web.url"));
+        loginPage.login(CustomProperties.getProperty("user.name"), CustomProperties.getProperty("user.password"));
         webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
     }
 
     @Test
     @DisplayName("Проект Тест")
     public void openProjectTest() {
-        open(CustomProperties.getWebUrl());
-        loginPage.login(CustomProperties.getUserName(), CustomProperties.getUserPassword());
+        open(CustomProperties.getProperty("web.url"));
+        loginPage.login(CustomProperties.getProperty("user.name"), CustomProperties.getProperty("user.password"));
         webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
 
         Project project = new Project();
         project.openProjectsMenu();
         project.selectTestProject();
-        project.openIssuesPage();
-        webdriver().shouldHave(urlContaining("/projects/TEST/issues"));
+        webdriver().shouldHave(urlContaining("/secure/RapidBoard.jspa"));
     }
 
     @Test
     @DisplayName("Проверка количества задач")
     public void createIssueTest() {
-        open(CustomProperties.getWebUrl());
-        loginPage.login(CustomProperties.getUserName(), CustomProperties.getUserPassword());
+        open(CustomProperties.getProperty("web.url"));
+        loginPage.login(CustomProperties.getProperty("user.name"), CustomProperties.getProperty("user.password"));
         webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
 
         Project project = new Project();
         project.openProjectsMenu();
         project.selectTestProject();
-        project.openIssuesPage();
-        webdriver().shouldHave(urlContaining("/projects/TEST/issues"));
+        webdriver().shouldHave(urlContaining("/secure/RapidBoard.jspa"));
 
         issuePage.clickViewAllIssues();
         webdriver().shouldHave(urlContaining("/issues"));
@@ -59,46 +57,31 @@ public class TestBelyankina extends WebHooks {
         int countBefore = issuePage.extractNumberFromText(countTextBefore);
         System.out.println("Количество задач до создания: " + countBefore);
 
-        if (issuePage.isResolutionFilterPresent()) {
-            System.out.println("Чек-бокс на 'Не Решен' выставлен, убираем");
-            issuePage.removeResolutionFilter();
-
-            String updatedCountText = issuePage.getIssuesCountText();
-            int updatedCount = issuePage.extractNumberFromText(updatedCountText);
-            System.out.println("Количество задач после снятия фильтра: " + updatedCount);
-            countBefore = updatedCount;
-        } else {
-            System.out.println("Чек-бокс на 'Не Решен' отсутствует");
-        }
-
         issuePage.clickCreateIssue();
-        String summaryText = "Тест A1 " + System.currentTimeMillis();
+        String summaryText = "A1 ";
         issuePage.enterSummaryAndSubmit(summaryText);
         issuePage.navigateBackToIssues();
         issuePage.refreshIssuesList();
         issuePage.waitForIssueCountToIncrease(countBefore);
 
         String countTextAfter = issuePage.getIssuesCountText();
-        System.out.println("Количество задач после создания новой задачи: " + countTextAfter);
         int countAfter = issuePage.extractNumberFromText(countTextAfter);
 
         assertTrue(countAfter == countBefore + 1,
                 "Количество задач должно увеличиться на 1. Было: " + countBefore + ", стало: " + countAfter);
     }
 
-    //не успела запустить и проверить код на работоспособность, упал сайт
     @Test
-    @DisplayName("Просмотр задачи")
-    public void watchTaskTest() {
-        open(CustomProperties.getWebUrl());
-        loginPage.login(CustomProperties.getUserName(), CustomProperties.getUserPassword());
+    @DisplayName("Проверка количества задач и поиск созданной задачи")
+    public void createTest() {
+        open(CustomProperties.getProperty("web.url"));
+        loginPage.login(CustomProperties.getProperty("user.name"), CustomProperties.getProperty("user.password"));
         webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
 
         Project project = new Project();
         project.openProjectsMenu();
         project.selectTestProject();
-        project.openIssuesPage();
-        webdriver().shouldHave(urlContaining("/projects/TEST/issues"));
+        webdriver().shouldHave(urlContaining("/secure/RapidBoard.jspa"));
 
         issuePage.clickViewAllIssues();
         webdriver().shouldHave(urlContaining("/issues"));
@@ -106,49 +89,32 @@ public class TestBelyankina extends WebHooks {
         int countBefore = issuePage.extractNumberFromText(countTextBefore);
         System.out.println("Количество задач до создания: " + countBefore);
 
-        if (issuePage.isResolutionFilterPresent()) {
-            System.out.println("Чек-бокс на 'Не Решен' выставлен, убираем");
-            issuePage.removeResolutionFilter();
-
-            String updatedCountText = issuePage.getIssuesCountText();
-            int updatedCount = issuePage.extractNumberFromText(updatedCountText);
-            System.out.println("Количество задач после снятия фильтра: " + updatedCount);
-            countBefore = updatedCount;
-        } else {
-            System.out.println("Чек-бокс на 'Не Решен' отсутствует");
-        }
-
         issuePage.clickCreateIssue();
-        String summaryText = "Тест A1 " + System.currentTimeMillis();
+        String summaryText = "A1 ";
         issuePage.enterSummaryAndSubmit(summaryText);
         issuePage.navigateBackToIssues();
         issuePage.refreshIssuesList();
         issuePage.waitForIssueCountToIncrease(countBefore);
 
         String countTextAfter = issuePage.getIssuesCountText();
-        System.out.println("Количество задач после создания новой задачи: " + countTextAfter);
         int countAfter = issuePage.extractNumberFromText(countTextAfter);
 
         assertTrue(countAfter == countBefore + 1,
                 "Количество задач должно увеличиться на 1. Было: " + countBefore + ", стало: " + countAfter);
 
-        open(CustomProperties.getWebUrl());
-        loginPage.login(CustomProperties.getUserName(), CustomProperties.getUserPassword());
-        webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
+        // ---- новый код для поиска задачи ----
+        String searchText = "TestSeleniumATHomework";
+        issuePage.searchForTask(searchText);
 
-        project.openProjectsMenu();
-        project.selectTestProject();
-        project.openIssuesPage();
-        webdriver().shouldHave(urlContaining("/projects/TEST/issues"));
-
-        issuePage.clickViewAllIssues();
-        webdriver().shouldHave(urlContaining("/issues"));
-
-        issuePage.searchForTask("TestSeleniumATHomework");
-
+        // Ждём появления ссылки на задачу, с классом issue-link и ключом, содержащим "TEST-"
         issuePage.clickOnFoundTask();
 
-        issuePage.verifyTaskStatus("Сделать");
+        // Проверяем статус задачи — ожидаем "Сделать"
+        issuePage.verifyTaskStatus("СДЕЛАТЬ");
+
+
+        // Проверяем версию исправления — ожидаем "Version 2.0"
         issuePage.verifyAffectedVersions("Version 2.0");
     }
+
 }

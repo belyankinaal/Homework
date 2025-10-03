@@ -1,16 +1,15 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.value;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class LoginPage {
 
-    private SelenideElement usernameInput = $(By.xpath("//input[@id='login-form-username']"));
-    private SelenideElement passwordInput = $(By.xpath("//input[@id='login-form-password']"));
-    private SelenideElement loginButton = $(By.xpath("//input[@id='login']"));
+    private SelenideElement usernameInput = $x("//input[@id='login-form-username']");
+    private SelenideElement passwordInput = $x("//input[@id='login-form-password']");
+    private SelenideElement loginButton = $x("//input[@id='login']");
 
     public void enterUsername(String username) {
         usernameInput.setValue(username);
