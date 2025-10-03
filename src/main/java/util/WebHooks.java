@@ -25,7 +25,6 @@ public class WebHooks {
         options.addArguments("--start-maximized");
         Configuration.browserCapabilities = options;
 
-        // Заменено по замечанию преподавателя
         Selenide.open(CustomProperties.getProperty("web.url"));
         WebDriverRunner.getWebDriver().manage().window().maximize();
     }

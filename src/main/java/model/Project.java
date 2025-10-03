@@ -10,7 +10,7 @@ public class Project {
     private SelenideElement projectsButton = $x("//*[@id='browse_link']");
     private SelenideElement testProjectLink = $x("//*[@id='admin_main_proj_link_lnk']");
 
-    // Исправленный локатор для кнопки "Задачи"
+
     private SelenideElement issuesButton = $x("//span[@class='aui-nav-item-label' and @title='Задачи']/ancestor::a[1]");
 
     public void openProjectsMenu() {

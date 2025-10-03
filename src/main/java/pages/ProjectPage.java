@@ -7,13 +7,11 @@ import java.time.Duration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProjectPage {
 
-    // Обновлённые локаторы
     private SelenideElement issuesMenuLink = $x("//a[@id='find_link']");
     private SelenideElement issuesSearchLink = $x("//a[@id='issues_new_search_link_lnk']");
 
@@ -21,7 +19,7 @@ public class ProjectPage {
     private SelenideElement unresolvedLabel = $x("//label[@class='item-label checkbox' and @title='Не решен']");
     private SelenideElement createIssueButton = $x("//a[@id='create_link']");
 
-    // ИСПРАВЛЕНО: summary — input, а не textarea
+
     private SelenideElement summaryInput = $x("//input[@id='summary']");
     private SelenideElement newIssueSummary = $x("//div[@id='summary-val']");
 
@@ -163,41 +161,25 @@ public class ProjectPage {
         throw new AssertionError("Счетчик задач не увеличился за 15 секунд. Был: " + initialCount + ", остался: " + finalCount);
     }
 
-    // В классе ProjectPage уже есть методы searchForTask и clickOnFoundTask
-// Их можно немного поправить или использовать как есть.
-
     public void searchForTask(String searchText) {
         searchInput.shouldBe(visible).setValue(searchText).pressEnter();
-        // Ждем появления результатов поиска — лучше не sleep, а проверка, что хотя бы одна задача появилась
+
         firstFoundTask.shouldBe(visible);
     }
 
     public void clickOnFoundTask() {
         firstFoundTask.shouldBe(visible).click();
-        // Ждем загрузки страницы задачи
-        waitForTaskPageLoad();
     }
 
     public void verifyTaskStatus(String expectedStatus) {
-        // Найдем элемент <strong> с текстом "Статус:"
-        $x("//strong[@class='name' and @title='Статус' and normalize-space(text())='Статус:']")
-                .shouldBe(visible);
-
-        // Проверим, что после этого strong есть span с id='status-val' и внутри нужный статус (по тексту)
-        $x("//strong[@class='name' and @title='Статус' and normalize-space(text())='Статус:']" +
-                "/following-sibling::span[@id='status-val']//span[contains(@class, 'jira-issue-status-lozenge') and contains(text(), '" + expectedStatus + "')]")
+        $x("//div[@class='wrap']//span[@id='status-val']/span[contains(@class, 'jira-issue-status-lozenge') and normalize-space(text())='" + expectedStatus + "']")
                 .shouldBe(visible);
     }
 
-
-    public void verifyAffectedVersions(String expectedVersion) {
-        $x("//label[text()='Исправить в версиях:']/following-sibling::a")
-                .shouldHave(text(expectedVersion));
+    public void verifyFixVersion(String expectedVersion) {
+        $x("//span[@id='fixVersions-field']//a[normalize-space(text())='" + expectedVersion + "']")
+                .shouldBe(visible);
     }
 
-    public void waitForTaskPageLoad() {
-        $x("//div[@id='key-val']").shouldBe(visible);
-        $x("//div[@id='summary-val']").shouldBe(visible);
-    }
 
 }

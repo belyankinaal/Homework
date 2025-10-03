@@ -66,7 +66,6 @@ public class TestBelyankina extends WebHooks {
 
         String countTextAfter = issuePage.getIssuesCountText();
         int countAfter = issuePage.extractNumberFromText(countTextAfter);
-
         assertTrue(countAfter == countBefore + 1,
                 "Количество задач должно увеличиться на 1. Было: " + countBefore + ", стало: " + countAfter);
     }
@@ -91,30 +90,23 @@ public class TestBelyankina extends WebHooks {
 
         issuePage.clickCreateIssue();
         String summaryText = "A1 ";
+
         issuePage.enterSummaryAndSubmit(summaryText);
         issuePage.navigateBackToIssues();
         issuePage.refreshIssuesList();
-        issuePage.waitForIssueCountToIncrease(countBefore);
 
+        issuePage.waitForIssueCountToIncrease(countBefore);
         String countTextAfter = issuePage.getIssuesCountText();
         int countAfter = issuePage.extractNumberFromText(countTextAfter);
-
         assertTrue(countAfter == countBefore + 1,
                 "Количество задач должно увеличиться на 1. Было: " + countBefore + ", стало: " + countAfter);
 
-        // ---- новый код для поиска задачи ----
         String searchText = "TestSeleniumATHomework";
         issuePage.searchForTask(searchText);
-
-        // Ждём появления ссылки на задачу, с классом issue-link и ключом, содержащим "TEST-"
         issuePage.clickOnFoundTask();
+        issuePage.verifyTaskStatus("Сделать");
+        issuePage.verifyFixVersion("Version 2.0");
 
-        // Проверяем статус задачи — ожидаем "Сделать"
-        issuePage.verifyTaskStatus("СДЕЛАТЬ");
-
-
-        // Проверяем версию исправления — ожидаем "Version 2.0"
-        issuePage.verifyAffectedVersions("Version 2.0");
     }
 
 }
