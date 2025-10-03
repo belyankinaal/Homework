@@ -160,9 +160,8 @@ public class TestBelyankina extends WebHooks {
         issuePage.selectSeverityByValue("10100");
         issuePage.clickSubmitAndWaitForSuccessAndOpenIssue();
         issuePage.openBusinessProcessAndSelect("В процессе");
-
-        issuePage.verifyTaskStatus("В процессе");
-
+        issuePage.openBusinessProcessAndSelect("Исполнено");
+        issuePage.openBusinessProcessAndSelect("Подтверждено");
 
     }
 }

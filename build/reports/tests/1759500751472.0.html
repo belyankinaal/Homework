@@ -1,0 +1,730 @@
+<html lang="ru" class="js-focus-visible webkit chrome" data-js-focus-visible="">
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Просмотр проектов - Jira</title>
+    <meta name="application-name" content="JIRA" data-name="jira" data-version="8.20.7">
+    <meta name="ajs-server-scheme" content="https">
+    <meta name="ajs-server-port" content="443">
+    <meta name="ajs-server-name" content="edujira.ifellow.ru">
+    <meta name="ajs-behind-proxy" content="null">
+    <meta name="ajs-base-url" content="https://edujira.ifellow.ru">
+    <meta name="ajs-dev-mode" content="false">
+    <meta name="ajs-context-path" content="">
+    <meta name="ajs-version-number" content="8.20.7">
+    <meta name="ajs-build-number" content="820007">
+    <meta name="ajs-is-beta" content="false">
+    <meta name="ajs-is-rc" content="false">
+    <meta name="ajs-is-snapshot" content="false">
+    <meta name="ajs-is-milestone" content="false">
+    <meta name="ajs-remote-user" content="AT1">
+    <meta name="ajs-remote-user-fullname" content="AT1">
+    <meta name="ajs-user-locale" content="ru_RU">
+    <meta name="ajs-user-locale-group-separator" content="&nbsp;">
+    <meta name="ajs-app-title" content="Jira">
+    <meta name="ajs-keyboard-shortcuts-enabled" content="true">
+    <meta name="ajs-keyboard-accesskey-modifier" content="Alt">
+    <meta name="ajs-enabled-dark-features"
+          content="[&quot;com.atlassian.jira.agile.darkfeature.editable.detailsview&quot;,&quot;nps.survey.inline.dialog&quot;,&quot;com.atlassian.jira.agile.darkfeature.edit.closed.sprint.enabled&quot;,&quot;jira.plugin.devstatus.phasetwo&quot;,&quot;jira.frother.reporter.field&quot;,&quot;atlassian.rest.xsrf.legacy.enabled&quot;,&quot;jira.issue.status.lozenge&quot;,&quot;com.atlassian.jira.config.BIG_PIPE&quot;,&quot;com.atlassian.jira.projects.issuenavigator&quot;,&quot;com.atlassian.jira.config.PDL&quot;,&quot;jira.plugin.devstatus.phasetwo.enabled&quot;,&quot;atlassian.aui.raphael.disabled&quot;,&quot;app-switcher.new&quot;,&quot;frother.assignee.field&quot;,&quot;com.atlassian.jira.projects.ProjectCentricNavigation.Switch&quot;,&quot;jira.onboarding.cyoa&quot;,&quot;com.atlassian.jira.agile.darkfeature.kanplan.enabled&quot;,&quot;com.atlassian.jira.config.ProjectConfig.MENU&quot;,&quot;com.atlassian.jira.projects.sidebar.DEFER_RESOURCES&quot;,&quot;com.atlassian.jira.agile.darkfeature.kanplan.epics.and.versions.enabled&quot;,&quot;com.atlassian.jira.agile.darkfeature.sprint.goal.enabled&quot;,&quot;jira.zdu.admin-updates-ui&quot;,&quot;jira.zdu.jmx-monitoring&quot;,&quot;mail.batching.enabled&quot;,&quot;sd.new.settings.sidebar.location.disabled&quot;,&quot;jira.zdu.cluster-upgrade-state&quot;,&quot;com.atlassian.jira.email.templates.readFromJiraHome&quot;,&quot;com.atlassian.jira.agile.darkfeature.splitissue&quot;,&quot;com.atlassian.jira.config.CoreFeatures.LICENSE_ROLES_ENABLED&quot;,&quot;jira.export.csv.enabled&quot;]">
+    <meta name="ajs-in-admin-mode" content="false">
+    <meta name="ajs-is-sysadmin" content="false">
+    <meta name="ajs-is-admin" content="false">
+    <meta name="ajs-outgoing-mail-enabled" content="false">
+    <meta name="ajs-archiving-enabled" content="true">
+    <meta name="ajs-date-relativize" content="true">
+    <meta name="ajs-date-time" content="h:mm a">
+    <meta name="ajs-date-day" content="EEEE h:mm a">
+    <meta name="ajs-date-dmy" content="dd/MMM/yy">
+    <meta name="ajs-date-complete" content="dd/MMM/yy h:mm a">
+    <script type="text/javascript">var AJS=AJS||{};AJS.debug=true;</script>
+
+
+    <meta id="atlassian-token" name="atlassian-token"
+          content="B2UA-2NV2-5DBH-LD1W_d1011d54b4cf88b28c442f369bd22a194abb4f31_lin">
+
+
+    <link rel="shortcut icon" href="/s/8hvc3l/820007/1dlckms/_/images/fav-jsw.png">
+    <link rel="search" type="application/opensearchdescription+xml" href="/osd.jsp" title="Просмотр проектов - Jira">
+
+
+    <!--[if IE]><![endif]-->
+    <script type="text/javascript">
+        (function() {
+            var contextPath = '';
+
+            function printDeprecatedMsg() {
+                if (console && console.warn) {
+                    console.warn('DEPRECATED JS - contextPath global variable has been deprecated since 7.4.0. Use `wrm/context-path` module instead.');
+                }
+            }
+
+            Object.defineProperty(window, 'contextPath', {
+                get: function() {
+                    printDeprecatedMsg();
+                    return contextPath;
+                },
+                set: function(value) {
+                    printDeprecatedMsg();
+                    contextPath = value;
+                }
+            });
+        })();
+
+    </script>
+    <script>
+        window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+        WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"\"";
+        WRM._unparsedData["jira.core:feature-flags-data.feature-flag-data"]="{\"enabled-feature-keys\":[\"com.atlassian.jira.agile.darkfeature.editable.detailsview\",\"nps.survey.inline.dialog\",\"com.atlassian.jira.agile.darkfeature.edit.closed.sprint.enabled\",\"jira.plugin.devstatus.phasetwo\",\"jira.frother.reporter.field\",\"atlassian.rest.xsrf.legacy.enabled\",\"jira.issue.status.lozenge\",\"com.atlassian.jira.config.BIG_PIPE\",\"com.atlassian.jira.projects.issuenavigator\",\"com.atlassian.jira.config.PDL\",\"jira.plugin.devstatus.phasetwo.enabled\",\"atlassian.aui.raphael.disabled\",\"app-switcher.new\",\"frother.assignee.field\",\"com.atlassian.jira.projects.ProjectCentricNavigation.Switch\",\"jira.onboarding.cyoa\",\"com.atlassian.jira.agile.darkfeature.kanplan.enabled\",\"com.atlassian.jira.config.ProjectConfig.MENU\",\"com.atlassian.jira.projects.sidebar.DEFER_RESOURCES\",\"com.atlassian.jira.agile.darkfeature.kanplan.epics.and.versions.enabled\",\"com.atlassian.jira.agile.darkfeature.sprint.goal.enabled\",\"jira.zdu.admin-updates-ui\",\"jira.zdu.jmx-monitoring\",\"mail.batching.enabled\",\"sd.new.settings.sidebar.location.disabled\",\"jira.zdu.cluster-upgrade-state\",\"com.atlassian.jira.email.templates.readFromJiraHome\",\"com.atlassian.jira.agile.darkfeature.splitissue\",\"com.atlassian.jira.config.CoreFeatures.LICENSE_ROLES_ENABLED\",\"jira.export.csv.enabled\"],\"feature-flag-states\":{\"com.atlassian.jira.agile.darkfeature.handle.ug.usernames\":true,\"com.atlassian.jira.security.endpoint.non.admin.access.screens\":false,\"com.atlassian.jira.mailHandlerImapMessageQueryLegacy\":false,\"com.atlassian.diagnostics.scheduler.monitor\":true,\"com.atlassian.jira.webhookEventsAsyncProcessing\":false,\"com.atlassian.jira.diagnostics.perflog\":true,\"com.atlassian.jira.dbr\":true,\"com.atlassian.jira.agile.darkfeature.legacy.epic.picker\":false,\"com.atlassian.jira.issuetable.move.links.hidden\":true,\"com.atlassian.jira.agile.darkfeature.unlink.sprints.on.issue.move\":true,\"jira.renderer.consider.variable.format\":true,\"com.atlassian.jira.plugin.issuenavigator.jql.autocomplete.eagerlyLoaded\":false,\"com.atlassian.jira.user.dbIdBasedKeyGenerationStrategy\":true,\"com.atlassian.portfolio.dcBundling\":true,\"com.atlassian.jira.sharedEntityEditRights\":true,\"com.atlassian.jira.security.endpoint.anonymous.access.resolution\":false,\"com.atlassian.jira.agile.darkfeature.sprint.goal\":false,\"com.atlassian.jira.thumbnailsDeferredGeneration\":true,\"jira.cluster.monitoring.show.offline.nodes\":true,\"com.atlassian.jira.commentReactions\":true,\"data.pipeline.feature.jira.issue.links.export\":true,\"com.atlassian.jira.custom.csv.escaper\":true,\"com.atlassian.jira.fixedCommentDeletionNotifications\":true,\"com.atlassian.jira.allThumbnailsDeferred\":false,\"com.atlassian.jira.plugin.issuenavigator.filtersUxImprovment\":false,\"com.atlassian.jira.agile.darkfeature.kanplan.epics.and.versions\":false,\"com.atlassian.jira.jsd.mobile\":true,\"jira.customfields.cleanup.identification\":true,\"data.pipeline.feature.jira.all.exportable.custom.fields\":true,\"com.atlassian.jira.defaultValuesForSystemFields\":true,\"jira.dc.cleanup.cluser.tasks\":true,\"jira.customfields.bulk.delete\":true,\"mail.batching.override.core\":true,\"com.atlassian.jira.issues.archiving.filters\":false,\"jira.users.and.roles.page.in.react\":true,\"jira.security.csp.sandbox\":true,\"com.atlassian.jira.agile.darkfeature.velocity.chart.ui\":true,\"com.atlassian.jira.returnDefaultAvatarsForBrokenAvatars\":true,\"com.atlassian.jira.agile.darkfeature.sprint.auto.management\":false,\"jira.jql.suggestrecentfields\":false,\"com.atlassian.jira.gdpr.rtbf\":true,\"com.atlassian.jira.security.xsrf.session.token\":true,\"com.atlassian.jira.security.project.admin.revoke.with.application.access\":true,\"com.atlassian.jira.agile.darkfeature.optimistic.transitions\":true,\"com.atlassian.jiranomenclature\":true,\"com.atlassian.jira.security.endpoint.non.admin.access.avatar.system\":false,\"com.atlassian.jira.agile.darkfeature.kanplan\":false,\"com.atlassian.diagnostics.http.monitor\":true,\"com.atlassian.jira.agile.darkfeature.future.sprint.dates\":true,\"jira.customfields.paginated.ui\":true,\"com.atlassian.jira.filtersAndDashboardsShareableWithAllGroupsAndRoles\":true,\"com.atlassian.jira.agile.darkfeature.edit.closed.sprint\":false,\"jira.create.linked.issue\":true,\"jira.sal.host.connect.accessor.existing.transaction.will.create.transactions\":true,\"com.atlassian.jira.advanced.audit.log\":true,\"jira.quick.search\":true,\"external.links.new.window\":true,\"jira.jql.smartautoselectfirst\":false,\"jira.jql.membersof.ignoreGlobalPermissionsForAnonymous\":false,\"data.pipeline.feature.jira.issue.history.export\":true,\"jira.richeditor.bidi.warning\":true,\"com.atlassian.jira.security.endpoint.non.browse.projects.access.fields\":false,\"atlassian.cdn.static.assets\":true,\"mail.batching\":false,\"com.atlassian.jira.privateEntitiesEditable\":true,\"com.atlassian.jira.security.endpoint.anonymous.access.priority\":false,\"jira.priorities.per.project.edit.default\":false,\"com.atlassian.jira.agile.darkfeature.issues.in.epic.details.view\":true,\"com.atlassian.jira.plugin.issuenavigator.anonymousPreventCfData\":false,\"jira.priorities.per.project.jsd\":true,\"com.atlassian.jira.agile.darkfeature.rapid.boards.bands\":true,\"com.atlassian.jira.agile.darkfeature.flexible.boards\":true,\"com.atlassian.jira.agile.darkfeature.sprint.picker.allsprints.suggestion\":true,\"com.atlassian.jira.agile.darkfeature.epic.validate.visibility\":true,\"jira.dc.lock.leasing\":true,\"com.atlassian.jira.accessibility.personal.settings\":true,\"mail.batching.create.section.cf\":true,\"com.atlassian.jira.send.email.notifications.to.user.without.application.access\":false,\"com.atlassian.jira.security.endpoint.non.browse.projects.access.autocompletedata\":false,\"com.atlassian.mail.server.managers.hostname.verification\":true,\"com.atlassian.advancedroadmaps.rebrand\":true,\"com.atlassian.diagnostics.monitors\":true,\"com.atlassian.jira.upgrade.startup.fix.index\":true,\"com.atlassian.jira.security.endpoint.anonymous.access.projectCategory\":false,\"jira.redirect.anonymous.404.errors\":true,\"com.atlassian.jira.issuetable.draggable\":true,\"com.atlassian.diagnostics.operating.system.monitor\":false,\"sd.email.microsoft.pop.two.line.auth\":true,\"com.atlassian.jira.attachments.generate.unique.suffix\":true,\"com.atlassian.jira.agile.darkfeature.kanban.hide.old.done.issues\":true,\"jira.version.based.node.reindex.service\":true,\"com.atlassian.jira.agile.darkfeature.backlog.showmore\":true,\"com.atlassian.diagnostics.database.monitor\":true,\"com.atlassian.jira.agile.darkfeature.sprint.plan\":false,\"com.atlassian.diagnostics.garbage.collection.monitor\":true,\"com.atlassian.jira.security.endpoint.anonymous.access.issueLinkType\":false,\"com.atlassian.jira.security.LegacyJiraTypeResolver.WARN_ONLY\":false,\"data.pipeline.feature.jira.schema.version.2\":true,\"com.atlassian.jira.agile.darkfeature.burnupchart\":false,\"com.atlassian.jira.issues.archiving.browse\":true,\"com.atlassian.jira.agile.darkfeature.velocity.sprint.picker\":false,\"jira.instrumentation.laas\":false,\"com.atlassian.jira.security.ChartUtils.browse.projects.permission.check\":false,\"mail.batching.user.notification\":true,\"com.atlassian.diagnostics.jql.monitor\":true,\"com.atlassian.portfolio.permission.check.for.permissions\":false,\"com.atlassian.jira.agile.darkfeature.dataonpageload\":true,\"data.pipeline.feature.jira.archived.issue.export\":false,\"com.atlassian.jira.projects.per.project.permission.query\":true,\"com.atlassian.jira.issues.archiving\":true,\"jira.priorities.per.project\":true,\"index.use.snappy\":true}}";
+        WRM._unparsedData["jira.core:default-comment-security-level-data.DefaultCommentSecurityLevelHelpLink"]="{\"extraClasses\":\"default-comment-level-help\",\"title\":\"Commenting on an Issue\",\"url\":\"https://docs.atlassian.com/jira/jsw-docs-0820/Editing+and+collaborating+on+issues#Editingandcollaboratingonissues-restrictacomment\",\"isLocal\":false}";
+        WRM._unparsedData["jira.core:dateFormatProvider.allFormats"]="{\"dateFormats\":{\"meridiem\":[\"AM\",\"PM\"],\"eras\":[\"\u0434\u043e \u043d.\u044d.\",\"\u043d.\u044d.\"],\"months\":[\"\u044f\u043d\u0432\u0430\u0440\u044f\",\"\u0444\u0435\u0432\u0440\u0430\u043b\u044f\",\"\u043c\u0430\u0440\u0442\u0430\",\"\u0430\u043f\u0440\u0435\u043b\u044f\",\"\u043c\u0430\u044f\",\"\u0438\u044e\u043d\u044f\",\"\u0438\u044e\u043b\u044f\",\"\u0430\u0432\u0433\u0443\u0441\u0442\u0430\",\"\u0441\u0435\u043d\u0442\u044f\u0431\u0440\u044f\",\"\u043e\u043a\u0442\u044f\u0431\u0440\u044f\",\"\u043d\u043e\u044f\u0431\u0440\u044f\",\"\u0434\u0435\u043a\u0430\u0431\u0440\u044f\"],\"monthsShort\":[\"\u044f\u043d\u0432\",\"\u0444\u0435\u0432\",\"\u043c\u0430\u0440\",\"\u0430\u043f\u0440\",\"\u043c\u0430\u044f\",\"\u0438\u044e\u043d\",\"\u0438\u044e\u043b\",\"\u0430\u0432\u0433\",\"\u0441\u0435\u043d\",\"\u043e\u043a\u0442\",\"\u043d\u043e\u044f\",\"\u0434\u0435\u043a\"],\"weekdaysShort\":[\"\u0412\u0441\",\"\u041f\u043d\",\"\u0412\u0442\",\"\u0421\u0440\",\"\u0427\u0442\",\"\u041f\u0442\",\"\u0421\u0431\"],\"weekdays\":[\"\u0432\u043e\u0441\u043a\u0440\u0435\u0441\u0435\u043d\u044c\u0435\",\"\u043f\u043e\u043d\u0435\u0434\u0435\u043b\u044c\u043d\u0438\u043a\",\"\u0432\u0442\u043e\u0440\u043d\u0438\u043a\",\"\u0441\u0440\u0435\u0434\u0430\",\"\u0447\u0435\u0442\u0432\u0435\u0440\u0433\",\"\u043f\u044f\u0442\u043d\u0438\u0446\u0430\",\"\u0441\u0443\u0431\u0431\u043e\u0442\u0430\"]},\"lookAndFeelFormats\":{\"relativize\":\"true\",\"time\":\"h:mm a\",\"day\":\"EEEE h:mm a\",\"dmy\":\"dd/MMM/yy\",\"complete\":\"dd/MMM/yy h:mm a\"}}";
+        WRM._unparsedData["com.atlassian.analytics.analytics-client:policy-update-init.policy-update-data-provider"]="false";
+        WRM._unparsedData["com.atlassian.analytics.analytics-client:programmatic-analytics-init.programmatic-analytics-data-provider"]="false";
+        WRM._unparsedData["jira.core:avatar-picker-data.data"]="{}";
+        WRM._unparsedData["jira.core:terminology-data.terminology"]="{\"terminologyEntries\":[{\"originalName\":\"sprint\",\"originalNamePlural\":\"sprints\",\"newName\":\"sprint\",\"newNamePlural\":\"sprints\",\"isDefault\":true},{\"originalName\":\"epic\",\"originalNamePlural\":\"epics\",\"newName\":\"epic\",\"newNamePlural\":\"epics\",\"isDefault\":true}],\"isTerminologyActive\":false}";
+        WRM._unparsedData["com.atlassian.jira.jira-header-plugin:dismissedFlags.flags"]="{\"dismissed\":[\"com.atlassian.jira.tzdetect.14400000,14400000\",\"com.atlassian.jira.tzdetect.25200000,25200000\"]}";
+        WRM._unparsedData["com.atlassian.jira.jira-header-plugin:newsletter-signup-tip-init.newsletterSignup"]="{\"signupDescription\":\"\u041f\u043e\u043b\u0443\u0447\u0430\u0439\u0442\u0435 \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u044f, \u0432\u0434\u043e\u0445\u043d\u043e\u0432\u0435\u043d\u0438\u0435 \u0438 \u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0430\u0446\u0438\u0438 \u043e\u0442 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a\u043e\u0432 Jira.\",\"formUrl\":\"https://www.atlassian.com/apis/exact-target/{0}/subscribe?mailingListId=1401671\",\"userEmail\":\"at@test.ru\",\"signupTitle\":\"\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c\u0441\u044f!\",\"signupId\":\"newsletter-signup-tip\",\"showNewsletterTip\":true}";
+        WRM._unparsedData["com.atlassian.jira.project-templates-plugin:project-templates-plugin-resources.ptAnalyticsData"]="{\"instanceCreatedDate\":\"2021-09-15\"}";
+        WRM._unparsedData["jira.core:user-message-flags-data.adminLockout"]="{}";
+        WRM._unparsedData["com.atlassian.plugins.helptips.jira-help-tips:help-tip-manager.JiraHelpTipData"]="{\"dismissed\":[\"newsletter-signup-tip\",\"qs-onboarding-tip\"],\"anonymous\":false}";
+        WRM._unparsedData["jira.request.correlation-id"]="\"82b09a47908435\"";
+        WRM._unparsedData["tzdetect.pref.auto.detect"]="true";
+        WRM._unparsedData["tzdetect.pref.tzid"]="\"Europe/Moscow\"";
+        WRM._unparsedData["tzdetect.pref.tzname"]="\"(GMT+03:00) \u041c\u043e\u0441\u043a\u0432\u0430\"";
+        WRM._unparsedData["tzdetect.pref.janOffset"]="10800000";
+        WRM._unparsedData["tzdetect.pref.julyOffset"]="10800000";
+        WRM._unparsedData["com.atlassian.jira.project.browse:categories"]="[{\"name\":\"\u0412\u0441\u0435 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438\",\"description\":\"\u0412\u0441\u0435 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438 - \u0412\u0441\u0435 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438 \u0432\u043a\u043b\u044e\u0447\u0430\u044f \u043f\u0440\u043e\u0435\u043a\u0442\u044b \u0431\u0435\u0437 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0439\",\"id\":\"all\"},{\"name\":\"\u041d\u0435\u0434\u0430\u0432\u043d\u0438\u0435 \u043f\u0440\u043e\u0435\u043a\u0442\u044b\",\"description\":\"\u041d\u0435\u0434\u0430\u0432\u043d\u0438\u0435 \u043f\u0440\u043e\u0435\u0442\u043a\u044b - \u041d\u0435\u0434\u0430\u0432\u043d\u043e \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u043d\u043d\u044b\u0435 \u043f\u0440\u043e\u0435\u043a\u0442\u044b\",\"id\":\"recent\"},{\"name\":\"\u0417\u0430\u0430\u0440\u0445\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0435 \u043f\u0440\u043e\u0435\u043a\u0442\u044b\",\"description\":\"\u0417\u0430\u0430\u0440\u0445\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0435 \u043f\u0440\u043e\u0435\u043a\u0442\u044b\",\"id\":\"archived\"}]";
+        WRM._unparsedData["com.atlassian.jira.project.browse:projects"]="[{\"key\":\"TEST\",\"name\":\"Test\",\"id\":10000,\"hasDefaultAvatar\":true,\"recent\":true,\"lead\":\"admin\",\"leadProfileLink\":\"\u003ca class=\\\"user-hover\\\" rel=\\\"admin\\\" id=\\\"_admin\\\" href=\\\"/secure/ViewProfile.jspa?name=admin\\\"\u003eadmin\u003c/a\u003e\",\"projectCategoryId\":null,\"url\":\"\",\"projectTypeKey\":\"software\",\"projectTypeName\":\"Software\"}]";
+        WRM._unparsedData["com.atlassian.jira.project.browse:projectTypes"]="{\"jira-project-type-inaccessible\":{\"key\":\"jira-project-type-inaccessible\",\"icon\":\"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOC4xLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyMCAyMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjAgMjAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZmlsbD0iIzk5OTk5OSIgZD0iTTAuMSw4LjljMC44LDAuMSwxLjUtMC4zLDEuNy0xLjFsMC0wLjFDMi4yLDYuNCwyLjksNS4xLDQsNEM0LjUsMy41LDQuNSwyLjYsNCwyQzIuMywzLjMsMC45LDUuMiwwLjMsNy40DQoJCUMwLjIsNy45LDAuMSw4LjQsMC4xLDguOXoiLz4NCgk8cGF0aCBmaWxsPSIjOTk5OTk5IiAgZD0iTTQuMSwxOC4xYzAuNS0wLjYsMC41LTEuNS0wLjEtMkMzLDE1LDIuMiwxMy43LDEuOCwxMi4yYy0wLjItMC44LTEtMS4yLTEuNy0xLjENCgkJQzAuNCwxMy45LDEuOSwxNi40LDQuMSwxOC4xeiIvPg0KCTxwYXRoIGZpbGw9IiM5OTk5OTkiICBkPSJNMTkuOSwxMS4xYy0wLjgtMC4xLTEuNSwwLjMtMS43LDEuMWMtMC40LDEuNC0xLjEsMi44LTIuMiwzLjhjLTAuNiwwLjYtMC42LDEuNC0wLjEsMg0KCQljMS44LTEuMywzLjEtMy4yLDMuNy01LjVDMTkuOCwxMi4xLDE5LjksMTEuNiwxOS45LDExLjF6Ii8+DQoJPHBhdGggZmlsbD0iIzk5OTk5OSIgIGQ9Ik0xNCwxOS4yYy0wLjMtMC43LTEtMS4yLTEuOC0wLjljLTEuNCwwLjQtMywwLjQtNC40LDBjLTAuOC0wLjItMS41LDAuMi0xLjgsMWMwLjQsMC4yLDAuOSwwLjQsMS40LDAuNQ0KCQlDOS43LDIwLjMsMTIsMjAsMTQsMTkuMnoiLz4NCgk8cGF0aCBmaWxsPSIjOTk5OTk5IiAgZD0iTTcuOCwxLjhjMS40LTAuNCwzLTAuNCw0LjQsMGMwLjgsMC4yLDEuNS0wLjIsMS44LTFjLTAuNC0wLjItMC45LTAuNC0xLjQtMC41QzEwLjMtMC4zLDgsMCw2LDAuOQ0KCQljMC4yLDAuNSwwLjYsMC44LDEsMC45QzcuMiwxLjksNy41LDEuOSw3LjgsMS44eiIvPg0KCTxwYXRoIGZpbGw9IiM5OTk5OTkiICBkPSJNMTkuMyw4LjhjMC4yLDAuMSwwLjQsMC4xLDAuNywwYy0wLjMtMi44LTEuOC01LjMtNC02LjljLTAuNSwwLjYtMC41LDEuNSwwLjEsMmMxLjEsMSwxLjgsMi40LDIuMiwzLjgNCgkJQzE4LjMsOC4zLDE4LjgsOC43LDE5LjMsOC44eiIvPg0KPC9nPg0KPC9zdmc+\",\"formattedKey\":\"Jira-project-type-inaccessible\",\"id\":\"jira-project-type-inaccessible\"},\"software\":{\"key\":\"software\",\"icon\":\"PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48Y2lyY2xlIGZpbGw9IiNFRDZGMDAiIGN4PSIzNiIgY3k9IjM2IiByPSIzNiIvPjxwYXRoIGQ9Ik0yOS42OCA0OS42MTdhMy4xOTQgMy4xOTQgMCAwMS0yLjI2My0uOTM3TDE3LjExMyAzOC4zNzVhMy44MyAzLjgzIDAgMDEwLTUuNGwxMC4wNC0xMC4wNGEzLjIwOSAzLjIwOSAwIDAxNC41MjggMCAzLjIwNiAzLjIwNiAwIDAxMCA0LjUyOGwtOC4yMTUgOC4yMTMgOC40NzkgOC40OGEzLjIwMSAzLjIwMSAwIDAxLTIuMjY0IDUuNDZNNTAuNjYzIDM3LjQ5NmwuMDE2LjAxNi0uMDE2LS4wMTZ6bS04LjAzNSAxMi4xMmEzLjE5OCAzLjE5OCAwIDAxLTIuMjYyLTUuNDYxbDguNDc3LTguNDgtOC4yMS04LjIxNGEzLjIgMy4yIDAgMDEwLTQuNTI2IDMuMiAzLjIgMCAwMTQuNTIyLjAwMmwxMC4wNCAxMC4wNGEzLjc3NCAzLjc3NCAwIDAxMS4xMiAyLjY5IDMuNzg2IDMuNzg2IDAgMDEtMS4xMiAyLjcwOEw0NC44OSA0OC42OGEzLjE4NiAzLjE4NiAwIDAxLTIuMjYyLjkzN3oiIGZpbGw9IiNGRkYiLz48L2c+PC9zdmc+\",\"formattedKey\":\"Software\",\"id\":\"software\"},\"business\":{\"key\":\"business\",\"icon\":\"PHN2ZyB2ZXJzaW9uPSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MSA3MSI+PGNpcmNsZSBjeD0iMzUuNSIgY3k9IjM1LjUiIHI9IjM1LjUiIGZpbGw9IiMwMDY1ZmYiLz48cGF0aCBkPSJNMTguNyAzNy41aDMzLjVjMS42IDAgMyAxLjMgMyAzcy0xLjMgMy0zIDNIMTguN2MtMS42IDAtMy0xLjMtMy0zczEuNC0zIDMtM3ptMC05LjloMzMuNWMxLjYgMCAzIDEuMyAzIDMgMCAxLjYtMS4zIDMtMyAzSDE4LjdjLTEuNiAwLTMtMS4zLTMtMyAuMS0xLjcgMS40LTMgMy0zem0wLTkuOGgzMy41YzEuNiAwIDMgMS4zIDMgM3MtMS4zIDMtMyAzSDE4LjdjLTEuNiAwLTMtMS4zLTMtM3MxLjQtMyAzLTN6bS4xIDI5LjVoMTcuN2MxLjcgMCAzIDEuMyAzIDNzLTEuMyAzLTMgM0gxOC44Yy0xLjcgMC0zLTEuMy0zLTMgMC0xLjYgMS4zLTMgMy0zeiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==\",\"formattedKey\":\"Business\",\"id\":\"business\"}}";
+        WRM._unparsedData["com.atlassian.jira.project.browse:selectedCategory"]="\"all\"";
+        WRM._unparsedData["com.atlassian.jira.project.browse:availableProjectTypes"]="[{\"key\":\"all\",\"icon\":null,\"formattedKey\":\"\u0412\u0441\u0435 \u0442\u0438\u043f\u044b \u043f\u0440\u043e\u0435\u043a\u0442\u043e\u0432\",\"id\":\"all\"},{\"key\":\"software\",\"icon\":\"PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48Y2lyY2xlIGZpbGw9IiNFRDZGMDAiIGN4PSIzNiIgY3k9IjM2IiByPSIzNiIvPjxwYXRoIGQ9Ik0yOS42OCA0OS42MTdhMy4xOTQgMy4xOTQgMCAwMS0yLjI2My0uOTM3TDE3LjExMyAzOC4zNzVhMy44MyAzLjgzIDAgMDEwLTUuNGwxMC4wNC0xMC4wNGEzLjIwOSAzLjIwOSAwIDAxNC41MjggMCAzLjIwNiAzLjIwNiAwIDAxMCA0LjUyOGwtOC4yMTUgOC4yMTMgOC40NzkgOC40OGEzLjIwMSAzLjIwMSAwIDAxLTIuMjY0IDUuNDZNNTAuNjYzIDM3LjQ5NmwuMDE2LjAxNi0uMDE2LS4wMTZ6bS04LjAzNSAxMi4xMmEzLjE5OCAzLjE5OCAwIDAxLTIuMjYyLTUuNDYxbDguNDc3LTguNDgtOC4yMS04LjIxNGEzLjIgMy4yIDAgMDEwLTQuNTI2IDMuMiAzLjIgMCAwMTQuNTIyLjAwMmwxMC4wNCAxMC4wNGEzLjc3NCAzLjc3NCAwIDAxMS4xMiAyLjY5IDMuNzg2IDMuNzg2IDAgMDEtMS4xMiAyLjcwOEw0NC44OSA0OC42OGEzLjE4NiAzLjE4NiAwIDAxLTIuMjYyLjkzN3oiIGZpbGw9IiNGRkYiLz48L2c+PC9zdmc+\",\"formattedKey\":\"Software\",\"id\":\"software\"},{\"key\":\"business\",\"icon\":\"PHN2ZyB2ZXJzaW9uPSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MSA3MSI+PGNpcmNsZSBjeD0iMzUuNSIgY3k9IjM1LjUiIHI9IjM1LjUiIGZpbGw9IiMwMDY1ZmYiLz48cGF0aCBkPSJNMTguNyAzNy41aDMzLjVjMS42IDAgMyAxLjMgMyAzcy0xLjMgMy0zIDNIMTguN2MtMS42IDAtMy0xLjMtMy0zczEuNC0zIDMtM3ptMC05LjloMzMuNWMxLjYgMCAzIDEuMyAzIDMgMCAxLjYtMS4zIDMtMyAzSDE4LjdjLTEuNiAwLTMtMS4zLTMtMyAuMS0xLjcgMS40LTMgMy0zem0wLTkuOGgzMy41YzEuNiAwIDMgMS4zIDMgM3MtMS4zIDMtMyAzSDE4LjdjLTEuNiAwLTMtMS4zLTMtM3MxLjQtMyAzLTN6bS4xIDI5LjVoMTcuN2MxLjcgMCAzIDEuMyAzIDNzLTEuMyAzLTMgM0gxOC44Yy0xLjcgMC0zLTEuMy0zLTMgMC0xLjYgMS4zLTMgMy0zeiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==\",\"formattedKey\":\"Business\",\"id\":\"business\"}]";
+        WRM._unparsedData["com.atlassian.jira.project.browse:selectedProjectType"]="\"software\"";
+        if(window.WRM._dataArrived)window.WRM._dataArrived();
+    </script>
+    <link type="text/css" rel="stylesheet"
+          href="/s/267629083f24914bc04aed9191cf3526-CDN/8hvc3l/820007/1dlckms/bf140c2d3cdc01ec4082b00f2f866a09/_/download/contextbatch/css/_super/batch.css"
+          data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+    <link type="text/css" rel="stylesheet"
+          href="/s/88672d83531e12af5a3f969a3cb95f23-CDN/8hvc3l/820007/1dlckms/e9c78620010168e7359e9ba4874133ac/_/download/contextbatch/css/atl.general,jira.global,-_super/batch.css?agile_global_admin_condition=true&amp;jag=true&amp;jaguser=true"
+          data-wrm-key="atl.general,jira.global,-_super" data-wrm-batch-type="context" media="all">
+    <link type="text/css" rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/3.0.4/_/download/batch/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component.css"
+          data-wrm-key="com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component"
+          data-wrm-batch-type="resource" media="all">
+    <link type="text/css" rel="stylesheet"
+          href="/s/109b5484a1fe84eef6e3a479d1c5903d-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:sortable-table/jira.webresources:sortable-table.css"
+          data-wrm-key="jira.webresources:sortable-table" data-wrm-batch-type="resource" media="all">
+    <link type="text/css" rel="stylesheet"
+          href="/s/109b5484a1fe84eef6e3a479d1c5903d-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:calendar-lib/jira.webresources:calendar-lib.css"
+          data-wrm-key="jira.webresources:calendar-lib" data-wrm-batch-type="resource" media="all">
+    <link type="text/css" rel="stylesheet"
+          href="/s/109b5484a1fe84eef6e3a479d1c5903d-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:autocomplete/jira.webresources:autocomplete.css"
+          data-wrm-key="jira.webresources:autocomplete" data-wrm-batch-type="resource" media="all">
+    <link type="text/css" rel="stylesheet"
+          href="/s/109b5484a1fe84eef6e3a479d1c5903d-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:groupbrowser/jira.webresources:groupbrowser.css"
+          data-wrm-key="jira.webresources:groupbrowser" data-wrm-batch-type="resource" media="all">
+    <link type="text/css" rel="stylesheet"
+          href="/s/109b5484a1fe84eef6e3a479d1c5903d-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:group-pickers/jira.webresources:group-pickers.css"
+          data-wrm-key="jira.webresources:group-pickers" data-wrm-batch-type="resource" media="all">
+    <script type="text/javascript"
+            src="/s/cfe501d8743e6e244e843985ffaff934-CDN/8hvc3l/820007/1dlckms/bf140c2d3cdc01ec4082b00f2f866a09/_/download/contextbatch/js/_super/batch.js?locale=ru-RU"
+            data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/ddfae15a135361315c0cb168283bf4bf-CDN/8hvc3l/820007/1dlckms/e9c78620010168e7359e9ba4874133ac/_/download/contextbatch/js/atl.general,jira.global,-_super/batch.js?agile_global_admin_condition=true&amp;jag=true&amp;jaguser=true&amp;locale=ru-RU"
+            data-wrm-key="atl.general,jira.global,-_super" data-wrm-batch-type="context"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/feb35ad8c39f0a7bfc7b34a12de8dbb4-CDN/8hvc3l/820007/1dlckms/aae1242f5fc81cc6a5bb8bc963ccda29/_/download/contextbatch/js/atl.global,-_super/batch.js?locale=ru-RU"
+            data-wrm-key="atl.global,-_super" data-wrm-batch-type="context" data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/9aec92f78b39fb0cf91c17ced754f0e0-CDN/8hvc3l/820007/1dlckms/3.0.4/_/download/batch/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component.js?locale=ru-RU"
+            data-wrm-key="com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component"
+            data-wrm-batch-type="resource" data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/3.0.4/_/download/batch/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-lib/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-lib.js"
+            data-wrm-key="com.atlassian.jira.jira-tzdetect-plugin:tzdetect-lib" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/3.0.3/_/download/batch/com.atlassian.plugin.jslibs:underscore-1.8.3/com.atlassian.plugin.jslibs:underscore-1.8.3.js"
+            data-wrm-key="com.atlassian.plugin.jslibs:underscore-1.8.3" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/3.0.3/_/download/batch/com.atlassian.plugin.jslibs:backbone-1.3.3-factory/com.atlassian.plugin.jslibs:backbone-1.3.3-factory.js"
+            data-wrm-key="com.atlassian.plugin.jslibs:backbone-1.3.3-factory" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:backbone-1.3.3/jira.webresources:backbone-1.3.3.js"
+            data-wrm-key="jira.webresources:backbone-1.3.3" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/3.0.3/_/download/batch/com.atlassian.plugin.jslibs:backbone.paginator-2.0.2-factory/com.atlassian.plugin.jslibs:backbone.paginator-2.0.2-factory.js"
+            data-wrm-key="com.atlassian.plugin.jslibs:backbone.paginator-2.0.2-factory" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:backbone-paginator/jira.webresources:backbone-paginator.js"
+            data-wrm-key="jira.webresources:backbone-paginator" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/3.0.3/_/download/batch/com.atlassian.plugin.jslibs:backbone.radio-2.0.0-factory/com.atlassian.plugin.jslibs:backbone.radio-2.0.0-factory.js"
+            data-wrm-key="com.atlassian.plugin.jslibs:backbone.radio-2.0.0-factory" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:backbone.radio-2.0/jira.webresources:backbone.radio-2.0.js"
+            data-wrm-key="jira.webresources:backbone.radio-2.0" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/3.0.3/_/download/batch/com.atlassian.plugin.jslibs:marionette-4.1.2-factory/com.atlassian.plugin.jslibs:marionette-4.1.2-factory.js"
+            data-wrm-key="com.atlassian.plugin.jslibs:marionette-4.1.2-factory" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:marionette-4.1/jira.webresources:marionette-4.1.js"
+            data-wrm-key="jira.webresources:marionette-4.1" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/3.0.3/_/download/batch/com.atlassian.plugin.jslibs:marionette-1.6.4-factory/com.atlassian.plugin.jslibs:marionette-1.6.4-factory.js"
+            data-wrm-key="com.atlassian.plugin.jslibs:marionette-1.6.4-factory" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:marionette/jira.webresources:marionette.js"
+            data-wrm-key="jira.webresources:marionette" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:project-type-keys/jira.webresources:project-type-keys.js"
+            data-wrm-key="jira.webresources:project-type-keys" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/3.0.3/_/download/batch/com.atlassian.plugin.jslibs:marionette-3.1.0-factory/com.atlassian.plugin.jslibs:marionette-3.1.0-factory.js"
+            data-wrm-key="com.atlassian.plugin.jslibs:marionette-3.1.0-factory" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:marionette-3.1/jira.webresources:marionette-3.1.js"
+            data-wrm-key="jira.webresources:marionette-3.1" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/feb35ad8c39f0a7bfc7b34a12de8dbb4-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:pagination-view/jira.webresources:pagination-view.js?locale=ru-RU"
+            data-wrm-key="jira.webresources:pagination-view" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/feb35ad8c39f0a7bfc7b34a12de8dbb4-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:sort-icons/jira.webresources:sort-icons.js?locale=ru-RU"
+            data-wrm-key="jira.webresources:sort-icons" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/99796897cf83ac2dc3c4b3bb75f66afd-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:navigation-utils/jira.webresources:navigation-utils.js?locale=ru-RU"
+            data-wrm-key="jira.webresources:navigation-utils" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/feb35ad8c39f0a7bfc7b34a12de8dbb4-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:empty-search-results/jira.webresources:empty-search-results.js?locale=ru-RU"
+            data-wrm-key="jira.webresources:empty-search-results" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/9aec92f78b39fb0cf91c17ced754f0e0-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:browseprojects/jira.webresources:browseprojects.js?locale=ru-RU"
+            data-wrm-key="jira.webresources:browseprojects" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:calendar-lib/jira.webresources:calendar-lib.js"
+            data-wrm-key="jira.webresources:calendar-lib" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:calendar/jira.webresources:calendar.js"
+            data-wrm-key="jira.webresources:calendar" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:autocomplete/jira.webresources:autocomplete.js"
+            data-wrm-key="jira.webresources:autocomplete" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/feb35ad8c39f0a7bfc7b34a12de8dbb4-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:group-label-lozenge/jira.webresources:group-label-lozenge.js?locale=ru-RU"
+            data-wrm-key="jira.webresources:group-label-lozenge" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:groupbrowser/jira.webresources:groupbrowser.js"
+            data-wrm-key="jira.webresources:groupbrowser" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/9aec92f78b39fb0cf91c17ced754f0e0-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:group-pickers/jira.webresources:group-pickers.js?locale=ru-RU"
+            data-wrm-key="jira.webresources:group-pickers" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/99796897cf83ac2dc3c4b3bb75f66afd-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:jira-project-issuetype-fields/jira.webresources:jira-project-issuetype-fields.js?locale=ru-RU"
+            data-wrm-key="jira.webresources:jira-project-issuetype-fields" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/9aec92f78b39fb0cf91c17ced754f0e0-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:jira-fields/jira.webresources:jira-fields.js?locale=ru-RU"
+            data-wrm-key="jira.webresources:jira-fields" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:calendar-ru/jira.webresources:calendar-ru.js"
+            data-wrm-key="jira.webresources:calendar-ru" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:calendar-localisation-moment/jira.webresources:calendar-localisation-moment.js"
+            data-wrm-key="jira.webresources:calendar-localisation-moment" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <link type="text/css" rel="stylesheet"
+          href="/s/c66ce2bd2fa5e9c958f4a43024aef4bd-CDN/8hvc3l/820007/1dlckms/3353375a32d7a6de65fe961dd6160ee9/_/download/contextbatch/css/jira.global.look-and-feel,-_super/batch.css"
+          data-wrm-key="jira.global.look-and-feel,-_super" data-wrm-batch-type="context" media="all">
+
+    <script type="text/javascript"
+            src="/rest/api/1.0/shortcuts/820007/3db3d5b7679d39e2c2a7cc39dea3c1fc/shortcuts.js"></script>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="text/javascript" charset="utf-8"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/d06015502644e17e5a3997626f26e323/_/download/contextbatch/js/browser-metrics-plugin.contrib,-_super,-atl.general/batch.js?agile_global_admin_condition=true&amp;jag=true&amp;jaguser=true"></script>
+    <link rel="stylesheet" type="text/css"
+          href="/s/15044f54b75fd702497faf86b78c4fb0-CDN/8hvc3l/820007/1dlckms/8.20.7/_/download/batch/com.atlassian.jira.jira-header-plugin:newsletter-signup-tip/com.atlassian.jira.jira-header-plugin:newsletter-signup-tip.css">
+    <script type="text/javascript" charset="utf-8"
+            src="/s/9aec92f78b39fb0cf91c17ced754f0e0-CDN/8hvc3l/820007/1dlckms/8.20.7/_/download/batch/com.atlassian.jira.jira-header-plugin:newsletter-signup-tip/com.atlassian.jira.jira-header-plugin:newsletter-signup-tip.js?locale=ru-RU"></script>
+    <script type="text/javascript" charset="utf-8"
+            src="/s/99796897cf83ac2dc3c4b3bb75f66afd-CDN/8hvc3l/820007/1dlckms/8bb11a79910be1f913b5b4d75779357a/_/download/contextbatch/js/com.atlassian.jira.plugins.jira-quicksearch-plugin:5,-_super,-jira.global/batch.js?locale=ru-RU"></script>
+</head>
+<body id="jira" class="aui-layout aui-theme-default   browse-projects" data-version="8.20.7"
+      data-aui-version="9.2.3-4dc984d9f">
+<div id="page">
+    <header id="header" role="banner">
+
+
+        <script>
+            require(["jquery", "jira/license-banner"], function ($, licenseBanner) {
+                $(function () { // eslint-disable-line @atlassian/onready-checks/no-jquery-onready
+                    licenseBanner.showLicenseBanner("");
+                    licenseBanner.showLicenseFlag("");
+                });
+            });
+        </script>
+
+
+        <a class="aui-skip-link" href="#main">Перейти к главному содержимому</a><a class="aui-skip-link"
+                                                                                   href="#sidebar">Перейти к боковой
+        панели</a>
+        <nav class="aui-header aui-dropdown2-trigger-group" aria-label="Сайт" data-aui-responsive="true">
+            <div class="aui-header-inner">
+                <div class="aui-header-primary"><span id="logo" class="aui-header-logo aui-header-logo-custom"><a
+                        href="https://edujira.ifellow.ru/secure/MyJiraHome.jspa"
+                        aria-label="Перейти на главную страницу"><img
+                        src="/s/8hvc3l/820007/1dlckms/_/images/jira-software.png" alt="Jira"
+                        data-aui-responsive-header-index="0"></a></span>
+                    <ul class="aui-nav" style="width: auto;">
+                        <li><a href="/secure/Dashboard.jspa"
+                               class=" aui-nav-link aui-dropdown2-trigger aui-dropdown2-ajax" id="home_link"
+                               aria-haspopup="true" aria-controls="home_link-content"
+                               title="Просмотр и управление Вашими рабочими столами" accesskey="D"
+                               elementtiming="app-header" resolved="" aria-expanded="false">Рабочий стол</a>
+                            <div class="aui-dropdown2 aui-style-default aui-layer" id="home_link-content"
+                                 data-aui-dropdown2-ajax-key="home_link" resolved="" tabindex="-1"></div>
+                        </li>
+                        <li><a href="/browse/TEST" class=" aui-nav-link aui-dropdown2-trigger aui-dropdown2-ajax"
+                               id="browse_link" aria-haspopup="true" aria-controls="browse_link-content"
+                               title="Просмотр недавних проектов или списка всех проектов" accesskey="P" resolved=""
+                               aria-expanded="false">Проекты</a>
+                            <div class="aui-dropdown2 aui-style-default aui-layer" id="browse_link-content"
+                                 data-aui-dropdown2-ajax-key="browse_link" resolved="" tabindex="-1"></div>
+                        </li>
+                        <li><a href="/issues/" class=" aui-nav-link aui-dropdown2-trigger aui-dropdown2-ajax"
+                               id="find_link" aria-haspopup="true" aria-controls="find_link-content"
+                               title="Поиск и просмотр недавних задач" accesskey="I" resolved="" aria-expanded="false">Задачи</a>
+                            <div class="aui-dropdown2 aui-style-default aui-layer" id="find_link-content"
+                                 data-aui-dropdown2-ajax-key="find_link" resolved="" tabindex="-1"></div>
+                        </li>
+                        <li><a href="/secure/RapidBoard.jspa"
+                               class=" aui-nav-link aui-dropdown2-trigger aui-dropdown2-ajax" id="greenhopper_menu"
+                               aria-haspopup="true" aria-controls="greenhopper_menu-content"
+                               title="Управление проектом с помощью Jira Software" resolved="" aria-expanded="false">Доски</a>
+                            <div class="aui-dropdown2 aui-style-default aui-layer" id="greenhopper_menu-content"
+                                 data-aui-dropdown2-ajax-key="greenhopper_menu" resolved="" tabindex="-1"></div>
+                        </li>
+                        <li><a href="" class=" aui-nav-link aui-dropdown2-trigger aui-dropdown2-ajax"
+                               id="plugins-jira-webitem-main" aria-haspopup="true"
+                               aria-controls="plugins-jira-webitem-main-content"
+                               title="View and manage your Advanced Roadmaps plans" resolved="" aria-expanded="false">Plans</a>
+                            <div class="aui-dropdown2 aui-style-default aui-layer"
+                                 id="plugins-jira-webitem-main-content"
+                                 data-aui-dropdown2-ajax-key="plugins-jira-webitem-main" resolved=""
+                                 tabindex="-1"></div>
+                        </li>
+                        <li><a href="/secure/Tests.jspa" class=" aui-nav-link" id="ktm_top_menu" title="Zephyr Scale">Тестирование</a>
+                        </li>
+                        <li id="create-menu"><a id="create_link"
+                                                class="aui-button aui-button-primary aui-style create-issue "
+                                                title="Создать новую задачу ( Нажмите 'c' )"
+                                                href="/secure/CreateIssue!default.jspa" accesskey="C" resolved="">Создать</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="aui-header-secondary">
+                    <ul class="aui-nav">
+                        <li id="quicksearch-menu">
+                            <form action="/secure/QuickSearch.jspa" method="get" id="quicksearch"
+                                  class="aui-quicksearch dont-default-focus ajs-dirty-warning-exempt">
+                                <input id="quickSearchInput" autocomplete="off" class="search" type="text"
+                                       title="Поиск ( Нажмите '/' )" placeholder="Поиск" name="searchString"
+                                       accesskey="Q">
+                                <div class="quick-search-spinner"></div>
+                                <input type="submit" class="hidden" value="Search">
+                            </form>
+                        </li>
+                        <li><a class="jira-feedback-plugin" role="button" aria-haspopup="true"
+                               id="jira-header-feedback-link" href="#"><span
+                                class="aui-icon aui-icon-small aui-iconfont-feedback">Отправить отзыв в Atlassian</span></a>
+                        </li>
+
+
+                        <li id="system-help-menu">
+                            <a class="aui-nav-link aui-dropdown2-trigger aui-dropdown2-trigger-arrowless" id="help_menu"
+                               aria-haspopup="true" href="https://docs.atlassian.com/jira/jsw-docs-0820/"
+                               target="_blank" rel="noopener noreferrer" title="Справка" resolved=""
+                               aria-controls="system-help-menu-content" aria-expanded="false"><span
+                                    class="aui-icon aui-icon-small aui-iconfont-question-filled">Справка</span></a>
+                            <div id="system-help-menu-content" class="aui-dropdown2 aui-style-default aui-layer"
+                                 resolved="" tabindex="-1">
+                                <div class="aui-dropdown2-section">
+                                    <ul id="jira-help" class="aui-list-truncate">
+                                        <li>
+                                            <a id="gh_view_help" class="aui-nav-link "
+                                               title="Обратиться в онлайн-поддержку Jira Software"
+                                               href="https://docs.atlassian.com/jira/jsw-docs-0820/" target="_blank">Справка
+                                                по Jira Software</a>
+                                        </li>
+                                        <li>
+                                            <a id="view_core_help" class="aui-nav-link "
+                                               title="Перейти к онлайн документации на ПО Jira Core"
+                                               href="https://docs.atlassian.com/jira/jcore-docs-0820/" target="_blank">Справка
+                                                Jira Core</a>
+                                        </li>
+                                        <li>
+                                            <a id="rm-roadmaps-webitem-docs" class="aui-nav-link "
+                                               href="https://confluence.atlassian.com/display/JIRASOFTWARESERVER/Advanced+Roadmaps+documentation">Advanced
+                                                Roadmaps for Jira help</a>
+                                        </li>
+                                        <li>
+                                            <a id="jpo-keyboard-shortcuts" class="aui-nav-link jpo-keyboard-shortcuts"
+                                               href="/secure/PortfolioKeyboardShortcuts.jspa"
+                                               title=" ( Нажмите 'p' затем '?' )">Advanced Roadmaps Keyboard
+                                                Shortcuts</a>
+                                        </li>
+                                        <li>
+                                            <a id="keyshortscuthelp" class="aui-nav-link "
+                                               title="Получить больше информации о Горящих клавишах Jira ( Нажмите '?' )"
+                                               href="/secure/ViewKeyboardShortcuts!default.jspa" target="_blank">Горячие
+                                                клавиши</a>
+                                        </li>
+                                        <li>
+                                            <a id="view_about" class="aui-nav-link "
+                                               title="Получить больше информации о Jira" href="/secure/AboutPage.jspa">О
+                                                Jira</a>
+                                        </li>
+                                        <li>
+                                            <a id="view_credits" class="aui-nav-link " title="Показать, кто это сделал"
+                                               href="/secure/credits/AroundTheWorld!default.jspa" target="_blank">Список
+                                                участников Jira</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li id="user-options">
+                            <a id="header-details-user-fullname"
+                               class="aui-dropdown2-trigger aui-dropdown2-trigger-arrowless" aria-haspopup="true"
+                               data-username="AT1" data-displayname="AT1" href="/secure/ViewProfile.jspa"
+                               title="Пользовательский профиль для AT1" resolved="" aria-controls="user-options-content"
+                               aria-expanded="false">
+            <span class="aui-avatar aui-avatar-small">
+                <span class="aui-avatar-inner">
+                    <img src="https://www.gravatar.com/avatar/63ed5786237d757f45160b75638948a8?d=mm&amp;s=24"
+                         alt="Пользовательский профиль для AT1">
+                </span>
+            </span>
+                            </a>
+                            <div id="user-options-content" class="aui-dropdown2 aui-style-default aui-layer" resolved=""
+                                 tabindex="-1">
+                                <div class="aui-dropdown2-section">
+                                    <ul id="personal" class="aui-list-truncate">
+                                        <li>
+                                            <a id="view_profile" class=""
+                                               title="Просмтреть и изменить детали вашего профиля"
+                                               href="/secure/ViewProfile.jspa">Профиль</a>
+                                        </li>
+                                        <li>
+                                            <a id="a11y-personal-settings-link" class=""
+                                               title="Измените настройки специальных возможностей"
+                                               href="/secure/AccessibilityPersonalSettings!default.jspa">Специальные
+                                                возможности</a>
+                                        </li>
+                                        <li>
+                                            <a id="upm-requests-link" class=""
+                                               href="/plugins/servlet/upm/requests?source=header_user">Магазин
+                                                Atlassian</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="aui-dropdown2-section">
+                                    <strong>Домашняя страница Jira</strong>
+                                    <ul id="set_my_jira_home" class="aui-list-truncate">
+                                        <li>
+                                            <a id="set_my_jira_home_default" class="aui-dropdown2-radio"
+                                               title="Установить Рабочий стол домашней страницей Jira."
+                                               href="/secure/UpdateMyJiraHome.jspa?target=com.atlassian.jira.jira-my-home-plugin%3Aset_my_jira_home_dashboard&amp;atl_token=B2UA-2NV2-5DBH-LD1W_d1011d54b4cf88b28c442f369bd22a194abb4f31_lin"
+                                               resolved="" aria-checked="false" tabindex="0">Рабочий стол</a>
+                                        </li>
+                                        <li>
+                                            <a id="greenhopper-my-jira-home-set"
+                                               class="aui-dropdown2-radio aui-dropdown2-checked checked"
+                                               title="Установить «Доски» в качестве домашней страницы Jira."
+                                               href="/secure/UpdateMyJiraHome.jspa?target=com.pyxis.greenhopper.jira%3Agreenhopper-my-jira-home-set-51&amp;atl_token=B2UA-2NV2-5DBH-LD1W_d1011d54b4cf88b28c442f369bd22a194abb4f31_lin"
+                                               resolved="" aria-checked="true" tabindex="0">Доски</a>
+                                        </li>
+                                        <li>
+                                            <a id="set_my_jira_home_issuenav" class="aui-dropdown2-radio"
+                                               title="Установить Навигатор задач домашней страницей Jira."
+                                               href="/secure/UpdateMyJiraHome.jspa?target=com.atlassian.jira.jira-my-home-plugin%3Aset_my_jira_home_issue&amp;atl_token=B2UA-2NV2-5DBH-LD1W_d1011d54b4cf88b28c442f369bd22a194abb4f31_lin"
+                                               resolved="" aria-checked="false" tabindex="0">Навигатор задач</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="aui-dropdown2-section">
+                                    <ul id="system" class="aui-list-truncate">
+                                        <li>
+                                            <a id="log_out" class="" title="Выйти и отменить автоматический вход."
+                                               href="/logout?atl_token=B2UA-2NV2-5DBH-LD1W_d1011d54b4cf88b28c442f369bd22a194abb4f31_lin">Выйти</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- .aui-header-inner-->
+            <aui-header-end resolved=""></aui-header-end>
+        </nav><!-- .aui-header -->
+    </header>
+
+
+    <div id="content">
+        <div class="aui-page-header">
+            <div class="aui-page-header-inner">
+                <div class="aui-page-header-main"><h1>Просмотр проектов</h1></div>
+                <div class="aui-page-header-actions"></div>
+            </div>
+        </div>
+        <div id="browse-projects-page" class="aui-page-panel" data-track-pageview="projects.browse.view">
+            <div class="aui-page-panel-inner">
+                <div id="browse-projects-sidebar" class="aui-page-panel-nav">
+                    <nav class="aui-navgroup aui-navgroup-vertical">
+                        <div class="aui-navgroup-inner">
+                            <div class="project-type-nav">
+                                <ul class="aui-nav project-types-filters">
+                                    <li>
+                                        <div class="aui-nav-heading"><strong>Типы проектов</strong></div>
+                                    </li>
+                                    <li id="all-project-type" class="first "><a rel="all"
+                                                                                href="/secure/BrowseProjects.jspa?selectedProjectType=all">Все
+                                        типы проектов</a></li>
+                                    <li id="software-project-type" class=" aui-nav-selected"><a rel="software"
+                                                                                                href="/secure/BrowseProjects.jspa?selectedProjectType=software"><img
+                                            class="project-type-icon"
+                                            src="data:image/svg+xml;base64, PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48Y2lyY2xlIGZpbGw9IiNFRDZGMDAiIGN4PSIzNiIgY3k9IjM2IiByPSIzNiIvPjxwYXRoIGQ9Ik0yOS42OCA0OS42MTdhMy4xOTQgMy4xOTQgMCAwMS0yLjI2My0uOTM3TDE3LjExMyAzOC4zNzVhMy44MyAzLjgzIDAgMDEwLTUuNGwxMC4wNC0xMC4wNGEzLjIwOSAzLjIwOSAwIDAxNC41MjggMCAzLjIwNiAzLjIwNiAwIDAxMCA0LjUyOGwtOC4yMTUgOC4yMTMgOC40NzkgOC40OGEzLjIwMSAzLjIwMSAwIDAxLTIuMjY0IDUuNDZNNTAuNjYzIDM3LjQ5NmwuMDE2LjAxNi0uMDE2LS4wMTZ6bS04LjAzNSAxMi4xMmEzLjE5OCAzLjE5OCAwIDAxLTIuMjYyLTUuNDYxbDguNDc3LTguNDgtOC4yMS04LjIxNGEzLjIgMy4yIDAgMDEwLTQuNTI2IDMuMiAzLjIgMCAwMTQuNTIyLjAwMmwxMC4wNCAxMC4wNGEzLjc3NCAzLjc3NCAwIDAxMS4xMiAyLjY5IDMuNzg2IDMuNzg2IDAgMDEtMS4xMiAyLjcwOEw0NC44OSA0OC42OGEzLjE4NiAzLjE4NiAwIDAxLTIuMjYyLjkzN3oiIGZpbGw9IiNGRkYiLz48L2c+PC9zdmc+ "
+                                            alt="">Software</a></li>
+                                    <li id="business-project-type" class=" "><a rel="business"
+                                                                                href="/secure/BrowseProjects.jspa?selectedProjectType=business"><img
+                                            class="project-type-icon"
+                                            src="data:image/svg+xml;base64, PHN2ZyB2ZXJzaW9uPSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MSA3MSI+PGNpcmNsZSBjeD0iMzUuNSIgY3k9IjM1LjUiIHI9IjM1LjUiIGZpbGw9IiMwMDY1ZmYiLz48cGF0aCBkPSJNMTguNyAzNy41aDMzLjVjMS42IDAgMyAxLjMgMyAzcy0xLjMgMy0zIDNIMTguN2MtMS42IDAtMy0xLjMtMy0zczEuNC0zIDMtM3ptMC05LjloMzMuNWMxLjYgMCAzIDEuMyAzIDMgMCAxLjYtMS4zIDMtMyAzSDE4LjdjLTEuNiAwLTMtMS4zLTMtMyAuMS0xLjcgMS40LTMgMy0zem0wLTkuOGgzMy41YzEuNiAwIDMgMS4zIDMgM3MtMS4zIDMtMyAzSDE4LjdjLTEuNiAwLTMtMS4zLTMtM3MxLjQtMyAzLTN6bS4xIDI5LjVoMTcuN2MxLjcgMCAzIDEuMyAzIDNzLTEuMyAzLTMgM0gxOC44Yy0xLjcgMC0zLTEuMy0zLTMgMC0xLjYgMS4zLTMgMy0zeiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg== "
+                                            alt="">Business</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-nav">
+                                <ul class="aui-nav">
+                                    <li>
+                                        <div class="aui-nav-heading"><strong>Категории</strong></div>
+                                    </li>
+                                    <li id="all-panel-tab" class="first aui-nav-selected"><a id="all-panel-tab-lnk"
+                                                                                             rel="all"
+                                                                                             title="Все категории - Все категории включая проекты без категорий"
+                                                                                             href="/secure/BrowseProjects.jspa?selectedCategory=all">Все
+                                        категории</a></li>
+                                    <li id="recent-panel-tab" class=" "><a id="recent-panel-tab-lnk" rel="recent"
+                                                                           title="Недавние проеткы - Недавно просмотренные проекты"
+                                                                           href="/secure/BrowseProjects.jspa?selectedCategory=recent">Недавние
+                                        проекты</a></li>
+                                    <li id="archived-panel-tab" class=" "><a id="archived-panel-tab-lnk" rel="archived"
+                                                                             title="Заархивированные проекты"
+                                                                             href="/secure/BrowseProjects.jspa?selectedCategory=archived">Заархивированные
+                                        проекты</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <main role="main" id="main" class="aui-page-panel-content">
+                    <div class="module">
+                        <div class="mod-header" id="filter-projects">
+                            <div><h2> Software - Все категории</h2>
+                                <form id="project-filter" class="aui ajs-dirty-warning-exempt">
+                                    <div class="project-filter-item"><input type="text" id="project-filter-text"
+                                                                            aria-label="Поиск проектов"
+                                                                            placeholder="Поиск…"
+                                                                            class="version-filter-text text"
+                                                                            value=""><span
+                                            class="aui-icon aui-icon-small aui-iconfont-search-small"></span></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="mod-content" id="projects">
+                            <div class="p-list">
+                                <table class="aui jira-sortable-table">
+                                    <thead>
+                                    <tr>
+                                        <th class="project-list-name sortable active" data-sort-key="name">Проект<span
+                                                class="aui-icon aui-icon-small aui-iconfont-new-arrow-up"></span></th>
+                                        <th class="project-list-key sortable " data-sort-key="key">Код</th>
+                                        <th class="project-list-type sortable " data-sort-key="projectTypeName">Тип
+                                            проекта
+                                        </th>
+                                        <th class="project-list-lead sortable " data-sort-key="lead">Руководитель
+                                            проекта
+                                        </th>
+                                        <th class="project-list-category sortable " data-sort-key="projectCategoryId">
+                                            Категория проекта
+                                        </th>
+                                        <th class="project-list-url">URL страница проекта</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="projects-list">
+                                    <tr data-project-id="10000">
+                                        <td data-cell-type="name" class="cell-type-name"><a href="/browse/TEST"
+                                                                                            atltoken="false"
+                                                                                            data-track-click="projects.browse.project"
+                                                                                            original-title="Test"><span
+                                                class="aui-avatar aui-avatar-small aui-avatar-project jira-system-avatar"><span
+                                                class="aui-avatar-inner"><img
+                                                src="/secure/projectavatar?size=small"></span></span>Test</a></td>
+                                        <td class="cell-type-key">TEST</td>
+                                        <td class="cell-type-project-type"><img
+                                                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48Y2lyY2xlIGZpbGw9IiNFRDZGMDAiIGN4PSIzNiIgY3k9IjM2IiByPSIzNiIvPjxwYXRoIGQ9Ik0yOS42OCA0OS42MTdhMy4xOTQgMy4xOTQgMCAwMS0yLjI2My0uOTM3TDE3LjExMyAzOC4zNzVhMy44MyAzLjgzIDAgMDEwLTUuNGwxMC4wNC0xMC4wNGEzLjIwOSAzLjIwOSAwIDAxNC41MjggMCAzLjIwNiAzLjIwNiAwIDAxMCA0LjUyOGwtOC4yMTUgOC4yMTMgOC40NzkgOC40OGEzLjIwMSAzLjIwMSAwIDAxLTIuMjY0IDUuNDZNNTAuNjYzIDM3LjQ5NmwuMDE2LjAxNi0uMDE2LS4wMTZ6bS04LjAzNSAxMi4xMmEzLjE5OCAzLjE5OCAwIDAxLTIuMjYyLTUuNDYxbDguNDc3LTguNDgtOC4yMS04LjIxNGEzLjIgMy4yIDAgMDEwLTQuNTI2IDMuMiAzLjIgMCAwMTQuNTIyLjAwMmwxMC4wNCAxMC4wNGEzLjc3NCAzLjc3NCAwIDAxMS4xMiAyLjY5IDMuNzg2IDMuNzg2IDAgMDEtMS4xMiAyLjcwOEw0NC44OSA0OC42OGEzLjE4NiAzLjE4NiAwIDAxLTIuMjYyLjkzN3oiIGZpbGw9IiNGRkYiLz48L2c+PC9zdmc+"
+                                                class="project-type-icon" title="Software"></td>
+                                        <td class="cell-type-user"><a class="user-hover" rel="admin" id="_admin"
+                                                                      href="/secure/ViewProfile.jspa?name=admin">admin</a>
+                                        </td>
+                                        <td class="cell-type-category">Нет категории</td>
+                                        <td class="cell-type-url">Нет адреса</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="pagination">
+                        <ol data-total="1" class="aui-nav aui-nav-pagination"></ol>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <footer id="footer" role="contentinfo">
+
+
+        <section class="footer-body">
+            <ul class="atlassian-footer">
+                <li>
+                    Atlassian Jira <a class="seo-link" rel="nofollow" href="https://www.atlassian.com/software/jira">Project
+                    Management Software</a>
+                    <span id="footer-build-information">(v8.20.7#820007-<span
+                            title="98f6b160ab2ff5d8f9ec9088d10ba11ef78e8764"
+                            data-commit-id="98f6b160ab2ff5d8f9ec9088d10ba11ef78e8764}">sha1:98f6b16</span>)</span>
+                </li>
+                <li>
+                    <a id="about-link" rel="nofollow" href="/secure/AboutPage.jspa/secure/AboutPage.jspa">About Jira</a>
+                </li>
+                <li>
+                    <a id="footer-report-problem-link" rel="nofollow" href="/secure/CreateIssue!default.jspa">Report a
+                        problem</a>
+                </li>
+            </ul>
+            <p class="atlassian-footer">
+        <span class="licensemessage">
+            
+        </span>
+            </p>
+
+            <div id="footer-logo"><a rel="nofollow" href="http://www.atlassian.com/">Atlassian</a></div>
+        </section>
+
+
+        <fieldset class="hidden parameters">
+            <input type="hidden" title="loggedInUser" value="AT1">
+            <input type="hidden" title="ajaxTimeout"
+                   value="В рамках сеанса не удалось завершить запрос к серверу Jira. Мы не уверены в результате этой операции.">
+            <input type="hidden" title="JiraVersion" value="8.20.7">
+            <input type="hidden" title="ajaxUnauthorised"
+                   value="Вы не авторизованы для выполнения этой операции. Пожалуйста, войдите.">
+            <input type="hidden" title="baseURL" value="https://edujira.ifellow.ru">
+            <input type="hidden" title="ajaxCommsError"
+                   value="Не удалось связаться с сервером Jira. Произошел временный сбой или сервер недоступен. ">
+            <input type="hidden" title="ajaxServerError"
+                   value="При обращении к серверу Jira произошла ошибка. Мы не уверены в результате этой операции.">
+            <input type="hidden" title="ajaxErrorCloseDialog"
+                   value="Закройте это диалоговое окно и нажмите обновление в браузере">
+            <input type="hidden" title="ajaxErrorDialogHeading" value="Разрыв связи">
+
+            <input type="hidden" title="dirtyMessage"
+                   value="Вы ввели новую информацию на этой странице. Если вы покинете страницу, предварительно не сохранив изменения, они будут потеряны.">
+            <input type="hidden" title="dirtyDialogMessage"
+                   value="Вы ввели в это окно новые данные. Если вы уйдете из этого окна, не сохранив данные, все изменения будут потеряны. Чтобы вернуться к окну, нажмите «отменить».">
+            <input type="hidden" title="keyType" value="Нажмите">
+            <input type="hidden" title="keyThen" value="затем">
+            <input type="hidden" title="dblClickToExpand" value="Двойное нажатие для раскрытия">
+            <input type="hidden" title="actions" value="Действия">
+            <input type="hidden" title="removeItem" value="Удалить">
+            <input type="hidden" title="workflow" value="Бизнес-процесс">
+            <input type="hidden" title="labelNew" value="Новая метка">
+            <input type="hidden" title="issueActionsHint"
+                   value="Начните набирать для поиска доступных операций или нажмите вниз, чтобы увидеть все">
+            <input type="hidden" title="closelink" value="Закрыть">
+            <input type="hidden" title="dotOperations" value="Операции">
+            <input type="hidden" title="dotLoading" value="Загрузка">
+            <input type="hidden" title="frotherSuggestions" value="Предложения">
+            <input type="hidden" title="frotherNomatches" value="Нет совпадений">
+            <input type="hidden" title="multiselectVersionsError" value="{0} не является корректной версией.">
+            <input type="hidden" title="multiselectComponentsError" value="{0} - некорректный компонент.">
+            <input type="hidden" title="multiselectGenericError" value="Некорректное значение {0}.">
+        </fieldset>
+
+    </footer>
+</div>
+
+
+<script type="text/javascript"
+        src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:bigpipe-js/jira.webresources:bigpipe-js.js"
+        data-wrm-key="jira.webresources:bigpipe-js" data-wrm-batch-type="resource" data-initially-rendered=""></script>
+<script type="text/javascript"
+        src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:bigpipe-init/jira.webresources:bigpipe-init.js"
+        data-wrm-key="jira.webresources:bigpipe-init" data-wrm-batch-type="resource"
+        data-initially-rendered=""></script>
+
+<form id="jira_request_timing_info" class="dont-default-focus">
+    <fieldset class="parameters hidden">
+        <input type="hidden" title="jira.request.start.millis" value="1759500719914">
+        <input type="hidden" title="jira.request.server.time" value="36">
+        <input type="hidden" title="jira.request.id" value="1031x212947x1">
+        <input type="hidden" title="jira.session.expiry.time" value="1759518719906">
+        <input type="hidden" title="jira.session.expiry.in.mins" value="299">
+        <input id="jiraConcurrentRequests" type="hidden" name="jira.request.concurrent.requests" value="1">
+        <input type="hidden" title="db.conns.time.in.ms" value="5">
+    </fieldset>
+</form>
+<!--
+	                 REQUEST ID : 1031x212947x1
+	          REQUEST TIMESTAMP : [03/окт/2025:17:11:59 +0300]
+	               REQUEST TIME : 0,0360
+	                 ASESSIONID : 1rqms26
+	        CONCURRENT REQUESTS : 1
+
+	                      db.conns : OpSnapshot{name='db.conns', invocationCount=13, elapsedTotal=5148800, elapsedMin=216100, elapsedMax=683100, resultSetSize=0, cpuTotal=0, cpuMin=0, cpuMax=0}
+-->
+
+
+</body>
+</html>

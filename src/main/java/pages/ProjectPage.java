@@ -5,13 +5,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import util.CustomProperties;
 
 import java.time.Duration;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class ProjectPage {
 
@@ -29,7 +27,6 @@ public class ProjectPage {
     private SelenideElement issueLinksTextarea = $x("//textarea[@id='issuelinks-issues-textarea']");
     private SelenideElement sprintInput = $x("//input[@id='customfield_10104-field']");
     private SelenideElement severitySelect = $x("//select[@id='customfield_10400']");
-
 
     public void selectSeverityByValue(String value) {
         severitySelect.shouldBe(visible).selectOptionByValue(value);
@@ -199,7 +196,6 @@ public class ProjectPage {
         ((JavascriptExecutor) webdriver().object()).executeScript("tinymce.get(1).setContent(arguments[0]);", text);
     }
 
-
     public void clickWorkflowActionAndWaitSuccess(String actionText) {
         $x("//a[contains(@class,'issueaction-workflow-transition')]//span[normalize-space(text())='" + actionText + "']")
                 .shouldBe(visible)
@@ -207,39 +203,24 @@ public class ProjectPage {
         $(".aui-message-success").shouldBe(visible).shouldNotBe(visible, Duration.ofSeconds(10));
     }
 
+
     public void openBusinessProcessAndSelect(String menuItemText) {
-        $x("//a[@id='opsbar-transitions_more']").shouldBe(visible, Duration.ofSeconds(10)).click();
+        $x("//a[@id='opsbar-transitions_more']")
+                .shouldBe(visible, Duration.ofSeconds(10))
+                .click();
 
         SelenideElement menuItem = $$("span.trigger-label")
                 .findBy(text(menuItemText))
                 .shouldBe(visible, Duration.ofSeconds(10));
+        menuItem.click();
 
-        executeJavaScript("arguments[0].click();", menuItem);
-
-        String originalWindow = getWebDriver().getWindowHandle();
-
-        Set<String> allWindows = getWebDriver().getWindowHandles();
-        long start = System.currentTimeMillis();
-        while (allWindows.size() <= 1 && System.currentTimeMillis() - start < 10000) {
-            sleep(500);
-            allWindows = getWebDriver().getWindowHandles();
-        }
-
-        for (String window : allWindows) {
-            if (!window.equals(originalWindow)) {
-                getWebDriver().switchTo().window(window);
-                break;
-            }
-        }
-
-        $x("//input[@id='issue-workflow-transition-submit' and @value='В процессе']")
+        $x("//input[@id='issue-workflow-transition-submit' and @value='" + menuItemText + "']")
                 .shouldBe(visible, Duration.ofSeconds(10))
                 .click();
 
-        getWebDriver().close();
-        getWebDriver().switchTo().window(originalWindow);
-
-        $(".aui-message-success").shouldBe(visible, Duration.ofSeconds(10))
+        $(".aui-message-success")
+                .shouldBe(visible, Duration.ofSeconds(10))
                 .shouldNotBe(visible, Duration.ofSeconds(10));
     }
+
 }
