@@ -7,8 +7,10 @@ import java.time.Duration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+
 
 public class ProjectPage {
 
@@ -181,5 +183,23 @@ public class ProjectPage {
                 .shouldBe(visible);
     }
 
+    public void ensureVisualEditorSelected() {
+        SelenideElement visualTab = $x("//li[@data-mode='wysiwyg']//button[text()='Визуальный']")
+                .should(exist); // ждём, пока появится в DOM
+        SelenideElement textTab = $x("//li[@data-mode='source']//button[text()='Текст']")
+                .should(exist); // ждём, пока появится в DOM
+
+        String visualPressed = visualTab.getAttribute("aria-pressed");
+        String textPressed = textTab.getAttribute("aria-pressed");
+
+        // Здесь убираем защиту от null — вызываем equalsIgnoreCase на атрибутах, которые могут быть null
+        if (visualPressed.equalsIgnoreCase("false") && textPressed.equalsIgnoreCase("true")) {
+            System.out.println("Выбран режим 'Текст'. Переключаемся на 'Визуальный'.");
+            visualTab.shouldBe(visible).click();
+        } else {
+            System.out.println("Режим 'Визуальный' уже выбран.");
+        }
+
+    }
 
 }

@@ -109,4 +109,49 @@ public class TestBelyankina extends WebHooks {
 
     }
 
+    @Test
+    @DisplayName("Заведение дефекта")
+    public void createBagTest() {
+        open(CustomProperties.getProperty("web.url"));
+        loginPage.login(CustomProperties.getProperty("user.name"), CustomProperties.getProperty("user.password"));
+        webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
+
+        Project project = new Project();
+        project.openProjectsMenu();
+        project.selectTestProject();
+        webdriver().shouldHave(urlContaining("/secure/RapidBoard.jspa"));
+
+        issuePage.clickViewAllIssues();
+        webdriver().shouldHave(urlContaining("/issues"));
+        String countTextBefore = issuePage.getIssuesCountText();
+        int countBefore = issuePage.extractNumberFromText(countTextBefore);
+        System.out.println("Количество задач до создания: " + countBefore);
+
+        issuePage.clickCreateIssue();
+        String summaryText = "A1 ";
+
+        issuePage.enterSummaryAndSubmit(summaryText);
+        issuePage.navigateBackToIssues();
+        issuePage.refreshIssuesList();
+
+        issuePage.waitForIssueCountToIncrease(countBefore);
+        String countTextAfter = issuePage.getIssuesCountText();
+        int countAfter = issuePage.extractNumberFromText(countTextAfter);
+        assertTrue(countAfter == countBefore + 1,
+                "Количество задач должно увеличиться на 1. Было: " + countBefore + ", стало: " + countAfter);
+
+        String searchText = "TestSeleniumATHomework";
+        issuePage.searchForTask(searchText);
+        issuePage.clickOnFoundTask();
+        issuePage.verifyTaskStatus("Сделать");
+        issuePage.verifyFixVersion("Version 2.0");
+
+        issuePage.clickCreateIssue();
+        issuePage.ensureVisualEditorSelected();
+
+        String summaryText1 = "A1 ";
+
+
+    }
+
 }
