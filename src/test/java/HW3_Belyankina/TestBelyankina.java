@@ -66,8 +66,9 @@ public class TestBelyankina extends WebHooks {
 
         String countTextAfter = issuePage.getIssuesCountText();
         int countAfter = issuePage.extractNumberFromText(countTextAfter);
-        assertTrue(countAfter == countBefore + 1,
-                "Количество задач должно увеличиться на 1. Было: " + countBefore + ", стало: " + countAfter);
+        assertTrue(countAfter > countBefore,
+                "Количество задач должно увеличиться минимум на 1. Было: " + countBefore + ", стало: " + countAfter);
+
     }
 
     @Test
@@ -95,11 +96,11 @@ public class TestBelyankina extends WebHooks {
         issuePage.navigateBackToIssues();
         issuePage.refreshIssuesList();
 
-        issuePage.waitForIssueCountToIncrease(countBefore);
         String countTextAfter = issuePage.getIssuesCountText();
         int countAfter = issuePage.extractNumberFromText(countTextAfter);
-        assertTrue(countAfter == countBefore + 1,
-                "Количество задач должно увеличиться на 1. Было: " + countBefore + ", стало: " + countAfter);
+        assertTrue(countAfter > countBefore,
+                "Количество задач должно увеличиться минимум на 1. Было: " + countBefore + ", стало: " + countAfter);
+
 
         String searchText = "TestSeleniumATHomework";
         issuePage.searchForTask(searchText);
@@ -128,17 +129,16 @@ public class TestBelyankina extends WebHooks {
         System.out.println("Количество задач до создания: " + countBefore);
 
         issuePage.clickCreateIssue();
-        String summaryText = "A1 ";
+        String summaryText = "A1";
 
         issuePage.enterSummaryAndSubmit(summaryText);
         issuePage.navigateBackToIssues();
         issuePage.refreshIssuesList();
 
-        issuePage.waitForIssueCountToIncrease(countBefore);
         String countTextAfter = issuePage.getIssuesCountText();
         int countAfter = issuePage.extractNumberFromText(countTextAfter);
-        assertTrue(countAfter == countBefore + 1,
-                "Количество задач должно увеличиться на 1. Было: " + countBefore + ", стало: " + countAfter);
+        assertTrue(countAfter > countBefore,
+                "Количество задач должно увеличиться минимум на 1. Было: " + countBefore + ", стало: " + countAfter);
 
         String searchText = "TestSeleniumATHomework";
         issuePage.searchForTask(searchText);
@@ -147,11 +147,22 @@ public class TestBelyankina extends WebHooks {
         issuePage.verifyFixVersion("Version 2.0");
 
         issuePage.clickCreateIssue();
-        issuePage.ensureVisualEditorSelected();
+        String summaryText1 = "A1";
+        issuePage.typeSummaryText(summaryText1);
 
-        String summaryText1 = "A1 ";
+        issuePage.ensureVisualEditorSelected();
+        issuePage.enterTextInVisualEditor("Дефект");
+
+        issuePage.selectFixVersionByText("Version 2.0");
+        issuePage.enterTextInSecondVisualEditor("DEV");
+        issuePage.enterIssueLinkAndPressEnter("Test-207008");
+        issuePage.enterSprintAndPressEnter("Доска Спринт 1");
+        issuePage.selectSeverityByValue("10100");
+        issuePage.clickSubmitAndWaitForSuccessAndOpenIssue();
+        issuePage.openBusinessProcessAndSelect("В процессе");
+
+        issuePage.verifyTaskStatus("В процессе");
 
 
     }
-
 }

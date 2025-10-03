@@ -23,7 +23,6 @@ public class LoginPage {
         loginButton.click();
     }
 
-
     public void login(String username, String password) {
         enterUsername(username);
         getUsernameInput().shouldHave(value(username));
@@ -32,7 +31,6 @@ public class LoginPage {
         getPasswordInput().shouldHave(value(password));
 
         clickLogin();
-
     }
 
     public SelenideElement getUsernameInput() {
