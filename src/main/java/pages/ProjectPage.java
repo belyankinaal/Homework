@@ -32,6 +32,16 @@ public class ProjectPage {
         severitySelect.shouldBe(visible).selectOptionByValue(value);
     }
 
+
+    public void waitForViewAllIssuesButton() {
+        $x("//a[@id='find_link']").shouldBe(visible, Duration.ofSeconds(15));
+        $x("//a[@id='issues_new_search_link_lnk']").shouldBe(visible, Duration.ofSeconds(15));
+    }
+
+    public void waitForIssuesListLoaded() {
+        $$("div.issue-list, div.issuerow, div.js-issue-row").first().shouldBe(visible, Duration.ofSeconds(15));
+    }
+
     public void clickSubmitAndWaitForSuccessAndOpenIssue() {
         submitButton.shouldBe(visible).click();
         SelenideElement successMessage = $(".aui-message-success").shouldBe(visible);
@@ -221,6 +231,20 @@ public class ProjectPage {
         $(".aui-message-success")
                 .shouldBe(visible, Duration.ofSeconds(10))
                 .shouldNotBe(visible, Duration.ofSeconds(10));
+
+
     }
+
+    public void openActiveSprints() {
+
+        SelenideElement sidebarToggle = $x("//button[contains(@class,'aui-sidebar-toggle') and @data-tooltip='Раскрыть колонку ( [ )']");
+        if (sidebarToggle.exists() && sidebarToggle.isDisplayed()) {
+            sidebarToggle.click();
+        }
+
+        SelenideElement activeSprintsLink = $x("//a[contains(@data-link-id,'project-sidebar-work-scrum') and .//span[@class='aui-nav-item-label' and text()='Активные спринты']]");
+        activeSprintsLink.shouldBe(visible, Duration.ofSeconds(10)).click();
+    }
+
 
 }
