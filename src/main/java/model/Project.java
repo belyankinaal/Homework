@@ -7,20 +7,16 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class Project {
 
-    private SelenideElement projectsButton = $x("//*[@id='browse_link']");
-    private SelenideElement testProjectLink = $x("//*[@id='admin_main_proj_link_lnk']");
+    private final SelenideElement projectsButton = $x("//*[@id='browse_link']");
+    private final SelenideElement testProjectLink = $x("//*[@id='admin_main_proj_link_lnk']");
 
-    private SelenideElement issuesButton = $x("//span[@class='aui-nav-item-label' and @title='Задачи']/ancestor::a[1]");
-
-    public void openProjectsMenu() {
+    public Project openProjectsMenu() {
         projectsButton.shouldBe(visible).click();
+        return this;
     }
 
-    public void selectTestProject() {
+    public Project selectTestProject() {
         testProjectLink.shouldBe(visible).click();
-    }
-
-    public void openIssuesPage() {
-        issuesButton.shouldBe(visible).click();
+        return this;
     }
 }

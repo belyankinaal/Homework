@@ -2,249 +2,167 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.JavascriptExecutor;
-import util.CustomProperties;
 
 import java.time.Duration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProjectPage {
 
-    private SelenideElement issuesMenuLink = $x("//a[@id='find_link']");
-    private SelenideElement issuesSearchLink = $x("//a[@id='issues_new_search_link_lnk']");
-    private SelenideElement resolutionFilterButton = $x("div[data-id='resolution']");
-    private SelenideElement unresolvedLabel = $x("//label[@class='item-label checkbox' and @title='Не решен']");
-    private SelenideElement createIssueButton = $x("//a[@id='create_link']");
-    private SelenideElement summaryInput = $x("//input[@id='summary']");
-    private SelenideElement newIssueSummary = $x("//div[@id='summary-val']");
-    private SelenideElement submitButton = $x("//input[@id='create-issue-submit']");
-    private SelenideElement searchInput = $x("//input[@id='searcher-query']");
-    private SelenideElement firstFoundTask = $x("//a[contains(@class, 'issue-link') and contains(@data-issue-key, 'TEST-')]");
-    private SelenideElement fixVersionSelect = $x("//select[@id='fixVersions']");
-    private SelenideElement issueLinksTextarea = $x("//textarea[@id='issuelinks-issues-textarea']");
-    private SelenideElement sprintInput = $x("//input[@id='customfield_10104-field']");
-    private SelenideElement severitySelect = $x("//select[@id='customfield_10400']");
+    private final SelenideElement createIssueButton = $x("//a[@id='create_link']");
+    private final SelenideElement summaryInput = $x("//input[@id='summary']");
+    private final SelenideElement submitButton = $x("//input[@id='create-issue-submit']");
+    private final SelenideElement issuesMenuLink = $x("//a[@id='find_link']");
+    private final SelenideElement issuesSearchLink = $x("//a[@id='issues_new_search_link_lnk']");
+    private final SelenideElement searchInput = $x("//input[@id='searcher-query']");
+    private final SelenideElement firstFoundTask = $x("//a[contains(@class,'issue-link') and contains(@data-issue-key,'TEST-')]");
+    private final SelenideElement fixVersionSelect = $x("//select[@id='fixVersions']");
+    private final SelenideElement issueLinksTextarea = $x("//textarea[@id='issuelinks-issues-textarea']");
+    private final SelenideElement sprintInput = $x("//input[@id='customfield_10104-field']");
+    private final SelenideElement severitySelect = $x("//select[@id='customfield_10400']");
 
-    public void selectSeverityByValue(String value) {
-        severitySelect.shouldBe(visible).selectOptionByValue(value);
-    }
-
-
-    public void waitForViewAllIssuesButton() {
-        $x("//a[@id='find_link']").shouldBe(visible, Duration.ofSeconds(15));
-        $x("//a[@id='issues_new_search_link_lnk']").shouldBe(visible, Duration.ofSeconds(15));
-    }
-
-    public void waitForIssuesListLoaded() {
-        $$("div.issue-list, div.issuerow, div.js-issue-row").first().shouldBe(visible, Duration.ofSeconds(15));
-    }
-
-    public void clickSubmitAndWaitForSuccessAndOpenIssue() {
-        submitButton.shouldBe(visible).click();
-        SelenideElement successMessage = $(".aui-message-success").shouldBe(visible);
-        SelenideElement issueLink = successMessage.$("a[href*='browse/']");
-        issueLink.shouldBe(visible).click();
-    }
-
-    public void clickSubmitAndWaitForSuccess() {
-        submitButton.shouldBe(visible).click();
-        $(".aui-message-success").shouldBe(visible);
-    }
-
-    public void enterIssueLinkAndPressEnter(String text) {
-        issueLinksTextarea.shouldBe(visible).click();
-        actions().sendKeys(text).sendKeys(org.openqa.selenium.Keys.ENTER).perform();
-    }
-
-    public void enterSprintAndPressEnter(String text) {
-        sprintInput.shouldBe(visible).click();
-        sprintInput.setValue(text);
-        actions().sendKeys(org.openqa.selenium.Keys.ENTER).perform();
-    }
-
-    public void typeSummaryText(String text) {
-        summaryInput.shouldBe(visible).setValue(text);
-    }
-
-    public void enterIssueLinksText(String text) {
-        issueLinksTextarea.shouldBe(visible).setValue(text);
-    }
-
-    public void selectFixVersionByText(String versionText) {
-        fixVersionSelect.shouldBe(visible).selectOption(versionText);
-    }
-
-    public void selectFixVersionByValue(String value) {
-        fixVersionSelect.shouldBe(visible).selectOptionByValue(value);
-    }
-
-    public void clickViewAllIssues() {
+    public ProjectPage clickViewAllIssues() {
         issuesMenuLink.shouldBe(visible).click();
         issuesSearchLink.shouldBe(visible).click();
+        return this;
     }
 
-    public boolean isResolutionFilterPresent() {
-        return resolutionFilterButton.exists() && resolutionFilterButton.isDisplayed();
+    public ProjectPage clickCreateIssue() {
+        createIssueButton.shouldBe(visible).click();
+        return this;
     }
 
-    public void removeResolutionFilter() {
-        resolutionFilterButton.shouldBe(visible).click();
-        unresolvedLabel.shouldBe(visible).click();
-        actions().sendKeys(org.openqa.selenium.Keys.ESCAPE).perform();
+    public ProjectPage enterSummary(String text) {
+        summaryInput.shouldBe(visible).setValue(text);
+        return this;
+    }
+
+    public ProjectPage submitIssue() {
+        submitButton.shouldBe(visible).click();
+        $x("//div[contains(@class,'aui-message-success')]").shouldBe(visible);
+        return this;
+    }
+
+    public ProjectPage refreshIssuesList() {
+        refresh();
+        return this;
+    }
+
+    public ProjectPage navigateBackToIssues() {
+        String currentUrl = webdriver().driver().url();
+        if (currentUrl.contains("browse")) {
+            open("/projects/TEST/issues");
+        }
+        return this;
     }
 
     public String getIssuesCountText() {
-        SelenideElement countElement = findIssuesCountElement();
+        SelenideElement countElement = $x("//span[contains(@class,'results-count-total')]");
         countElement.shouldBe(visible);
         return countElement.getText();
     }
 
-    private SelenideElement findIssuesCountElement() {
-        String[] xpaths = {
-                "//span[contains(@class, 'results-count-total')]",
-                "//span[contains(@class, 'results-count')]",
-                "//*[contains(text(), 'задач')]",
-                "//*[contains(text(), 'из')][not(contains(text(), 'избранных'))]",
-                "//*[@data-id='issues']//span[contains(@class, 'count')]"
-        };
-        for (String xpath : xpaths) {
-            SelenideElement element = $x(xpath);
-            if (element.exists() && element.isDisplayed()) {
-                return element;
-            }
-        }
-        return $x("//*[matches(text(), '\\d')][not(self::script)]");
-    }
-
     public int extractNumberFromText(String text) {
-        if (text == null || text.isEmpty()) return 0;
         Pattern pattern = Pattern.compile("\\d+");
         Matcher matcher = pattern.matcher(text.replaceAll("[\\s,]", ""));
         int lastNumber = 0;
-        while (matcher.find()) {
-            try {
-                lastNumber = Integer.parseInt(matcher.group());
-            } catch (NumberFormatException ignored) {
-            }
-        }
+        while (matcher.find()) lastNumber = Integer.parseInt(matcher.group());
         return lastNumber;
     }
 
-    public void clickCreateIssue() {
-        createIssueButton.shouldBe(visible).click();
-    }
-
-    public void enterSummaryAndSubmit(String summaryText) {
-        summaryInput.shouldBe(visible).click();
-        summaryInput.setValue(summaryText);
-        submitButton.shouldBe(visible).click();
-        $(".aui-message-success").shouldBe(visible).shouldNotBe(visible, Duration.ofSeconds(10));
-    }
-
-    public String getNewIssueSummary() {
-        return newIssueSummary.shouldBe(visible).getText();
-    }
-
-    public void navigateBackToIssues() {
-        String currentUrl = webdriver().driver().url();
-        if (currentUrl.contains("browse")) {
-            open(CustomProperties.getProperty("web.url") + "/projects/TEST/issues");
-        }
-    }
-
-    public void refreshIssuesList() {
-        refresh();
-    }
-
-    public void waitForIssueCountToIncrease(int initialCount) {
-        long startTime = System.currentTimeMillis();
-        long timeout = 15000;
-        while (System.currentTimeMillis() - startTime < timeout) {
-            int currentCount = extractNumberFromText(getIssuesCountText());
-            if (currentCount > initialCount) return;
-            sleep(1000);
-        }
-        throw new AssertionError("Счетчик задач не увеличился за 15 секунд");
-    }
-
-    public void searchForTask(String searchText) {
-        searchInput.shouldBe(visible).setValue(searchText).pressEnter();
+    public ProjectPage searchForTask(String text) {
+        searchInput.shouldBe(visible).setValue(text).pressEnter();
         firstFoundTask.shouldBe(visible);
+        return this;
     }
 
-    public void clickOnFoundTask() {
+    public ProjectPage openTask() {
         firstFoundTask.shouldBe(visible).click();
+        return this;
     }
 
-    public void verifyTaskStatus(String expectedStatus) {
-        $x("//div[@class='wrap']//span[@id='status-val']/span[contains(@class, 'jira-issue-status-lozenge') and normalize-space(text())='" + expectedStatus + "']")
+    public ProjectPage verifyTaskStatus(String status) {
+        $x("//div[@class='wrap']//span[@id='status-val']/span[normalize-space(text())='" + status + "']")
                 .shouldBe(visible);
+        return this;
     }
 
-    public void verifyFixVersion(String expectedVersion) {
-        $x("//span[@id='fixVersions-field']//a[normalize-space(text())='" + expectedVersion + "']")
+    public ProjectPage verifyFixVersion(String version) {
+        $x("//span[@id='fixVersions-field']//a[normalize-space(text())='" + version + "']")
                 .shouldBe(visible);
+        return this;
     }
 
-    public void ensureVisualEditorSelected() {
-        SelenideElement visualTab = $x("//li[@data-mode='wysiwyg']//button[text()='Визуальный']").should(exist);
-        SelenideElement textTab = $x("//li[@data-mode='source']//button[text()='Текст']").should(exist);
+    public ProjectPage ensureVisualEditorSelected() {
+        SelenideElement visualTab = $x("//li[@data-mode='wysiwyg']//button[text()='Визуальный']");
+        SelenideElement textTab = $x("//li[@data-mode='source']//button[text()='Текст']");
         if ("false".equalsIgnoreCase(visualTab.getAttribute("aria-pressed")) &&
                 "true".equalsIgnoreCase(textTab.getAttribute("aria-pressed"))) {
             visualTab.shouldBe(visible).click();
         }
+        return this;
     }
 
-    public void enterTextInVisualEditor(String text) {
+    public ProjectPage enterTextInVisualEditor(String text) {
         ((JavascriptExecutor) webdriver().object()).executeScript("tinymce.get(0).setContent(arguments[0]);", text);
+        return this;
     }
 
-    public void enterTextInSecondVisualEditor(String text) {
+    public ProjectPage enterTextInSecondVisualEditor(String text) {
         ((JavascriptExecutor) webdriver().object()).executeScript("tinymce.get(1).setContent(arguments[0]);", text);
+        return this;
     }
 
-    public void clickWorkflowActionAndWaitSuccess(String actionText) {
-        $x("//a[contains(@class,'issueaction-workflow-transition')]//span[normalize-space(text())='" + actionText + "']")
-                .shouldBe(visible)
-                .click();
-        $(".aui-message-success").shouldBe(visible).shouldNotBe(visible, Duration.ofSeconds(10));
+    public ProjectPage enterIssueLinkAndPressEnter(String text) {
+        issueLinksTextarea.shouldBe(visible).click();
+        actions().sendKeys(text).sendKeys(org.openqa.selenium.Keys.ENTER).perform();
+        return this;
     }
 
+    public ProjectPage enterSprintAndPressEnter(String text) {
+        sprintInput.shouldBe(visible).click();
+        sprintInput.setValue(text);
+        actions().sendKeys(org.openqa.selenium.Keys.ENTER).perform();
+        return this;
+    }
 
-    public void openBusinessProcessAndSelect(String menuItemText) {
-        $x("//a[@id='opsbar-transitions_more']")
+    public ProjectPage selectSeverityByValue(String value) {
+        severitySelect.shouldBe(visible).selectOptionByValue(value);
+        return this;
+    }
+
+    public ProjectPage selectFixVersionByText(String version) {
+        fixVersionSelect.shouldBe(visible).selectOption(version);
+        return this;
+    }
+
+    public ProjectPage clickSubmitAndWaitForSuccessAndOpenIssue() {
+        submitButton.shouldBe(visible).click();
+        $x("//div[contains(@class,'aui-message-success')]").shouldBe(visible);
+        $x("//div[contains(@class,'aui-message-success')]//a[contains(@href,'browse/')]").shouldBe(visible).click();
+        return this;
+    }
+
+    public ProjectPage openBusinessProcessAndSelect(String actionText) {
+
+        $x("//a[@id='opsbar-transitions_more']").shouldBe(visible, Duration.ofSeconds(10)).click();
+
+        $$x("//span[@class='trigger-label']").findBy(text(actionText))
                 .shouldBe(visible, Duration.ofSeconds(10))
                 .click();
 
-        SelenideElement menuItem = $$("span.trigger-label")
-                .findBy(text(menuItemText))
-                .shouldBe(visible, Duration.ofSeconds(10));
-        menuItem.click();
-
-        $x("//input[@id='issue-workflow-transition-submit' and @value='" + menuItemText + "']")
+        $x("//input[@id='issue-workflow-transition-submit' and @value='" + actionText + "']")
                 .shouldBe(visible, Duration.ofSeconds(10))
                 .click();
 
-        $(".aui-message-success")
-                .shouldBe(visible, Duration.ofSeconds(10))
-                .shouldNotBe(visible, Duration.ofSeconds(10));
+        SelenideElement successMessage = $x("//div[contains(@class,'aui-message-success')]");
+        successMessage.shouldBe(visible, Duration.ofSeconds(10));
+        successMessage.shouldNotBe(visible, Duration.ofSeconds(15));
 
-
+        return this;
     }
-
-    public void openActiveSprints() {
-
-        SelenideElement sidebarToggle = $x("//button[contains(@class,'aui-sidebar-toggle') and @data-tooltip='Раскрыть колонку ( [ )']");
-        if (sidebarToggle.exists() && sidebarToggle.isDisplayed()) {
-            sidebarToggle.click();
-        }
-
-        SelenideElement activeSprintsLink = $x("//a[contains(@data-link-id,'project-sidebar-work-scrum') and .//span[@class='aui-nav-item-label' and text()='Активные спринты']]");
-        activeSprintsLink.shouldBe(visible, Duration.ofSeconds(10)).click();
-    }
-
-
 }
