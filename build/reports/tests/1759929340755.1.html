@@ -1,0 +1,621 @@
+<html lang="ru" class="js-focus-visible webkit chrome" data-js-focus-visible="">
+<head>
+    <style type="text/css">
+        @charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}
+    </style>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="application-name" content="JIRA" data-name="jira" data-version="8.20.7">
+    <meta name="ajs-server-scheme" content="https">
+    <meta name="ajs-server-port" content="443">
+    <meta name="ajs-server-name" content="edujira.ifellow.ru">
+    <meta name="ajs-behind-proxy" content="null">
+    <meta name="ajs-base-url" content="https://edujira.ifellow.ru">
+    <meta name="ajs-dev-mode" content="false">
+    <meta name="ajs-context-path" content="">
+    <meta name="ajs-version-number" content="8.20.7">
+    <meta name="ajs-build-number" content="820007">
+    <meta name="ajs-is-beta" content="false">
+    <meta name="ajs-is-rc" content="false">
+    <meta name="ajs-is-snapshot" content="false">
+    <meta name="ajs-is-milestone" content="false">
+    <meta name="ajs-remote-user" content="">
+    <meta name="ajs-remote-user-fullname" content="">
+    <meta name="ajs-user-locale" content="ru_RU">
+    <meta name="ajs-user-locale-group-separator" content="&nbsp;">
+    <meta name="ajs-app-title" content="Jira">
+    <meta name="ajs-keyboard-shortcuts-enabled" content="true">
+    <meta name="ajs-keyboard-accesskey-modifier" content="Alt">
+    <meta name="ajs-enabled-dark-features"
+          content="[&quot;com.atlassian.jira.agile.darkfeature.editable.detailsview&quot;,&quot;nps.survey.inline.dialog&quot;,&quot;com.atlassian.jira.agile.darkfeature.edit.closed.sprint.enabled&quot;,&quot;jira.plugin.devstatus.phasetwo&quot;,&quot;jira.frother.reporter.field&quot;,&quot;atlassian.rest.xsrf.legacy.enabled&quot;,&quot;jira.issue.status.lozenge&quot;,&quot;com.atlassian.jira.config.BIG_PIPE&quot;,&quot;com.atlassian.jira.projects.issuenavigator&quot;,&quot;com.atlassian.jira.config.PDL&quot;,&quot;jira.plugin.devstatus.phasetwo.enabled&quot;,&quot;atlassian.aui.raphael.disabled&quot;,&quot;app-switcher.new&quot;,&quot;frother.assignee.field&quot;,&quot;com.atlassian.jira.projects.ProjectCentricNavigation.Switch&quot;,&quot;jira.onboarding.cyoa&quot;,&quot;com.atlassian.jira.agile.darkfeature.kanplan.enabled&quot;,&quot;com.atlassian.jira.config.ProjectConfig.MENU&quot;,&quot;com.atlassian.jira.projects.sidebar.DEFER_RESOURCES&quot;,&quot;com.atlassian.jira.agile.darkfeature.kanplan.epics.and.versions.enabled&quot;,&quot;com.atlassian.jira.agile.darkfeature.sprint.goal.enabled&quot;,&quot;jira.zdu.admin-updates-ui&quot;,&quot;jira.zdu.jmx-monitoring&quot;,&quot;mail.batching.enabled&quot;,&quot;sd.new.settings.sidebar.location.disabled&quot;,&quot;jira.zdu.cluster-upgrade-state&quot;,&quot;com.atlassian.jira.email.templates.readFromJiraHome&quot;,&quot;com.atlassian.jira.agile.darkfeature.splitissue&quot;,&quot;com.atlassian.jira.config.CoreFeatures.LICENSE_ROLES_ENABLED&quot;,&quot;jira.export.csv.enabled&quot;]">
+    <meta name="ajs-in-admin-mode" content="false">
+    <meta name="ajs-is-sysadmin" content="false">
+    <meta name="ajs-is-admin" content="false">
+    <meta name="ajs-outgoing-mail-enabled" content="false">
+    <meta name="ajs-archiving-enabled" content="true">
+    <meta name="ajs-date-relativize" content="true">
+    <meta name="ajs-date-time" content="h:mm a">
+    <meta name="ajs-date-day" content="EEEE h:mm a">
+    <meta name="ajs-date-dmy" content="dd/MMM/yy">
+    <meta name="ajs-date-complete" content="dd/MMM/yy h:mm a">
+    <script type="text/javascript">var AJS=AJS||{};AJS.debug=true;</script>
+
+
+    <meta id="atlassian-token" name="atlassian-token"
+          content="B2UA-2NV2-5DBH-LD1W_39093a2ed8533f415586a0d3cde5b53fafabb2ed_lout">
+
+
+    <link rel="shortcut icon" href="/s/8hvc3l/820007/1dlckms/_/images/fav-jsw.png">
+
+
+    <!--[if IE]><![endif]-->
+    <script type="text/javascript">
+        (function() {
+            var contextPath = '';
+
+            function printDeprecatedMsg() {
+                if (console && console.warn) {
+                    console.warn('DEPRECATED JS - contextPath global variable has been deprecated since 7.4.0. Use `wrm/context-path` module instead.');
+                }
+            }
+
+            Object.defineProperty(window, 'contextPath', {
+                get: function() {
+                    printDeprecatedMsg();
+                    return contextPath;
+                },
+                set: function(value) {
+                    printDeprecatedMsg();
+                    contextPath = value;
+                }
+            });
+        })();
+
+    </script>
+    <script>(function replaceLocation() {window.history.replaceState({}, "", "/secure/Dashboard.jspa")})();</script>
+    <script>
+        window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+        WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"\"";
+        WRM._unparsedData["jira.core:feature-flags-data.feature-flag-data"]="{\"enabled-feature-keys\":[\"com.atlassian.jira.agile.darkfeature.editable.detailsview\",\"nps.survey.inline.dialog\",\"com.atlassian.jira.agile.darkfeature.edit.closed.sprint.enabled\",\"jira.plugin.devstatus.phasetwo\",\"jira.frother.reporter.field\",\"atlassian.rest.xsrf.legacy.enabled\",\"jira.issue.status.lozenge\",\"com.atlassian.jira.config.BIG_PIPE\",\"com.atlassian.jira.projects.issuenavigator\",\"com.atlassian.jira.config.PDL\",\"jira.plugin.devstatus.phasetwo.enabled\",\"atlassian.aui.raphael.disabled\",\"app-switcher.new\",\"frother.assignee.field\",\"com.atlassian.jira.projects.ProjectCentricNavigation.Switch\",\"jira.onboarding.cyoa\",\"com.atlassian.jira.agile.darkfeature.kanplan.enabled\",\"com.atlassian.jira.config.ProjectConfig.MENU\",\"com.atlassian.jira.projects.sidebar.DEFER_RESOURCES\",\"com.atlassian.jira.agile.darkfeature.kanplan.epics.and.versions.enabled\",\"com.atlassian.jira.agile.darkfeature.sprint.goal.enabled\",\"jira.zdu.admin-updates-ui\",\"jira.zdu.jmx-monitoring\",\"mail.batching.enabled\",\"sd.new.settings.sidebar.location.disabled\",\"jira.zdu.cluster-upgrade-state\",\"com.atlassian.jira.email.templates.readFromJiraHome\",\"com.atlassian.jira.agile.darkfeature.splitissue\",\"com.atlassian.jira.config.CoreFeatures.LICENSE_ROLES_ENABLED\",\"jira.export.csv.enabled\"],\"feature-flag-states\":{\"com.atlassian.jira.agile.darkfeature.handle.ug.usernames\":true,\"com.atlassian.jira.security.endpoint.non.admin.access.screens\":false,\"com.atlassian.jira.mailHandlerImapMessageQueryLegacy\":false,\"com.atlassian.diagnostics.scheduler.monitor\":true,\"com.atlassian.jira.webhookEventsAsyncProcessing\":false,\"com.atlassian.jira.diagnostics.perflog\":true,\"com.atlassian.jira.dbr\":true,\"com.atlassian.jira.agile.darkfeature.legacy.epic.picker\":false,\"com.atlassian.jira.issuetable.move.links.hidden\":true,\"com.atlassian.jira.agile.darkfeature.unlink.sprints.on.issue.move\":true,\"jira.renderer.consider.variable.format\":true,\"com.atlassian.jira.plugin.issuenavigator.jql.autocomplete.eagerlyLoaded\":false,\"com.atlassian.jira.user.dbIdBasedKeyGenerationStrategy\":true,\"com.atlassian.portfolio.dcBundling\":true,\"com.atlassian.jira.sharedEntityEditRights\":true,\"com.atlassian.jira.security.endpoint.anonymous.access.resolution\":false,\"com.atlassian.jira.agile.darkfeature.sprint.goal\":false,\"com.atlassian.jira.thumbnailsDeferredGeneration\":true,\"jira.cluster.monitoring.show.offline.nodes\":true,\"com.atlassian.jira.commentReactions\":true,\"data.pipeline.feature.jira.issue.links.export\":true,\"com.atlassian.jira.custom.csv.escaper\":true,\"com.atlassian.jira.fixedCommentDeletionNotifications\":true,\"com.atlassian.jira.allThumbnailsDeferred\":false,\"com.atlassian.jira.plugin.issuenavigator.filtersUxImprovment\":false,\"com.atlassian.jira.agile.darkfeature.kanplan.epics.and.versions\":false,\"com.atlassian.jira.jsd.mobile\":true,\"jira.customfields.cleanup.identification\":true,\"data.pipeline.feature.jira.all.exportable.custom.fields\":true,\"com.atlassian.jira.defaultValuesForSystemFields\":true,\"jira.dc.cleanup.cluser.tasks\":true,\"jira.customfields.bulk.delete\":true,\"mail.batching.override.core\":true,\"com.atlassian.jira.issues.archiving.filters\":false,\"jira.users.and.roles.page.in.react\":true,\"jira.security.csp.sandbox\":true,\"com.atlassian.jira.agile.darkfeature.velocity.chart.ui\":true,\"com.atlassian.jira.returnDefaultAvatarsForBrokenAvatars\":true,\"com.atlassian.jira.agile.darkfeature.sprint.auto.management\":false,\"jira.jql.suggestrecentfields\":false,\"com.atlassian.jira.gdpr.rtbf\":true,\"com.atlassian.jira.security.xsrf.session.token\":true,\"com.atlassian.jira.security.project.admin.revoke.with.application.access\":true,\"com.atlassian.jira.agile.darkfeature.optimistic.transitions\":true,\"com.atlassian.jiranomenclature\":true,\"com.atlassian.jira.security.endpoint.non.admin.access.avatar.system\":false,\"com.atlassian.jira.agile.darkfeature.kanplan\":false,\"com.atlassian.diagnostics.http.monitor\":true,\"com.atlassian.jira.agile.darkfeature.future.sprint.dates\":true,\"jira.customfields.paginated.ui\":true,\"com.atlassian.jira.filtersAndDashboardsShareableWithAllGroupsAndRoles\":true,\"com.atlassian.jira.agile.darkfeature.edit.closed.sprint\":false,\"jira.create.linked.issue\":true,\"jira.sal.host.connect.accessor.existing.transaction.will.create.transactions\":true,\"com.atlassian.jira.advanced.audit.log\":true,\"jira.quick.search\":true,\"external.links.new.window\":true,\"jira.jql.smartautoselectfirst\":false,\"jira.jql.membersof.ignoreGlobalPermissionsForAnonymous\":false,\"data.pipeline.feature.jira.issue.history.export\":true,\"jira.richeditor.bidi.warning\":true,\"com.atlassian.jira.security.endpoint.non.browse.projects.access.fields\":false,\"atlassian.cdn.static.assets\":true,\"mail.batching\":false,\"com.atlassian.jira.privateEntitiesEditable\":true,\"com.atlassian.jira.security.endpoint.anonymous.access.priority\":false,\"jira.priorities.per.project.edit.default\":false,\"com.atlassian.jira.agile.darkfeature.issues.in.epic.details.view\":true,\"com.atlassian.jira.plugin.issuenavigator.anonymousPreventCfData\":false,\"jira.priorities.per.project.jsd\":true,\"com.atlassian.jira.agile.darkfeature.rapid.boards.bands\":true,\"com.atlassian.jira.agile.darkfeature.flexible.boards\":true,\"com.atlassian.jira.agile.darkfeature.sprint.picker.allsprints.suggestion\":true,\"com.atlassian.jira.agile.darkfeature.epic.validate.visibility\":true,\"jira.dc.lock.leasing\":true,\"com.atlassian.jira.accessibility.personal.settings\":true,\"mail.batching.create.section.cf\":true,\"com.atlassian.jira.send.email.notifications.to.user.without.application.access\":false,\"com.atlassian.jira.security.endpoint.non.browse.projects.access.autocompletedata\":false,\"com.atlassian.mail.server.managers.hostname.verification\":true,\"com.atlassian.advancedroadmaps.rebrand\":true,\"com.atlassian.diagnostics.monitors\":true,\"com.atlassian.jira.upgrade.startup.fix.index\":true,\"com.atlassian.jira.security.endpoint.anonymous.access.projectCategory\":false,\"jira.redirect.anonymous.404.errors\":true,\"com.atlassian.jira.issuetable.draggable\":true,\"com.atlassian.diagnostics.operating.system.monitor\":false,\"sd.email.microsoft.pop.two.line.auth\":true,\"com.atlassian.jira.attachments.generate.unique.suffix\":true,\"com.atlassian.jira.agile.darkfeature.kanban.hide.old.done.issues\":true,\"jira.version.based.node.reindex.service\":true,\"com.atlassian.jira.agile.darkfeature.backlog.showmore\":true,\"com.atlassian.diagnostics.database.monitor\":true,\"com.atlassian.jira.agile.darkfeature.sprint.plan\":false,\"com.atlassian.diagnostics.garbage.collection.monitor\":true,\"com.atlassian.jira.security.endpoint.anonymous.access.issueLinkType\":false,\"com.atlassian.jira.security.LegacyJiraTypeResolver.WARN_ONLY\":false,\"data.pipeline.feature.jira.schema.version.2\":true,\"com.atlassian.jira.agile.darkfeature.burnupchart\":false,\"com.atlassian.jira.issues.archiving.browse\":true,\"com.atlassian.jira.agile.darkfeature.velocity.sprint.picker\":false,\"jira.instrumentation.laas\":false,\"com.atlassian.jira.security.ChartUtils.browse.projects.permission.check\":false,\"mail.batching.user.notification\":true,\"com.atlassian.diagnostics.jql.monitor\":true,\"com.atlassian.portfolio.permission.check.for.permissions\":false,\"com.atlassian.jira.agile.darkfeature.dataonpageload\":true,\"data.pipeline.feature.jira.archived.issue.export\":false,\"com.atlassian.jira.projects.per.project.permission.query\":true,\"com.atlassian.jira.issues.archiving\":true,\"jira.priorities.per.project\":true,\"index.use.snappy\":true}}";
+        WRM._unparsedData["jira.core:default-comment-security-level-data.DefaultCommentSecurityLevelHelpLink"]="{\"extraClasses\":\"default-comment-level-help\",\"title\":\"Commenting on an Issue\",\"url\":\"https://docs.atlassian.com/jira/jcore-docs-0820/Editing+and+collaborating+on+issues#Editingandcollaboratingonissues-restrictacomment\",\"isLocal\":false}";
+        WRM._unparsedData["jira.core:dateFormatProvider.allFormats"]="{\"dateFormats\":{\"meridiem\":[\"AM\",\"PM\"],\"eras\":[\"\u0434\u043e \u043d.\u044d.\",\"\u043d.\u044d.\"],\"months\":[\"\u044f\u043d\u0432\u0430\u0440\u044f\",\"\u0444\u0435\u0432\u0440\u0430\u043b\u044f\",\"\u043c\u0430\u0440\u0442\u0430\",\"\u0430\u043f\u0440\u0435\u043b\u044f\",\"\u043c\u0430\u044f\",\"\u0438\u044e\u043d\u044f\",\"\u0438\u044e\u043b\u044f\",\"\u0430\u0432\u0433\u0443\u0441\u0442\u0430\",\"\u0441\u0435\u043d\u0442\u044f\u0431\u0440\u044f\",\"\u043e\u043a\u0442\u044f\u0431\u0440\u044f\",\"\u043d\u043e\u044f\u0431\u0440\u044f\",\"\u0434\u0435\u043a\u0430\u0431\u0440\u044f\"],\"monthsShort\":[\"\u044f\u043d\u0432\",\"\u0444\u0435\u0432\",\"\u043c\u0430\u0440\",\"\u0430\u043f\u0440\",\"\u043c\u0430\u044f\",\"\u0438\u044e\u043d\",\"\u0438\u044e\u043b\",\"\u0430\u0432\u0433\",\"\u0441\u0435\u043d\",\"\u043e\u043a\u0442\",\"\u043d\u043e\u044f\",\"\u0434\u0435\u043a\"],\"weekdaysShort\":[\"\u0412\u0441\",\"\u041f\u043d\",\"\u0412\u0442\",\"\u0421\u0440\",\"\u0427\u0442\",\"\u041f\u0442\",\"\u0421\u0431\"],\"weekdays\":[\"\u0432\u043e\u0441\u043a\u0440\u0435\u0441\u0435\u043d\u044c\u0435\",\"\u043f\u043e\u043d\u0435\u0434\u0435\u043b\u044c\u043d\u0438\u043a\",\"\u0432\u0442\u043e\u0440\u043d\u0438\u043a\",\"\u0441\u0440\u0435\u0434\u0430\",\"\u0447\u0435\u0442\u0432\u0435\u0440\u0433\",\"\u043f\u044f\u0442\u043d\u0438\u0446\u0430\",\"\u0441\u0443\u0431\u0431\u043e\u0442\u0430\"]},\"lookAndFeelFormats\":{\"relativize\":\"true\",\"time\":\"h:mm a\",\"day\":\"EEEE h:mm a\",\"dmy\":\"dd/MMM/yy\",\"complete\":\"dd/MMM/yy h:mm a\"}}";
+        WRM._unparsedData["com.atlassian.plugins.helptips.jira-help-tips:help-tip-manager.JiraHelpTipData"]="{\"anonymous\":true}";
+        WRM._unparsedData["com.atlassian.jira.jira-issue-nav-components:issueviewer.features"]="{\"rteEnabled\":true}";
+        WRM._unparsedData["com.atlassian.analytics.analytics-client:policy-update-init.policy-update-data-provider"]="false";
+        WRM._unparsedData["com.atlassian.analytics.analytics-client:programmatic-analytics-init.programmatic-analytics-data-provider"]="false";
+        WRM._unparsedData["jira.core:avatar-picker-data.data"]="{}";
+        WRM._unparsedData["jira.core:terminology-data.terminology"]="{\"terminologyEntries\":[{\"originalName\":\"sprint\",\"originalNamePlural\":\"sprints\",\"newName\":\"sprint\",\"newNamePlural\":\"sprints\",\"isDefault\":true},{\"originalName\":\"epic\",\"originalNamePlural\":\"epics\",\"newName\":\"epic\",\"newNamePlural\":\"epics\",\"isDefault\":true}],\"isTerminologyActive\":false}";
+        WRM._unparsedData["com.atlassian.jira.jira-header-plugin:dismissedFlags.flags"]="{\"dismissed\":[]}";
+        WRM._unparsedData["com.atlassian.jira.jira-header-plugin:newsletter-signup-tip-init.newsletterSignup"]="{\"signupDescription\":\"\u041f\u043e\u043b\u0443\u0447\u0430\u0439\u0442\u0435 \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u044f, \u0432\u0434\u043e\u0445\u043d\u043e\u0432\u0435\u043d\u0438\u0435 \u0438 \u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0430\u0446\u0438\u0438 \u043e\u0442 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a\u043e\u0432 Jira.\",\"formUrl\":\"https://www.atlassian.com/apis/exact-target/{0}/subscribe?mailingListId=1401671\",\"signupTitle\":\"\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c\u0441\u044f!\",\"signupId\":\"newsletter-signup-tip\",\"showNewsletterTip\":false}";
+        WRM._unparsedData["com.atlassian.jira.project-templates-plugin:project-templates-plugin-resources.ptAnalyticsData"]="{\"instanceCreatedDate\":\"2021-09-15\"}";
+        WRM._unparsedData["jira.core:user-message-flags-data.adminLockout"]="{}";
+        WRM._unparsedData["jira.request.correlation-id"]="\"c8267d607a2d24\"";
+        WRM._unparsedData["dashboardInfoMessage"]="\"\"";
+        WRM._unparsedData["dashboardInstallMessage"]="null";
+        if(window.WRM._dataArrived)window.WRM._dataArrived();
+    </script>
+    <link type="text/css" rel="stylesheet"
+          href="/s/267629083f24914bc04aed9191cf3526-CDN/8hvc3l/820007/1dlckms/bf140c2d3cdc01ec4082b00f2f866a09/_/download/contextbatch/css/_super/batch.css"
+          data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+    <link type="text/css" rel="stylesheet"
+          href="/s/02759219e8b4ab980ee74a5932487865-CDN/8hvc3l/820007/1dlckms/fc32794b4a55cecb56ebea75d4018edf/_/download/contextbatch/css/atl.dashboard,jira.global,atl.general,jira.dashboard,-_super/batch.css?agile_global_admin_condition=true&amp;jag=true"
+          data-wrm-key="atl.dashboard,jira.global,atl.general,jira.dashboard,-_super" data-wrm-batch-type="context"
+          media="all">
+    <link type="text/css" rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/3.0.4/_/download/batch/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component.css"
+          data-wrm-key="com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component"
+          data-wrm-batch-type="resource" media="all">
+    <script type="text/javascript"
+            src="/s/cfe501d8743e6e244e843985ffaff934-CDN/8hvc3l/820007/1dlckms/bf140c2d3cdc01ec4082b00f2f866a09/_/download/contextbatch/js/_super/batch.js?locale=ru-RU"
+            data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/fc05d08699d5c67afa4fb85b0cd18517-CDN/8hvc3l/820007/1dlckms/fc32794b4a55cecb56ebea75d4018edf/_/download/contextbatch/js/atl.dashboard,jira.global,atl.general,jira.dashboard,-_super/batch.js?agile_global_admin_condition=true&amp;jag=true&amp;locale=ru-RU"
+            data-wrm-key="atl.dashboard,jira.global,atl.general,jira.dashboard,-_super" data-wrm-batch-type="context"
+            data-initially-rendered=""></script>
+    <style data-styled="" data-styled-version="4.0.0"></style>
+    <script type="text/javascript" charset="utf-8"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/d06015502644e17e5a3997626f26e323/_/download/contextbatch/js/browser-metrics-plugin.contrib,-_super,-atl.dashboard,-atl.general/batch.js?agile_global_admin_condition=true&amp;jag=true"></script>
+    <script type="text/javascript"
+            src="/s/feb35ad8c39f0a7bfc7b34a12de8dbb4-CDN/8hvc3l/820007/1dlckms/aae1242f5fc81cc6a5bb8bc963ccda29/_/download/contextbatch/js/atl.global,-_super/batch.js?locale=ru-RU"
+            data-wrm-key="atl.global,-_super" data-wrm-batch-type="context" data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/9aec92f78b39fb0cf91c17ced754f0e0-CDN/8hvc3l/820007/1dlckms/3.0.4/_/download/batch/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component.js?locale=ru-RU"
+            data-wrm-key="com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component"
+            data-wrm-batch-type="resource" data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/3.0.4/_/download/batch/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-lib/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-lib.js"
+            data-wrm-key="com.atlassian.jira.jira-tzdetect-plugin:tzdetect-lib" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:calendar-en/jira.webresources:calendar-en.js"
+            data-wrm-key="jira.webresources:calendar-en" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:calendar-localisation-moment/jira.webresources:calendar-localisation-moment.js"
+            data-wrm-key="jira.webresources:calendar-localisation-moment" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <script type="text/javascript"
+            src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:calendar-ru/jira.webresources:calendar-ru.js"
+            data-wrm-key="jira.webresources:calendar-ru" data-wrm-batch-type="resource"
+            data-initially-rendered=""></script>
+    <link type="text/css" rel="stylesheet"
+          href="/s/c66ce2bd2fa5e9c958f4a43024aef4bd-CDN/8hvc3l/820007/1dlckms/3353375a32d7a6de65fe961dd6160ee9/_/download/contextbatch/css/jira.global.look-and-feel,-_super/batch.css"
+          data-wrm-key="jira.global.look-and-feel,-_super" data-wrm-batch-type="context" media="all">
+
+    <script type="text/javascript"
+            src="/rest/api/1.0/shortcuts/820007/3e2508ded7c6b542c922b18477e6c90c/shortcuts.js"></script>
+
+
+    <title>System Dashboard - Jira</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/osd.jsp" title="System Dashboard - Jira">
+
+
+    <link rel="stylesheet" type="text/css"
+          href="/s/7b6041d453e0e6a4157fe414ede90915-CDN/8hvc3l/820007/1dlckms/3e3b5b9d224ace942416078a014c513b/_/download/contextbatch/css/com.atlassian.jira.plugins.jira-development-integration-plugin:8,-_super/batch.css">
+    <link rel="stylesheet" type="text/css"
+          href="/s/50bc9be5bfead1a25e72c1a9338c94f6-CDN/8hvc3l/820007/1dlckms/0d51351e27fe633086cae9f2a2e16964/_/download/contextbatch/css/com.atlassian.jira.plugins.jira-development-integration-plugin:0,-_super,-atl.dashboard,-jira.global,-atl.general/batch.css?agile_global_admin_condition=true&amp;jag=true">
+    <script type="text/javascript" charset="utf-8"
+            src="/s/99796897cf83ac2dc3c4b3bb75f66afd-CDN/8hvc3l/820007/1dlckms/3e3b5b9d224ace942416078a014c513b/_/download/contextbatch/js/com.atlassian.jira.plugins.jira-development-integration-plugin:8,-_super/batch.js?locale=ru-RU"></script>
+    <script type="text/javascript" charset="utf-8"
+            src="/s/0a442e2dcaa5ecf59fc96153cd08fe67-CDN/8hvc3l/820007/1dlckms/0d51351e27fe633086cae9f2a2e16964/_/download/contextbatch/js/com.atlassian.jira.plugins.jira-development-integration-plugin:0,-_super,-atl.dashboard,-jira.global,-atl.general/batch.js?agile_global_admin_condition=true&amp;jag=true&amp;locale=ru-RU"></script>
+    <script type="text/javascript" charset="utf-8"
+            src="/s/99796897cf83ac2dc3c4b3bb75f66afd-CDN/8hvc3l/820007/1dlckms/8bb11a79910be1f913b5b4d75779357a/_/download/contextbatch/js/com.atlassian.jira.plugins.jira-quicksearch-plugin:5,-_super,-atl.dashboard,-jira.global,-com.atlassian.jira.plugins.jira-development-integration-plugin:0/batch.js?locale=ru-RU"></script>
+</head>
+
+
+<body id="jira" class="aui-layout aui-theme-default  page-type-dashboard" data-version="8.20.7"
+      data-aui-version="9.2.3-4dc984d9f">
+<div id="page">
+    <header id="header" role="banner">
+
+
+        <script>
+            require(["jquery", "jira/license-banner"], function ($, licenseBanner) {
+                $(function () { // eslint-disable-line @atlassian/onready-checks/no-jquery-onready
+                    licenseBanner.showLicenseBanner("");
+                    licenseBanner.showLicenseFlag("");
+                });
+            });
+        </script>
+
+
+        <a class="aui-skip-link" href="/login.jsp?os_destination=%2Fdefault.jsp">ВОЙТИ</a><a class="aui-skip-link"
+                                                                                             href="#main">Перейти к
+        главному содержимому</a><a class="aui-skip-link" href="#sidebar">Перейти к боковой панели</a>
+        <nav class="aui-header aui-dropdown2-trigger-group" aria-label="Сайт" data-aui-responsive="true">
+            <div class="aui-header-inner">
+                <div class="aui-header-primary"><span id="logo" class="aui-header-logo aui-header-logo-custom"><a
+                        href="https://edujira.ifellow.ru/secure/MyJiraHome.jspa"
+                        aria-label="Перейти на главную страницу"><img
+                        src="/s/8hvc3l/820007/1dlckms/_/images/jira-software.png" alt="Jira"
+                        data-aui-responsive-header-index="0"></a></span>
+                    <ul class="aui-nav" style="width: auto;">
+                        <li><a href="/secure/Dashboard.jspa"
+                               class=" aui-nav-link aui-dropdown2-trigger aui-dropdown2-ajax" id="home_link"
+                               aria-haspopup="true" aria-controls="home_link-content"
+                               title="Просмотр и управление Вашими рабочими столами" accesskey="D"
+                               elementtiming="app-header" resolved="" aria-expanded="false">Рабочий стол</a>
+                            <div class="aui-dropdown2 aui-style-default aui-layer" id="home_link-content"
+                                 data-aui-dropdown2-ajax-key="home_link" resolved="" tabindex="-1"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="aui-header-secondary">
+                    <ul class="aui-nav">
+                        <li id="quicksearch-menu">
+                            <form action="/secure/QuickSearch.jspa" method="get" id="quicksearch"
+                                  class="aui-quicksearch dont-default-focus ajs-dirty-warning-exempt">
+                                <input id="quickSearchInput" autocomplete="off" class="search" type="text"
+                                       title="Поиск ( Нажмите '/' )" placeholder="Поиск" name="searchString"
+                                       accesskey="Q">
+                                <div class="quick-search-spinner"></div>
+                                <input type="submit" class="hidden" value="Search">
+                            </form>
+                        </li>
+                        <li><a class="jira-feedback-plugin" role="button" aria-haspopup="true"
+                               id="jira-header-feedback-link" href="#"><span
+                                class="aui-icon aui-icon-small aui-iconfont-feedback">Отправить отзыв в Atlassian</span></a>
+                        </li>
+
+
+                        <li id="system-help-menu">
+                            <a class="aui-nav-link aui-dropdown2-trigger aui-dropdown2-trigger-arrowless" id="help_menu"
+                               aria-haspopup="true" href="https://docs.atlassian.com/jira/jcore-docs-0820/"
+                               target="_blank" rel="noopener noreferrer" title="Справка" resolved=""
+                               aria-controls="system-help-menu-content" aria-expanded="false"><span
+                                    class="aui-icon aui-icon-small aui-iconfont-question-filled">Справка</span></a>
+                            <div id="system-help-menu-content" class="aui-dropdown2 aui-style-default aui-layer"
+                                 resolved="" tabindex="-1">
+                                <div class="aui-dropdown2-section">
+                                    <ul id="jira-help" class="aui-list-truncate">
+                                        <li>
+                                            <a id="view_core_help" class="aui-nav-link "
+                                               title="Перейти к онлайн документации на ПО Jira Core"
+                                               href="https://docs.atlassian.com/jira/jcore-docs-0820/" target="_blank">Справка
+                                                Jira Core</a>
+                                        </li>
+                                        <li>
+                                            <a id="keyshortscuthelp" class="aui-nav-link "
+                                               title="Получить больше информации о Горящих клавишах Jira ( Нажмите '?' )"
+                                               href="/secure/ViewKeyboardShortcuts!default.jspa" target="_blank">Горячие
+                                                клавиши</a>
+                                        </li>
+                                        <li>
+                                            <a id="view_about" class="aui-nav-link "
+                                               title="Получить больше информации о Jira" href="/secure/AboutPage.jspa">О
+                                                Jira</a>
+                                        </li>
+                                        <li>
+                                            <a id="view_credits" class="aui-nav-link " title="Показать, кто это сделал"
+                                               href="/secure/credits/AroundTheWorld!default.jspa" target="_blank">Список
+                                                участников Jira</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li id="user-options">
+                            <a class="aui-nav-link login-link" href="/login.jsp?os_destination=%2Fdefault.jsp">Вход</a>
+                            <div id="user-options-content" class="aui-dropdown2 aui-style-default aui-layer" resolved=""
+                                 tabindex="-1">
+                                <div class="aui-dropdown2-section">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- .aui-header-inner-->
+            <aui-header-end resolved=""></aui-header-end>
+        </nav><!-- .aui-header -->
+    </header>
+
+
+    <div id="content">
+        <dashboard
+                params="{&quot;dashboardDirectoryResourceUrl&quot;:&quot;https://edujira.ifellow.ru/rest/config/1.0/directory&quot;,&quot;dashboardUrl&quot;:&quot;https://edujira.ifellow.ru/rest/dashboards/1.0/10000&quot;,&quot;dashboardDirectoryUrl&quot;:&quot;https://edujira.ifellow.ru/rest/dashboards/1.0//directory/10000&quot;,&quot;layoutAction&quot;:&quot;https://edujira.ifellow.ru/rest/dashboards/1.0/10000/layout&quot;,&quot;errorGadgetUrl&quot;:&quot;https://edujira.ifellow.ru/plugins/servlet/gadgets/error/spec-not-found&quot;,&quot;writable&quot;:false,&quot;canAddExternalGadgetsToDirectory&quot;:false,&quot;dashboardDiagnosticsUrl&quot;:&quot;/plugins/servlet/gadgets/dashboard-diagnostics&quot;,&quot;maxGadgets&quot;:20,&quot;gadgetDirectoryAdminUrl&quot;:&quot;https://edujira.ifellow.ru/plugins/servlet/gadgets/admin&quot;,&quot;dashboardDirectoryBaseUrl&quot;:&quot;https://edujira.ifellow.ru/&quot;,&quot;securityTokensUrl&quot;:&quot;https://edujira.ifellow.ru/plugins/servlet/gadgets/security-tokens&quot;,&quot;dashboardResourceUrl&quot;:&quot;https://edujira.ifellow.ru/rest/dashboards/1.0/10000&quot;}"
+                layouts="{&quot;layouts&quot;:[{&quot;layout&quot;:&quot;AA&quot;,&quot;resourceUrl&quot;:&quot;https://edujira.ifellow.ru/rest/dashboards/1.0/10000&quot;,&quot;active&quot;:true,&quot;id&quot;:&quot;10000&quot;,&quot;title&quot;:&quot;System Dashboard&quot;,&quot;uri&quot;:&quot;Dashboard.jspa?selectPageId=10000&quot;,&quot;gadgets&quot;:[{&quot;hasNonHiddenUserPrefs&quot;:false,&quot;color&quot;:&quot;color1&quot;,&quot;column&quot;:0,&quot;colorUrl&quot;:&quot;https://edujira.ifellow.ru/rest/dashboards/1.0/10000/gadget/10000/color&quot;,&quot;title&quot;:&quot;Информация&quot;,&quot;userPrefs&quot;:{&quot;action&quot;:&quot;https://edujira.ifellow.ru/rest/dashboards/1.0/10000/gadget/10000/prefs&quot;,&quot;fields&quot;:[]},&quot;loaded&quot;:true,&quot;gadgetUrl&quot;:&quot;https://edujira.ifellow.ru/rest/dashboards/1.0/10000/gadget/10000&quot;,&quot;width&quot;:0,&quot;context&quot;:{&quot;view&quot;:{&quot;viewType&quot;:{&quot;aliases&quot;:[&quot;DEFAULT&quot;,&quot;DASHBOARD&quot;,&quot;profile&quot;,&quot;home&quot;],&quot;name&quot;:&quot;default&quot;,&quot;canonicalName&quot;:&quot;default&quot;}},&quot;dashboardItem&quot;:{&quot;id&quot;:&quot;10000&quot;,&quot;properties&quot;:{}},&quot;dashboard&quot;:{&quot;id&quot;:&quot;10000&quot;}},&quot;isMaximizable&quot;:true,&quot;id&quot;:&quot;10000&quot;,&quot;configurable&quot;:false,&quot;height&quot;:0,&quot;inlineHtml&quot;:&quot;&lt;div class=\&quot;g-intro\&quot;&gt;&lt;div class=\&quot;intro\&quot;&gt;&lt;img class=\&quot;intro-logo\&quot; src=\&quot;/images/intro-illustration.png\&quot; alt=\&quot;\&quot;/&gt;&lt;h3&gt;Добро пожаловать в Jira&lt;\/h3&gt;&lt;p&gt;Новичок в Jira? Ознакомьтесь с &lt;a id=\&quot;user-docs\&quot; href=\&quot;https://docs.atlassian.com/jira/jcore-docs-0820/\&quot; alt=\&quot;Get help!\&quot; title=\&quot;Documentation\&quot;&gt; Руководством пользователя Jira &lt;\/a&gt;.&lt;\/p&gt;&lt;\/div&gt;&lt;\/div&gt;&quot;},{&quot;hasNonHiddenUserPrefs&quot;:false,&quot;color&quot;:&quot;color1&quot;,&quot;column&quot;:1,&quot;colorUrl&quot;:&quot;https://edujira.ifellow.ru/rest/dashboards/1.0/10000/gadget/0/color&quot;,&quot;amdModule&quot;:&quot;jira-dashboard-items/login&quot;,&quot;title&quot;:&quot;Вход в систему&quot;,&quot;userPrefs&quot;:{&quot;action&quot;:&quot;https://edujira.ifellow.ru/rest/dashboards/1.0/10000/gadget/0/prefs&quot;,&quot;fields&quot;:[{&quot;name&quot;:&quot;isElevatedSecurityCheckShown&quot;,&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;false&quot;,&quot;required&quot;:false},{&quot;name&quot;:&quot;isAdminFormOn&quot;,&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;false&quot;,&quot;required&quot;:false},{&quot;name&quot;:&quot;loginFailedByPermissions&quot;,&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;false&quot;,&quot;required&quot;:false},{&quot;name&quot;:&quot;externalUserManagement&quot;,&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;false&quot;,&quot;required&quot;:false},{&quot;name&quot;:&quot;isPublicMode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;false&quot;,&quot;required&quot;:false},{&quot;name&quot;:&quot;allowCookies&quot;,&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;true&quot;,&quot;required&quot;:false},{&quot;name&quot;:&quot;captchaFailure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;false&quot;,&quot;required&quot;:false},{&quot;name&quot;:&quot;loginSucceeded&quot;,&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;false&quot;,&quot;required&quot;:false}]},&quot;loaded&quot;:true,&quot;gadgetUrl&quot;:&quot;https://edujira.ifellow.ru/rest/dashboards/1.0/10000/gadget/0&quot;,&quot;width&quot;:0,&quot;context&quot;:{&quot;view&quot;:{&quot;viewType&quot;:{&quot;aliases&quot;:[&quot;DEFAULT&quot;,&quot;DASHBOARD&quot;,&quot;profile&quot;,&quot;home&quot;],&quot;name&quot;:&quot;default&quot;,&quot;canonicalName&quot;:&quot;default&quot;}},&quot;dashboardItem&quot;:{&quot;id&quot;:&quot;0&quot;,&quot;properties&quot;:{&quot;isElevatedSecurityCheckShown&quot;:&quot;false&quot;,&quot;isAdminFormOn&quot;:&quot;false&quot;,&quot;loginFailedByPermissions&quot;:&quot;false&quot;,&quot;externalUserManagement&quot;:&quot;false&quot;,&quot;isPublicMode&quot;:&quot;false&quot;,&quot;allowCookies&quot;:&quot;true&quot;,&quot;captchaFailure&quot;:&quot;false&quot;,&quot;loginSucceeded&quot;:&quot;false&quot;}},&quot;dashboard&quot;:{&quot;id&quot;:&quot;10000&quot;}},&quot;isMaximizable&quot;:true,&quot;id&quot;:&quot;0&quot;,&quot;configurable&quot;:false,&quot;height&quot;:0,&quot;inlineHtml&quot;:&quot;&lt;div id=\&quot;login-container\&quot; class=\&quot;\&quot;&gt;&lt;form id=\&quot;loginform\&quot; method=\&quot;post\&quot; action=\&quot;#\&quot; name=\&quot;loginform\&quot; class=\&quot;aui gdt\&quot;&gt;&lt;div class=\&quot;field-group\&quot;&gt;&lt;label accesskey=\&quot;u\&quot; for=\&quot;login-form-username\&quot; id=\&quot;usernamelabel\&quot;&gt;&lt;u&gt;И&lt;\/u&gt;мя пользователя&lt;\/label&gt;&lt;input class=\&quot;text medium-field\&quot; id=\&quot;login-form-username\&quot; name=\&quot;os_username\&quot; type=\&quot;text\&quot;&gt;&lt;\/div&gt;&lt;div class=\&quot;field-group\&quot;&gt;&lt;label accesskey=\&quot;p\&quot; for=\&quot;login-form-password\&quot; id=\&quot;passwordlabel\&quot;&gt;&lt;u&gt;П&lt;\/u&gt;ароль&lt;\/label&gt;&lt;input class=\&quot;text medium-field\&quot; id=\&quot;login-form-password\&quot; name=\&quot;os_password\&quot; type=\&quot;password\&quot;&gt;&lt;\/div&gt;&lt;fieldset class=\&quot;group\&quot;&gt;&lt;div class=\&quot;checkbox\&quot; id=\&quot;rememberme\&quot;&gt;&lt;input class=\&quot;checkbox\&quot; id=\&quot;login-form-remember-me\&quot; name=\&quot;os_cookie\&quot; type=\&quot;checkbox\&quot; value=\&quot;true\&quot;&gt;&lt;label accesskey=\&quot;r\&quot; for=\&quot;login-form-remember-me\&quot; id=\&quot;remembermelabel\&quot;&gt;&lt;u&gt;З&lt;\/u&gt;апомнить меня&lt;\/label&gt;&lt;\/div&gt;&lt;\/fieldset&gt;&lt;div class=\&quot;field-group\&quot; id=\&quot;publicmodeooff\&quot;&gt;&lt;div id=\&quot;publicmodeoffmsg\&quot;&gt;Еще не зарегистрированы? Чтобы получить аккаунт, Пожалуйста, обратитесь к администраторам &lt;a id=\&quot;contact-admin\&quot; href=\&quot;/secure/ContactAdministrators!default.jspa\&quot;&gt;Вашей&lt;\/a&gt; Jira.&lt;\/div&gt;&lt;\/div&gt;&lt;div class=\&quot;buttons-container\&quot;&gt;&lt;div class=\&quot;buttons\&quot;&gt;&lt;input class=\&quot;aui-button aui-button-primary\&quot; id=\&quot;login\&quot; name=\&quot;login\&quot; type=\&quot;submit\&quot; value=\&quot;Войти\&quot;&gt;&lt;a class=\&quot;cancel\&quot; href=\&quot;/secure/ForgotLoginDetails.jspa\&quot; id=\&quot;forgotpassword\&quot; target=\&quot;_parent\&quot;&gt;Не можете попасть в систему?&lt;\/a&gt;&lt;\/div&gt;&lt;\/div&gt;&lt;\/form&gt;&lt;\/div&gt;&quot;}],&quot;writable&quot;:false}]}"
+                resolved="">
+            <div id="dashboard" class="dashboard">
+                <main id="main" role="main" class="dashboard-content">
+                    <div id="dashboard-content">
+                        <div class="aui-page-header">
+                            <div class="aui-page-header-inner">
+                                <div class="aui-page-header-main"><h1>System Dashboard</h1></div>
+                                <div class="aui-page-header-actions" id="dash-options">
+                                    <div id="dash-throbber" class="throbber">&nbsp;</div>
+                                    <a aria-haspopup="true"
+                                       class="aui-button aui-dropdown2-trigger aui-dropdown2-trigger-arrowless"
+                                       resolved="" aria-controls="tools-dropdown-items" aria-expanded="false"
+                                       href="#tools-dropdown-items"><span
+                                            class="aui-icon aui-icon-small aui-iconfont-more">Настройки</span></a>
+                                    <div id="tools-dropdown-items" class="aui-style-default aui-dropdown2 aui-layer"
+                                         resolved="" tabindex="-1">
+                                        <ul class="aui-list-truncate">
+                                            <li><a id="wallboard_link" class="item-link groupmarker"
+                                                   href="https://edujira.ifellow.ru/plugins/servlet/Wallboard/?dashboardId=10000">Просмотреть
+                                                в виде панели</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-shim"></div>
+                        <div class="layout layout-aa">
+                            <ul class="column first" style="min-height: 267px;">
+                                <li class="gadget" id="rep-10000" style="height: 158px;"></li>
+                            </ul>
+                            <ul class="column second" style="min-height: 267px;">
+                                <li class="gadget" id="rep-0" style="height: 266px;"></li>
+                            </ul>
+                            <ul class="column third" style="min-height: 267px;"></ul>
+                        </div>
+                        <div class="gadget color1" id="gadget-10000-renderbox"
+                             style="left: 3.43446%; top: 70px; width: 45.9641%;">
+                            <div class="dashboard-item-frame gadget-container" id="gadget-10000-chrome">
+                                <div class="dashboard-item-header"><h3 id="gadget-10000-title"
+                                                                       class="dashboard-item-title">Информация</h3>
+                                    <div class="gadget-menu">
+                                        <ul>
+                                            <li>
+                                                <button id="gadget-10000-maximize" class="maximize" title="Увеличить"
+                                                        aria-label="Увеличить"><span
+                                                        class="aui-icon aui-icon-small aui-iconfont-vid-full-screen-on"></span>
+                                                </button>
+                                            </li>
+                                            <li class="aui-dd-parent dd-allocated">
+                                                <button id="gadget-10000-menu" class="aui-dd-trigger standard"
+                                                        aria-pressed="false" aria-expanded="false"
+                                                        aria-label="Раскрыть"><span
+                                                        class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                                </button>
+                                                <ul class="aui-dropdown standard hidden">
+                                                    <li class="dropdown-item"><a class="item-link minimization"
+                                                                                 href="#">Уменьшить</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="dashboard-item-content ">
+                                    <form action="https://edujira.ifellow.ru/rest/dashboards/1.0/10000/gadget/10000/prefs"
+                                          class="aui userpref-form hidden" method="post" id="gadget-10000-edit">
+                                        <fieldset>
+                                            <legend><span class="dashboard-item-title">Информация</span> Свойства
+                                            </legend>
+                                        </fieldset>
+                                        <div class="buttons-container submit"><input type="submit" class="submit"
+                                                                                     value="Сохранить" name="save"
+                                                                                     id="gadget-10000-save"><input
+                                                type="reset" class="cancel" value="Отмена" name="reset"
+                                                id="gadget-10000-cancel"></div>
+                                    </form>
+                                    <div id="gadget-10000" class="gadget-inline" style="height: 128px;">
+                                        <div class="g-intro">
+                                            <div class="intro"><img class="intro-logo"
+                                                                    src="/images/intro-illustration.png" alt="">
+                                                <h3>Добро пожаловать в Jira</h3>
+                                                <p>Новичок в Jira? Ознакомьтесь с <a id="user-docs"
+                                                                                     href="https://docs.atlassian.com/jira/jcore-docs-0820/"
+                                                                                     alt="Get help!"
+                                                                                     title="Documentation"> Руководством
+                                                    пользователя Jira </a>.</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gadget color1" id="gadget-0-renderbox"
+                             style="left: 51.4539%; top: 70px; width: 45.9641%;">
+                            <div class="dashboard-item-frame gadget-container" id="gadget-0-chrome">
+                                <div class="dashboard-item-header"><h3 id="gadget-0-title" class="dashboard-item-title">
+                                    Вход в систему</h3>
+                                    <div class="gadget-menu">
+                                        <ul>
+                                            <li>
+                                                <button id="gadget-0-maximize" class="maximize" title="Увеличить"
+                                                        aria-label="Увеличить"><span
+                                                        class="aui-icon aui-icon-small aui-iconfont-vid-full-screen-on"></span>
+                                                </button>
+                                            </li>
+                                            <li class="aui-dd-parent dd-allocated">
+                                                <button id="gadget-0-menu" class="aui-dd-trigger standard"
+                                                        aria-pressed="false" aria-expanded="false"
+                                                        aria-label="Раскрыть"><span
+                                                        class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                                </button>
+                                                <ul class="aui-dropdown standard hidden">
+                                                    <li class="dropdown-item"><a class="item-link minimization"
+                                                                                 href="#">Уменьшить</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="dashboard-item-content ">
+                                    <form action="https://edujira.ifellow.ru/rest/dashboards/1.0/10000/gadget/0/prefs"
+                                          class="aui userpref-form hidden" method="post" id="gadget-0-edit">
+                                        <fieldset>
+                                            <legend><span class="dashboard-item-title">Вход в систему</span> Свойства
+                                            </legend>
+                                            <div class="field-group"><label
+                                                    for="gadget-0-form-isElevatedSecurityCheckShown-pref">undefined</label><input
+                                                    id="gadget-0-form-isElevatedSecurityCheckShown-pref" type="text"
+                                                    value="false" name="up_isElevatedSecurityCheckShown"
+                                                    class="string text"><br></div>
+                                            <div class="field-group"><label for="gadget-0-form-isAdminFormOn-pref">undefined</label><input
+                                                    id="gadget-0-form-isAdminFormOn-pref" type="text" value="false"
+                                                    name="up_isAdminFormOn" class="string text"><br></div>
+                                            <div class="field-group"><label
+                                                    for="gadget-0-form-loginFailedByPermissions-pref">undefined</label><input
+                                                    id="gadget-0-form-loginFailedByPermissions-pref" type="text"
+                                                    value="false" name="up_loginFailedByPermissions"
+                                                    class="string text"><br></div>
+                                            <div class="field-group"><label
+                                                    for="gadget-0-form-externalUserManagement-pref">undefined</label><input
+                                                    id="gadget-0-form-externalUserManagement-pref" type="text"
+                                                    value="false" name="up_externalUserManagement"
+                                                    class="string text"><br></div>
+                                            <div class="field-group"><label for="gadget-0-form-isPublicMode-pref">undefined</label><input
+                                                    id="gadget-0-form-isPublicMode-pref" type="text" value="false"
+                                                    name="up_isPublicMode" class="string text"><br></div>
+                                            <div class="field-group"><label for="gadget-0-form-allowCookies-pref">undefined</label><input
+                                                    id="gadget-0-form-allowCookies-pref" type="text" value="true"
+                                                    name="up_allowCookies" class="string text"><br></div>
+                                            <div class="field-group"><label for="gadget-0-form-captchaFailure-pref">undefined</label><input
+                                                    id="gadget-0-form-captchaFailure-pref" type="text" value="false"
+                                                    name="up_captchaFailure" class="string text"><br></div>
+                                            <div class="field-group"><label for="gadget-0-form-loginSucceeded-pref">undefined</label><input
+                                                    id="gadget-0-form-loginSucceeded-pref" type="text" value="false"
+                                                    name="up_loginSucceeded" class="string text"><br></div>
+                                        </fieldset>
+                                        <div class="buttons-container submit"><input type="submit" class="submit"
+                                                                                     value="Сохранить" name="save"
+                                                                                     id="gadget-0-save"><input
+                                                type="reset" class="cancel" value="Отмена" name="reset"
+                                                id="gadget-0-cancel"></div>
+                                    </form>
+                                    <div id="gadget-0" class="gadget-inline" style="height: 236px;">
+                                        <div id="login-container" class="">
+                                            <form id="loginform" method="post" action="#" name="loginform"
+                                                  class="aui gdt">
+                                                <div class="field-group"><label accesskey="u" for="login-form-username"
+                                                                                id="usernamelabel"><u>И</u>мя
+                                                    пользователя</label><input class="text medium-field"
+                                                                               id="login-form-username"
+                                                                               name="os_username" type="text"></div>
+                                                <div class="field-group"><label accesskey="p" for="login-form-password"
+                                                                                id="passwordlabel"><u>П</u>ароль</label><input
+                                                        class="text medium-field" id="login-form-password"
+                                                        name="os_password" type="password"></div>
+                                                <fieldset class="group">
+                                                    <div class="checkbox" id="rememberme" resolved=""><input
+                                                            class="checkbox" id="login-form-remember-me"
+                                                            name="os_cookie" type="checkbox" value="true"
+                                                            resolved=""><span class="aui-form-glyph"></span><label
+                                                            accesskey="r" for="login-form-remember-me"
+                                                            id="remembermelabel"><u>З</u>апомнить меня</label></div>
+                                                </fieldset>
+                                                <div class="field-group" id="publicmodeooff">
+                                                    <div id="publicmodeoffmsg">Еще не зарегистрированы? Чтобы получить
+                                                        аккаунт, Пожалуйста, обратитесь к администраторам <a
+                                                                id="contact-admin"
+                                                                href="/secure/ContactAdministrators!default.jspa">Вашей</a>
+                                                        Jira.
+                                                    </div>
+                                                </div>
+                                                <div class="buttons-container">
+                                                    <div class="buttons"><input class="aui-button aui-button-primary"
+                                                                                id="login" name="login" type="submit"
+                                                                                value="Войти" resolved=""><a
+                                                            class="cancel" href="/secure/ForgotLoginDetails.jspa"
+                                                            id="forgotpassword" target="_parent">Не можете попасть в
+                                                        систему?</a></div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <div id="diagnostic-warning" class="hidden"></div>
+            <div id="i18n-settings"><input class="locale-lang" type="hidden" value="ru"><input class="locale-country"
+                                                                                               type="hidden" value="RU">
+            </div>
+            <dashboard-done resolved=""></dashboard-done>
+        </dashboard>
+    </div>
+    <footer id="footer" role="contentinfo">
+
+
+        <section class="footer-body">
+            <ul class="atlassian-footer">
+                <li>
+                    Atlassian Jira <a class="seo-link" rel="nofollow" href="https://www.atlassian.com/software/jira">Project
+                    Management Software</a>
+                </li>
+                <li>
+                    <a id="about-link" rel="nofollow" href="/secure/AboutPage.jspa/secure/AboutPage.jspa">About Jira</a>
+                </li>
+                <li>
+                    <a id="footer-report-problem-link" rel="nofollow" href="/secure/CreateIssue!default.jspa">Report a
+                        problem</a>
+                </li>
+            </ul>
+            <p class="atlassian-footer">
+        <span class="licensemessage">
+            
+        </span>
+            </p>
+
+            <div id="footer-logo"><a rel="nofollow" href="http://www.atlassian.com/">Atlassian</a></div>
+        </section>
+
+
+        <fieldset class="hidden parameters">
+            <input type="hidden" title="loggedInUser" value="">
+            <input type="hidden" title="ajaxTimeout"
+                   value="В рамках сеанса не удалось завершить запрос к серверу Jira. Мы не уверены в результате этой операции.">
+            <input type="hidden" title="JiraVersion" value="8.20.7">
+            <input type="hidden" title="ajaxUnauthorised"
+                   value="Вы не авторизованы для выполнения этой операции. Пожалуйста, войдите.">
+            <input type="hidden" title="baseURL" value="https://edujira.ifellow.ru">
+            <input type="hidden" title="ajaxCommsError"
+                   value="Не удалось связаться с сервером Jira. Произошел временный сбой или сервер недоступен. ">
+            <input type="hidden" title="ajaxServerError"
+                   value="При обращении к серверу Jira произошла ошибка. Мы не уверены в результате этой операции.">
+            <input type="hidden" title="ajaxErrorCloseDialog"
+                   value="Закройте это диалоговое окно и нажмите обновление в браузере">
+            <input type="hidden" title="ajaxErrorDialogHeading" value="Разрыв связи">
+
+            <input type="hidden" title="dirtyMessage"
+                   value="Вы ввели новую информацию на этой странице. Если вы покинете страницу, предварительно не сохранив изменения, они будут потеряны.">
+            <input type="hidden" title="dirtyDialogMessage"
+                   value="Вы ввели в это окно новые данные. Если вы уйдете из этого окна, не сохранив данные, все изменения будут потеряны. Чтобы вернуться к окну, нажмите «отменить».">
+            <input type="hidden" title="keyType" value="Нажмите">
+            <input type="hidden" title="keyThen" value="затем">
+            <input type="hidden" title="dblClickToExpand" value="Двойное нажатие для раскрытия">
+            <input type="hidden" title="actions" value="Действия">
+            <input type="hidden" title="removeItem" value="Удалить">
+            <input type="hidden" title="workflow" value="Бизнес-процесс">
+            <input type="hidden" title="labelNew" value="Новая метка">
+            <input type="hidden" title="issueActionsHint"
+                   value="Начните набирать для поиска доступных операций или нажмите вниз, чтобы увидеть все">
+            <input type="hidden" title="closelink" value="Закрыть">
+            <input type="hidden" title="dotOperations" value="Операции">
+            <input type="hidden" title="dotLoading" value="Загрузка">
+            <input type="hidden" title="frotherSuggestions" value="Предложения">
+            <input type="hidden" title="frotherNomatches" value="Нет совпадений">
+            <input type="hidden" title="multiselectVersionsError" value="{0} не является корректной версией.">
+            <input type="hidden" title="multiselectComponentsError" value="{0} - некорректный компонент.">
+            <input type="hidden" title="multiselectGenericError" value="Некорректное значение {0}.">
+        </fieldset>
+
+    </footer>
+</div>
+
+
+<script type="text/javascript"
+        src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:bigpipe-js/jira.webresources:bigpipe-js.js"
+        data-wrm-key="jira.webresources:bigpipe-js" data-wrm-batch-type="resource" data-initially-rendered=""></script>
+<script type="text/javascript"
+        src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:bigpipe-init/jira.webresources:bigpipe-init.js"
+        data-wrm-key="jira.webresources:bigpipe-init" data-wrm-batch-type="resource"
+        data-initially-rendered=""></script>
+
+<form id="jira_request_timing_info" class="dont-default-focus">
+    <fieldset class="parameters hidden">
+        <input type="hidden" title="jira.request.start.millis" value="1759929298631">
+        <input type="hidden" title="jira.request.server.time" value="122">
+        <input type="hidden" title="jira.request.id" value="974x348766x1">
+        <input type="hidden" title="jira.session.expiry.time" value="-">
+        <input type="hidden" title="jira.session.expiry.in.mins" value="-">
+        <input id="jiraConcurrentRequests" type="hidden" name="jira.request.concurrent.requests" value="1">
+        <input type="hidden" title="db.conns.time.in.ms" value="1">
+    </fieldset>
+</form>
+<!--
+	                 REQUEST ID : 974x348766x1
+	          REQUEST TIMESTAMP : [08/окт/2025:16:14:58 +0300]
+	               REQUEST TIME : 0,1220
+	                 ASESSIONID : -
+	        CONCURRENT REQUESTS : 1
+
+	                      db.conns : OpSnapshot{name='db.conns', invocationCount=2, elapsedTotal=1449100, elapsedMin=200500, elapsedMax=1248600, resultSetSize=0, cpuTotal=0, cpuMin=0, cpuMax=0}
+-->
+
+
+<div id="fancybox-tmp"></div>
+<div id="fancybox-loading">
+    <div></div>
+</div>
+<div id="fancybox-overlay"></div>
+<div id="fancybox-wrap" class="fancybox-ie">
+    <div id="fancybox-outer">
+        <div class="fancybox-bg" id="fancybox-bg-n"></div>
+        <div class="fancybox-bg" id="fancybox-bg-ne"></div>
+        <div class="fancybox-bg" id="fancybox-bg-e"></div>
+        <div class="fancybox-bg" id="fancybox-bg-se"></div>
+        <div class="fancybox-bg" id="fancybox-bg-s"></div>
+        <div class="fancybox-bg" id="fancybox-bg-sw"></div>
+        <div class="fancybox-bg" id="fancybox-bg-w"></div>
+        <div class="fancybox-bg" id="fancybox-bg-nw"></div>
+        <div id="fancybox-content"></div>
+        <a id="fancybox-close"></a>
+        <div id="fancybox-title"></div>
+        <a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a
+            href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div>
+</div>
+<div id="browser-metrics-report" style="display: none;">
+    {"report":{"fcp":2104,"ttfb":287.89999997615814,"pageVisibility":"visible","key":"jira.dashboard","isInitial":true,"threshold":1000,"elementTimings":[],"userDeviceMemory":8,"userDeviceProcessors":16,"apdex":0.5,"firstPaint":2103,"journeyId":"7b0d4083-6c89-4637-9699-b4c65b89cf18","navigationType":0,"readyForUser":1770.5,"redirectCount":0,"resourceLoadedEnd":933.8999999761581,"resourceLoadedStart":301.5,"resourceTiming":[{"duration":131.29999995231628,"initiatorType":"link","name":"https://edujira.ifellow.ru/s/267629083f24914bc04aed9191cf3526-CDN/8hvc3l/820007/1dlckms/bf140c2d3cdc01ec4082b00f2f866a09/_/download/contextbatch/css/_super/batch.css","startTime":301.5,"connectEnd":301.5,"connectStart":301.5,"domainLookupEnd":301.5,"domainLookupStart":301.5,"fetchStart":301.5,"redirectEnd":0,"redirectStart":0,"requestStart":304.7999999523163,"responseEnd":432.7999999523163,"responseStart":379.39999997615814,"secureConnectionStart":301.5},{"duration":133.10000002384186,"initiatorType":"link","name":"https://edujira.ifellow.ru/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/3.0.4/_/download/batch/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component.css","startTime":301.6999999284744,"connectEnd":301.6999999284744,"connectStart":301.6999999284744,"domainLookupEnd":301.6999999284744,"domainLookupStart":301.6999999284744,"fetchStart":301.6999999284744,"redirectEnd":0,"redirectStart":0,"requestStart":305.5,"responseEnd":434.7999999523163,"responseStart":431.2999999523163,"secureConnectionStart":301.6999999284744},{"duration":299.7000000476837,"initiatorType":"link","name":"https://edujira.ifellow.ru/s/02759219e8b4ab980ee74a5932487865-CDN/8hvc3l/820007/1dlckms/fc32794b4a55cecb56ebea75d4018edf/_/download/contextbatch/css/atl.dashboard,jira.global,atl.general,jira.dashboard,-_super/batch.css?agile_global_admin_condition=true&amp;jag=true","startTime":301.6999999284744,"connectEnd":301.6999999284744,"connectStart":301.6999999284744,"domainLookupEnd":301.6999999284744,"domainLookupStart":301.6999999284744,"fetchStart":301.6999999284744,"redirectEnd":0,"redirectStart":0,"requestStart":305.1999999284744,"responseEnd":601.3999999761581,"responseStart":431.5,"secureConnectionStart":301.6999999284744},{"duration":332,"initiatorType":"script","name":"https://edujira.ifellow.ru/s/cfe501d8743e6e244e843985ffaff934-CDN/8hvc3l/820007/1dlckms/bf140c2d3cdc01ec4082b00f2f866a09/_/download/contextbatch/js/_super/batch.js?locale=ru-RU","startTime":301.89999997615814,"connectEnd":301.89999997615814,"connectStart":301.89999997615814,"domainLookupEnd":301.89999997615814,"domainLookupStart":301.89999997615814,"fetchStart":301.89999997615814,"redirectEnd":0,"redirectStart":0,"requestStart":305.60000002384186,"responseEnd":633.8999999761581,"responseStart":489.5,"secureConnectionStart":301.89999997615814},{"duration":64.69999992847443,"initiatorType":"script","name":"https://edujira.ifellow.ru/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/3.0.4/_/download/batch/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-lib/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-lib.js","startTime":302.10000002384186,"connectEnd":302.10000002384186,"connectStart":302.10000002384186,"domainLookupEnd":302.10000002384186,"domainLookupStart":302.10000002384186,"fetchStart":302.10000002384186,"redirectEnd":0,"redirectStart":0,"requestStart":306.1999999284744,"responseEnd":366.7999999523163,"responseStart":366.10000002384186,"secureConnectionStart":302.10000002384186},{"duration":130.29999995231628,"initiatorType":"script","name":"https://edujira.ifellow.ru/s/feb35ad8c39f0a7bfc7b34a12de8dbb4-CDN/8hvc3l/820007/1dlckms/aae1242f5fc81cc6a5bb8bc963ccda29/_/download/contextbatch/js/atl.global,-_super/batch.js?locale=ru-RU","startTime":302.10000002384186,"connectEnd":302.10000002384186,"connectStart":302.10000002384186,"domainLookupEnd":302.10000002384186,"domainLookupStart":302.10000002384186,"fetchStart":302.10000002384186,"redirectEnd":0,"redirectStart":0,"requestStart":306.10000002384186,"responseEnd":432.39999997615814,"responseStart":365.89999997615814,"secureConnectionStart":302.10000002384186},{"duration":185.19999992847443,"initiatorType":"script","name":"https://edujira.ifellow.ru/s/9aec92f78b39fb0cf91c17ced754f0e0-CDN/8hvc3l/820007/1dlckms/3.0.4/_/download/batch/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-banner-component.js?locale=ru-RU","startTime":302.10000002384186,"connectEnd":302.10000002384186,"connectStart":302.10000002384186,"domainLookupEnd":302.10000002384186,"domainLookupStart":302.10000002384186,"fetchStart":302.10000002384186,"redirectEnd":0,"redirectStart":0,"requestStart":306.1999999284744,"responseEnd":487.2999999523163,"responseStart":431.5,"secureConnectionStart":302.10000002384186},{"duration":631.7999999523163,"initiatorType":"script","name":"https://edujira.ifellow.ru/s/fc05d08699d5c67afa4fb85b0cd18517-CDN/8hvc3l/820007/1dlckms/fc32794b4a55cecb56ebea75d4018edf/_/download/contextbatch/js/atl.dashboard,jira.global,atl.general,jira.dashboard,-_super/batch.js?agile_global_admin_condition=true&amp;jag=true&amp;locale=ru-RU","startTime":302.10000002384186,"connectEnd":302.10000002384186,"connectStart":302.10000002384186,"domainLookupEnd":302.10000002384186,"domainLookupStart":302.10000002384186,"fetchStart":302.10000002384186,"redirectEnd":0,"redirectStart":0,"requestStart":306.10000002384186,"responseEnd":933.8999999761581,"responseStart":431.6999999284744,"secureConnectionStart":302.10000002384186},{"duration":133.10000002384186,"initiatorType":"link","name":"https://edujira.ifellow.ru/s/c66ce2bd2fa5e9c958f4a43024aef4bd-CDN/8hvc3l/820007/1dlckms/3353375a32d7a6de65fe961dd6160ee9/_/download/contextbatch/css/jira.global.look-and-feel,-_super/batch.css","startTime":302.1999999284744,"connectEnd":302.1999999284744,"connectStart":302.1999999284744,"domainLookupEnd":302.1999999284744,"domainLookupStart":302.1999999284744,"fetchStart":302.1999999284744,"redirectEnd":0,"redirectStart":0,"requestStart":306.1999999284744,"responseEnd":435.2999999523163,"responseStart":431.39999997615814,"secureConnectionStart":302.1999999284744},{"duration":135.30000007152557,"initiatorType":"script","name":"https://edujira.ifellow.ru/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:calendar-localisation-moment/jira.webresources:calendar-localisation-moment.js","startTime":302.1999999284744,"connectEnd":302.1999999284744,"connectStart":302.1999999284744,"domainLookupEnd":302.1999999284744,"domainLookupStart":302.1999999284744,"fetchStart":302.1999999284744,"redirectEnd":0,"redirectStart":0,"requestStart":306.1999999284744,"responseEnd":437.5,"responseStart":431.5,"secureConnectionStart":302.1999999284744},{"duration":136.10000002384186,"initiatorType":"script","name":"https://edujira.ifellow.ru/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:calendar-en/jira.webresources:calendar-en.js","startTime":302.1999999284744,"connectEnd":302.1999999284744,"connectStart":302.1999999284744,"domainLookupEnd":302.1999999284744,"domainLookupStart":302.1999999284744,"fetchStart":302.1999999284744,"redirectEnd":0,"redirectStart":0,"requestStart":306.1999999284744,"responseEnd":438.2999999523163,"responseStart":431.6999999284744,"secureConnectionStart":302.1999999284744},{"duration":186.5,"initiatorType":"script","name":"https://edujira.ifellow.ru/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:calendar-ru/jira.webresources:calendar-ru.js","startTime":302.1999999284744,"connectEnd":302.1999999284744,"connectStart":302.1999999284744,"domainLookupEnd":302.1999999284744,"domainLookupStart":302.1999999284744,"fetchStart":302.1999999284744,"redirectEnd":0,"redirectStart":0,"requestStart":306.1999999284744,"responseEnd":488.6999999284744,"responseStart":486.6999999284744,"secureConnectionStart":302.1999999284744},{"duration":67.89999997615814,"initiatorType":"script","name":"https://edujira.ifellow.ru/rest/api/1.0/shortcuts/820007/3e2508ded7c6b542c922b18477e6c90c/shortcuts.js","startTime":302.2999999523163,"connectEnd":302.2999999523163,"connectStart":302.2999999523163,"domainLookupEnd":302.2999999523163,"domainLookupStart":302.2999999523163,"fetchStart":302.2999999523163,"redirectEnd":0,"redirectStart":0,"requestStart":306.1999999284744,"responseEnd":370.1999999284744,"responseStart":369.2999999523163,"secureConnectionStart":302.2999999523163},{"duration":116.20000004768372,"initiatorType":"script","name":"https://edujira.ifellow.ru/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:bigpipe-js/jira.webresources:bigpipe-js.js","startTime":322.39999997615814,"connectEnd":322.39999997615814,"connectStart":322.39999997615814,"domainLookupEnd":322.39999997615814,"domainLookupStart":322.39999997615814,"fetchStart":322.39999997615814,"redirectEnd":0,"redirectStart":0,"requestStart":323.1999999284744,"responseEnd":438.60000002384186,"responseStart":431.7999999523163,"secureConnectionStart":322.39999997615814},{"duration":263.10000002384186,"initiatorType":"script","name":"https://edujira.ifellow.ru/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/1.0/_/download/batch/jira.webresources:bigpipe-init/jira.webresources:bigpipe-init.js","startTime":340.1999999284744,"connectEnd":340.1999999284744,"connectStart":340.1999999284744,"domainLookupEnd":340.1999999284744,"domainLookupStart":340.1999999284744,"fetchStart":340.1999999284744,"redirectEnd":0,"redirectStart":0,"requestStart":444.10000002384186,"responseEnd":603.2999999523163,"responseStart":600.1999999284744,"secureConnectionStart":340.1999999284744},{"duration":69.60000002384186,"initiatorType":"xmlhttprequest","name":"https://edujira.ifellow.ru/rest/webResources/1.0/resources","startTime":727.2999999523163,"connectEnd":727.2999999523163,"connectStart":727.2999999523163,"domainLookupEnd":727.2999999523163,"domainLookupStart":727.2999999523163,"fetchStart":727.2999999523163,"redirectEnd":0,"redirectStart":0,"requestStart":728,"responseEnd":796.8999999761581,"responseStart":796.5,"secureConnectionStart":727.2999999523163},{"duration":63.90000009536743,"initiatorType":"xmlhttprequest","name":"https://edujira.ifellow.ru/rest/webResources/1.0/resources","startTime":970.6999999284744,"connectEnd":970.6999999284744,"connectStart":970.6999999284744,"domainLookupEnd":970.6999999284744,"domainLookupStart":970.6999999284744,"fetchStart":970.6999999284744,"redirectEnd":0,"redirectStart":0,"requestStart":971.3999999761581,"responseEnd":1034.6000000238419,"responseStart":1034.1999999284744,"secureConnectionStart":970.6999999284744},{"duration":160.79999995231628,"initiatorType":"script","name":"https://edujira.ifellow.ru/s/d41d8cd98f00b204e9800998ecf8427e-CDN/8hvc3l/820007/1dlckms/d06015502644e17e5a3997626f26e323/_/download/contextbatch/js/browser-metrics-plugin.contrib,-_super,-atl.dashboard,-atl.general/batch.js?agile_global_admin_condition=true&amp;jag=true","startTime":1523.3999999761581,"connectEnd":1523.3999999761581,"connectStart":1523.3999999761581,"domainLookupEnd":1523.3999999761581,"domainLookupStart":1523.3999999761581,"fetchStart":1523.3999999761581,"redirectEnd":0,"redirectStart":0,"requestStart":1526.1000000238419,"responseEnd":1684.1999999284744,"responseStart":1683.2999999523163,"secureConnectionStart":1523.3999999761581}],"fetchStart":1,"domainLookupStart":2,"domainLookupEnd":5,"connectStart":34,"connectEnd":141,"secureConnectionStart":87,"requestStart":142,"responseStart":288,"responseEnd":340,"domLoading":294,"domInteractive":1676,"domContentLoadedEventStart":1676,"domContentLoadedEventEnd":1785,"domComplete":3069,"loadEventStart":3069,"loadEventEnd":3070,"userAgent":"Mozilla/5.0
+    (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0
+    Safari/537.36","marks":[],"measures":[],"correlationId":"c8267d607a2d24","effectiveType":"4g","downlink":3.15,"rtt":150,"serverDuration":122,"dbConnsTimeInMs":1,"applicationHash":"98f6b160ab2ff5d8f9ec9088d10ba11ef78e8764","experiments":[]}}
+</div>
+</body>
+</html>
