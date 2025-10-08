@@ -13,7 +13,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ProjectPage {
 
-    // Существующие элементы на странице
     private final SelenideElement createIssueButton = $x("//a[@id='create_link']");
     private final SelenideElement summaryInput = $x("//input[@id='summary']");
     private final SelenideElement submitButton = $x("//input[@id='create-issue-submit']");
@@ -28,51 +27,43 @@ public class ProjectPage {
     private final SelenideElement projectsMenu = $x("//a[@id='projects-menu']"); // Элемент для меню проектов
     private final SelenideElement testProjectLink = $x("//a[contains(@href, '/projects/TEST')]"); // Ссылка на проект Test
 
-    // Открытие меню проектов
     public ProjectPage openProjectsMenu() {
         projectsMenu.shouldBe(visible).click();
         return this;
     }
 
-    // Выбор проекта Test
     public ProjectPage selectTestProject() {
         testProjectLink.shouldBe(visible).click();
         return this;
     }
 
-    // Переход к просмотру всех задач проекта
     public ProjectPage clickViewAllIssues() {
         issuesMenuLink.shouldBe(visible).click();
         issuesSearchLink.shouldBe(visible).click();
         return this;
     }
 
-    // Создание новой задачи
     public ProjectPage clickCreateIssue() {
         createIssueButton.shouldBe(visible).click();
         return this;
     }
 
-    // Ввод заголовка задачи
     public ProjectPage enterSummary(String text) {
         summaryInput.shouldBe(visible).setValue(text);
         return this;
     }
 
-    // Отправка задачи
     public ProjectPage submitIssue() {
         submitButton.shouldBe(visible).click();
         $x("//div[contains(@class,'aui-message-success')]").shouldBe(visible);
         return this;
     }
 
-    // Обновление списка задач
     public ProjectPage refreshIssuesList() {
         refresh();
         return this;
     }
 
-    // Навигация обратно в список задач
     public ProjectPage navigateBackToIssues() {
         String currentUrl = webdriver().driver().url();
         if (currentUrl.contains("browse")) {
@@ -81,14 +72,12 @@ public class ProjectPage {
         return this;
     }
 
-    // Получение текста с количеством задач
     public String getIssuesCountText() {
         SelenideElement countElement = $x("//span[contains(@class,'results-count-total')]");
         countElement.shouldBe(visible);
         return countElement.getText();
     }
 
-    // Извлечение числа из строки
     public int extractNumberFromText(String text) {
         Pattern pattern = Pattern.compile("\\d+");
         Matcher matcher = pattern.matcher(text.replaceAll("[\\s,]", ""));
@@ -97,34 +86,29 @@ public class ProjectPage {
         return lastNumber;
     }
 
-    // Поиск задачи по ключевому слову
     public ProjectPage searchForTask(String text) {
         searchInput.shouldBe(visible).setValue(text).pressEnter();
         firstFoundTask.shouldBe(visible);
         return this;
     }
 
-    // Открытие задачи
     public ProjectPage openTask() {
         firstFoundTask.shouldBe(visible).click();
         return this;
     }
 
-    // Проверка статуса задачи
     public ProjectPage verifyTaskStatus(String status) {
         $x("//div[@class='wrap']//span[@id='status-val']/span[normalize-space(text())='" + status + "']")
                 .shouldBe(visible);
         return this;
     }
 
-    // Проверка версии исправления задачи
     public ProjectPage verifyFixVersion(String version) {
         $x("//span[@id='fixVersions-field']//a[normalize-space(text())='" + version + "']")
                 .shouldBe(visible);
         return this;
     }
 
-    // Убедиться, что выбран визуальный редактор
     public ProjectPage ensureVisualEditorSelected() {
         SelenideElement visualTab = $x("//li[@data-mode='wysiwyg']//button[text()='Визуальный']");
         SelenideElement textTab = $x("//li[@data-mode='source']//button[text()='Текст']");
@@ -135,26 +119,22 @@ public class ProjectPage {
         return this;
     }
 
-    // Ввод текста в визуальный редактор
     public ProjectPage enterTextInVisualEditor(String text) {
         ((JavascriptExecutor) webdriver().object()).executeScript("tinymce.get(0).setContent(arguments[0]);", text);
         return this;
     }
 
-    // Ввод текста во второй визуальный редактор (например, для описания)
     public ProjectPage enterTextInSecondVisualEditor(String text) {
         ((JavascriptExecutor) webdriver().object()).executeScript("tinymce.get(1).setContent(arguments[0]);", text);
         return this;
     }
 
-    // Ввод связи с другой задачей и нажатие Enter
     public ProjectPage enterIssueLinkAndPressEnter(String text) {
         issueLinksTextarea.shouldBe(visible).click();
         actions().sendKeys(text).sendKeys(org.openqa.selenium.Keys.ENTER).perform();
         return this;
     }
 
-    // Ввод спринта и нажатие Enter
     public ProjectPage enterSprintAndPressEnter(String text) {
         sprintInput.shouldBe(visible).click();
         sprintInput.setValue(text);
@@ -162,19 +142,16 @@ public class ProjectPage {
         return this;
     }
 
-    // Выбор серьезности дефекта по значению
     public ProjectPage selectSeverityByValue(String value) {
         severitySelect.shouldBe(visible).selectOptionByValue(value);
         return this;
     }
 
-    // Выбор версии исправления
     public ProjectPage selectFixVersionByText(String version) {
         fixVersionSelect.shouldBe(visible).selectOption(version);
         return this;
     }
 
-    // Отправка дефекта и открытие задачи
     public ProjectPage clickSubmitAndWaitForSuccessAndOpenIssue() {
         submitButton.shouldBe(visible).click();
         $x("//div[contains(@class,'aui-message-success')]").shouldBe(visible);
@@ -182,7 +159,6 @@ public class ProjectPage {
         return this;
     }
 
-    // Открытие бизнес-процесса и выбор действия по статусу задачи
     public ProjectPage openBusinessProcessAndSelect(String actionText) {
         $x("//a[@id='opsbar-transitions_more']").shouldBe(visible, Duration.ofSeconds(10)).click();
 
