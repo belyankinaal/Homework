@@ -79,9 +79,25 @@ public class ProjectSteps {
         assertTrue(countAfter > issueCountBefore, "Количество задач должно увеличиться минимум на 1");
     }
 
-    @Когда("^он вводит в поиск задачу \"([^\"]*)\"$")
-    public void searchForTask(String taskName) {
-        projectPage.searchForTask(taskName);
+    @И("^он создал новую задачу и убедился что количество задач стало минимум на одну больше$")
+    public void createNewIssueAndVerifyCount() {
+        String summary = "AT1";
+        projectPage.clickViewAllIssues();
+        issueCountBefore = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
+
+        projectPage.clickCreateIssue()
+                .enterSummary(summary)
+                .submitIssue()
+                .navigateBackToIssues()
+                .refreshIssuesList();
+
+        int countAfter = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
+        assertTrue(countAfter > issueCountBefore, "Количество задач должно увеличиться минимум на 1");
+    }
+
+    @Когда("^он вводит в поиск задачу TestSeleniumATHomework$")
+    public void searchForTask() {
+        projectPage.searchForTask("TestSeleniumATHomework");
     }
 
     @Когда("^открывает задачу$")
@@ -89,12 +105,13 @@ public class ProjectSteps {
         projectPage.openTask();
     }
 
-    @Тогда("^видит статус задачи \"([^\"]*)\"$")
+    @И("^видит статус задачи \"([^\"]*)\"$")
     public void verifyTaskStatus(String status) {
         projectPage.verifyTaskStatus(status);
     }
 
-    @Тогда("^Fix Version \"([^\"]*)\"$")
+
+    @И("^Fix Version \"([^\"]*)\"$")
     public void verifyFixVersion(String version) {
         projectPage.verifyFixVersion(version);
     }
