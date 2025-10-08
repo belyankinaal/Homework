@@ -1,4 +1,4 @@
-package util;
+package hooks;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
@@ -6,8 +6,9 @@ import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.chrome.ChromeOptions;
+import util.CustomProperties;
 
-public class WebHooks {
+public class Hooks {
 
     @Before(order = 1)
     public void initBrowser() {

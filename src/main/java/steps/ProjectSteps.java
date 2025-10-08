@@ -38,25 +38,25 @@ public class ProjectSteps {
         webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
     }
 
-    @Когда("^пользователь вошёл в систему$")
+    @Когда("^пользователь авторизован в системе$")
     public void userLoggedIn() {
         String username = CustomProperties.getProperty("user.name");
         String password = CustomProperties.getProperty("user.password");
         login(username, password);
     }
 
-    @Когда("^он открывает меню проектов и выбирает проект Test$")
+    @Когда("^он нажимает на выпадающий список проектов и выбирает проект Test$")
     public void openTestProject() {
         project.openProjectsMenu()
                 .selectTestProject();
     }
 
-    @Тогда("^проект Test открыт$")
+    @Тогда("^страница проекта Test открыта$")
     public void verifyProjectOpened() {
         webdriver().shouldHave(urlContaining("/projects/TEST"));
     }
 
-    @Дано("^пользователь открыл проект Test$")
+    @Дано("^пользователь авторизован и находится в проекте Test$")
     public void userOpenedTestProject() {
         userLoggedIn();
         openTestProject();
@@ -73,7 +73,7 @@ public class ProjectSteps {
                 .refreshIssuesList();
     }
 
-    @Тогда("^количество задач увеличивается на 1$")
+    @Тогда("^количество задач увеличивается минимум на одну$")
     public void verifyIssueCountIncreased() {
         int countAfter = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
         assertTrue(countAfter > issueCountBefore, "Количество задач должно увеличиться минимум на 1");
