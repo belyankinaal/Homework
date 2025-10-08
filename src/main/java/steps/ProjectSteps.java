@@ -78,4 +78,24 @@ public class ProjectSteps {
         int countAfter = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
         assertTrue(countAfter > issueCountBefore, "Количество задач должно увеличиться минимум на 1");
     }
+
+    @Когда("^он вводит в поиск задачу \"([^\"]*)\"$")
+    public void searchForTask(String taskName) {
+        projectPage.searchForTask(taskName);
+    }
+
+    @Когда("^открывает задачу$")
+    public void openTask() {
+        projectPage.openTask();
+    }
+
+    @Тогда("^видит статус задачи \"([^\"]*)\"$")
+    public void verifyTaskStatus(String status) {
+        projectPage.verifyTaskStatus(status);
+    }
+
+    @Тогда("^Fix Version \"([^\"]*)\"$")
+    public void verifyFixVersion(String version) {
+        projectPage.verifyFixVersion(version);
+    }
 }
