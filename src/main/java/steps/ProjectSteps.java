@@ -1,9 +1,6 @@
 package steps;
 
-import io.cucumber.java.ru.Дано;
-import io.cucumber.java.ru.И;
-import io.cucumber.java.ru.Когда;
-import io.cucumber.java.ru.Тогда;
+import io.cucumber.java.ru.*;
 import model.Project;
 import pages.LoginPage;
 import pages.ProjectPage;
@@ -110,9 +107,67 @@ public class ProjectSteps {
         projectPage.verifyTaskStatus(status);
     }
 
-
     @И("^Fix Version \"([^\"]*)\"$")
     public void verifyFixVersion(String version) {
         projectPage.verifyFixVersion(version);
     }
+
+    @И("^он переходит на список всех задач$")
+    public void viewAllIssues() {
+        projectPage.clickViewAllIssues();
+    }
+
+    @И("^запоминает количество задач до создания$")
+    public void rememberIssueCountBefore() {
+        issueCountBefore = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
+    }
+
+    @Когда("^пользователь создаёт дефект с заголовком \"([^\"]*)\"$")
+    public void createBug(String summary) {
+        projectPage.clickCreateIssue()
+                .enterSummary(summary)
+                .ensureVisualEditorSelected();
+    }
+
+    @И("^указывает описание \"([^\"]*)\"$")
+    public void enterVisualDescription(String description) {
+        projectPage.enterTextInVisualEditor(description);
+    }
+
+    @И("^выбирает Fix Version \"([^\"]*)\"$")
+    public void selectFixVersion(String version) {
+        projectPage.selectFixVersionByText(version);
+    }
+
+    @И("^указывает DEV в среде тестирования$")
+    public void enterSecondDescription() {
+        projectPage.enterTextInSecondVisualEditor("DEV");
+    }
+
+    @И("^указывает связь с задачей \"([^\"]*)\"$")
+    public void enterIssueLink(String taskKey) {
+        projectPage.enterIssueLinkAndPressEnter(taskKey);
+    }
+
+    @Также("^добавляет задачу в спринт \"([^\"]*)\"$")
+    public void enterSprint(String sprintName) {
+        projectPage.enterSprintAndPressEnter(sprintName);
+    }
+
+    @И("^выбирает серьезность дефекта с кодом \"([^\"]*)\"$")
+    public void selectSeverity(String value) {
+        projectPage.selectSeverityByValue(value);
+    }
+
+    @Затем("^сохраняет дефект и открывает его$")
+    public void submitAndOpenIssue() {
+        projectPage.clickSubmitAndWaitForSuccessAndOpenIssue();
+    }
+
+    @Пусть("^он меняет статус задачи на \"([^\"]*)\"$")
+    @И("^меняет статус задачи на \"([^\"]*)\"$")
+    public void changeIssueStatus(String status) {
+        projectPage.openBusinessProcessAndSelect(status);
+    }
+
 }
