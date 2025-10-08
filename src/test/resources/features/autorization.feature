@@ -1,4 +1,5 @@
 # language: ru
+@Autorization
 
 Функционал: Авотесты на Edujira
 

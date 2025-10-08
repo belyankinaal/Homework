@@ -1,4 +1,5 @@
 # language: ru
+@NewTask
 
 Функционал: Авотесты на Edujira
 

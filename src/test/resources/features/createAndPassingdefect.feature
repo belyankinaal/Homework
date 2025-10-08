@@ -1,4 +1,5 @@
 # language: ru
+@CreateAndPassingDefect
 
 Функционал: Авотесты на Edujira
 
