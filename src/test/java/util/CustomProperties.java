@@ -7,7 +7,11 @@ import java.util.Properties;
 public class CustomProperties {
     private static final Properties props = new Properties();
 
-    public static void loadProperties() {
+    static {
+        loadProperties();
+    }
+
+    private static void loadProperties() {
         try (InputStream stream = CustomProperties.class
                 .getClassLoader()
                 .getResourceAsStream("config.properties")) {
@@ -24,3 +28,4 @@ public class CustomProperties {
         return props.getProperty(key);
     }
 }
+

@@ -6,13 +6,12 @@ import org.junit.jupiter.api.Test;
 import pages.LoginPage;
 import pages.ProjectPage;
 import util.CustomProperties;
-import util.WebHooks;
 
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestBelyankina extends WebHooks {
+public class TestBelyankina {
 
     private final LoginPage loginPage = new LoginPage();
     private final ProjectPage projectPage = new ProjectPage();
