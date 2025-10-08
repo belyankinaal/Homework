@@ -1,6 +1,7 @@
 package steps;
 
 import io.cucumber.java.ru.Дано;
+import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
 import model.Project;
@@ -14,60 +15,57 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ProjectSteps {
 
-    private LoginPage loginPage;
-    private Project project = new Project();
-    private ProjectPage projectPage;
+    private final LoginPage loginPage = new LoginPage();
+    private final Project project = new Project();
+    private final ProjectPage projectPage = new ProjectPage();
 
     private int issueCountBefore;
 
-    @Дано("пользователь находится на странице логина")
+    @Когда("^открыта страница сайта$")
     public void openLoginPage() {
-        loginPage = new LoginPage();
-        projectPage = new ProjectPage();
     }
 
-    @Когда("он вводит логин {string} и пароль {string}")
+    @И("^пользователь вводит логин (.*) и пароль (.*)$")
     public void login(String username, String password) {
-        loginPage.login(username, password);
+        loginPage.enterUsername(username)
+                .enterPassword(password)
+                .clickLogin();
         webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
     }
 
-    @Тогда("он видит домашнюю страницу")
+    @Тогда("^он видит домашнюю страницу$")
     public void checkHomePage() {
         webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
     }
 
-    @Дано("пользователь вошёл в систему")
+    @Когда("^пользователь вошёл в систему$")
     public void userLoggedIn() {
-        loginPage = new LoginPage();
-        loginPage.login(CustomProperties.getProperty("user.name"), CustomProperties.getProperty("user.password"));
-        webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
+        String username = CustomProperties.getProperty("user.name");
+        String password = CustomProperties.getProperty("user.password");
+        login(username, password);
     }
 
-    @Когда("он открывает меню проектов и выбирает проект Test")
+    @Когда("^он открывает меню проектов и выбирает проект Test$")
     public void openTestProject() {
         project.openProjectsMenu()
                 .selectTestProject();
     }
 
-    @Тогда("проект Test открыт")
+    @Тогда("^проект Test открыт$")
     public void verifyProjectOpened() {
         webdriver().shouldHave(urlContaining("/projects/TEST"));
     }
 
-    @Дано("пользователь открыл проект Test")
+    @Дано("^пользователь открыл проект Test$")
     public void userOpenedTestProject() {
         userLoggedIn();
         openTestProject();
     }
 
-    @Когда("он создаёт новую задачу с заголовком {string}")
+    @Когда("^он создаёт новую задачу с заголовком \"([^\"]*)\"$")
     public void createNewIssue(String summary) {
-        projectPage = new ProjectPage();
         projectPage.clickViewAllIssues();
-        String countText = projectPage.getIssuesCountText();
-        issueCountBefore = projectPage.extractNumberFromText(countText);
-
+        issueCountBefore = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
         projectPage.clickCreateIssue()
                 .enterSummary(summary)
                 .submitIssue()
@@ -75,10 +73,9 @@ public class ProjectSteps {
                 .refreshIssuesList();
     }
 
-    @Тогда("количество задач увеличивается на 1")
+    @Тогда("^количество задач увеличивается на 1$")
     public void verifyIssueCountIncreased() {
-        String countTextAfter = projectPage.getIssuesCountText();
-        int countAfter = projectPage.extractNumberFromText(countTextAfter);
+        int countAfter = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
         assertTrue(countAfter > issueCountBefore, "Количество задач должно увеличиться минимум на 1");
     }
 }
