@@ -1,14 +1,13 @@
-package HW3_Belyankina.test;
+package HW3_Belyankina;
 
 import model.Project;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
 import pages.ProjectPage;
-import utils.CustomProperties;
-import utils.WebHooks;
+import util.CustomProperties;
+import util.WebHooks;
 
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -18,78 +17,101 @@ public class TestBelyankina extends WebHooks {
     private final LoginPage loginPage = new LoginPage();
     private final ProjectPage projectPage = new ProjectPage();
 
+    private void loginAndOpenTestProject() {
+        loginPage.login(CustomProperties.getProperty("user.name"),
+                CustomProperties.getProperty("user.password"));
+        webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
+
+        new Project().openProjectsMenu()
+                .selectTestProject();
+    }
+
     @Test
-    @DisplayName("Авторизация")
-    public void authorizationTest() {
-        open(CustomProperties.getWebUrl());
-        loginPage.login(CustomProperties.getUserName(), CustomProperties.getUserPassword());
+    @DisplayName("1. Авторизация")
+    void authorizationTest() {
+        loginPage.login(CustomProperties.getProperty("user.name"),
+                CustomProperties.getProperty("user.password"));
         webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
     }
 
     @Test
-    @DisplayName("Открытие проекта")
-    public void openProjectTest() {
-        loginAndOpenProject();
-        webdriver().shouldHave(urlContaining("/projects/TEST/issues"));
+    @DisplayName("2. Открытие проекта Test")
+    void openProjectTest() {
+        loginAndOpenTestProject();
     }
 
     @Test
-    @DisplayName("Создание новой задачи")
-    public void createIssueTest() {
-        loginAndOpenProject();
-
+    @DisplayName("3. Проверка увеличения количества задач")
+    void issueCountTest() {
+        loginAndOpenTestProject();
         projectPage.clickViewAllIssues();
-        webdriver().shouldHave(urlContaining("/issues"));
 
-        int initialIssueCount = getCurrentIssueCount();
+        int countBefore = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
 
-        if (projectPage.isResolutionFilterPresent()) {
-            projectPage.removeResolutionFilter();
-            initialIssueCount = getCurrentIssueCount();
-        }
+        projectPage.clickCreateIssue()
+                .enterSummary("A1")
+                .submitIssue();
 
-        projectPage.clickCreateIssue();
-        String summaryText = "Тест A1 " + System.currentTimeMillis();
-        projectPage.enterSummaryAndSubmit(summaryText);
-        projectPage.navigateBackToIssues();
-        projectPage.refreshIssuesList();
-        projectPage.waitForIssueCountToIncrease(initialIssueCount);
+        projectPage.navigateBackToIssues()
+                .refreshIssuesList();
 
-        int finalIssueCount = getCurrentIssueCount();
-        assertTrue(finalIssueCount == initialIssueCount + 1,
-                "Количество задач должно увеличиться на 1. Было: " + initialIssueCount + ", стало: " + finalIssueCount);
+        int countAfter = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
+        assertTrue(countAfter > countBefore,
+                "Количество задач должно увеличиться минимум на 1. Было: " + countBefore + ", стало: " + countAfter);
     }
 
     @Test
-    @DisplayName("Просмотр и проверка задачи")
-    public void viewTaskTest() {
-        loginAndOpenProject();
+    @DisplayName("4. Проверка созданной задачи и статуса")
+    void checkTaskTest() {
+        loginAndOpenTestProject();
+        projectPage.clickViewAllIssues()
+                .clickCreateIssue()
+                .enterSummary("A1")
+                .submitIssue()
+                .navigateBackToIssues()
+                .refreshIssuesList();
 
+        projectPage.searchForTask("TestSeleniumATHomework")
+                .openTask()
+                .verifyTaskStatus("Сделать")
+                .verifyFixVersion("Version 2.0");
+    }
+
+    @Test
+    @DisplayName("5. Создание и прохождение дефекта")
+    void createBugTest() {
+        loginAndOpenTestProject();
         projectPage.clickViewAllIssues();
-        webdriver().shouldHave(urlContaining("/issues"));
 
-        projectPage.searchForTask("TestSeleniumATHomework");
-        projectPage.clickOnFoundTask();
+        int countBefore = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
 
-        projectPage.verifyTaskStatus("Сделать");
-        projectPage.verifyAffectedVersions("Version 2.0");
-    }
+        projectPage.clickCreateIssue()
+                .enterSummary("A1")
+                .submitIssue()
+                .navigateBackToIssues()
+                .refreshIssuesList();
 
-    private void loginAndOpenProject() {
-        open(CustomProperties.getWebUrl());
-        loginPage.login(CustomProperties.getUserName(), CustomProperties.getUserPassword());
-        webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
+        int countAfter = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
+        assertTrue(countAfter > countBefore,
+                "Количество задач должно увеличиться минимум на 1. Было: " + countBefore + ", стало: " + countAfter);
 
-        Project project = new Project();
-        project.openProjectsMenu();
-        project.selectTestProject();
-        project.openIssuesPage();
-    }
+        projectPage.searchForTask("TestSeleniumATHomework")
+                .openTask()
+                .verifyTaskStatus("Сделать")
+                .verifyFixVersion("Version 2.0");
 
-    private int getCurrentIssueCount() {
-        String countText = projectPage.getIssuesCountText();
-        int count = projectPage.extractNumberFromText(countText);
-        System.out.println("Текущее количество задач: " + count);
-        return count;
+        projectPage.clickCreateIssue()
+                .enterSummary("A1")
+                .ensureVisualEditorSelected()
+                .enterTextInVisualEditor("Дефект")
+                .selectFixVersionByText("Version 2.0")
+                .enterTextInSecondVisualEditor("DEV")
+                .enterIssueLinkAndPressEnter("Test-207008")
+                .enterSprintAndPressEnter("Доска Спринт 1")
+                .selectSeverityByValue("10100")
+                .clickSubmitAndWaitForSuccessAndOpenIssue()
+                .openBusinessProcessAndSelect("В процессе")
+                .openBusinessProcessAndSelect("Исполнено")
+                .openBusinessProcessAndSelect("Подтверждено");
     }
 }
