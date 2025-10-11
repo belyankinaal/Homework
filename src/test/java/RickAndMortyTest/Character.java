@@ -11,7 +11,7 @@ public class Character {
     private final String species;
     private final String locationName;
 
-    private final Map<String, Object> rawData;   // Сохраняем все данные
+    private final Map<String, Object> rawData;
 
     public Character(Map<String, Object> jsonMap) {
         this.rawData = jsonMap;

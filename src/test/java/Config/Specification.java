@@ -15,10 +15,9 @@ public class Specification {
                 .build();
     }
 
-    public static RequestSpecification forReqres() {
+    public static RequestSpecification forLocalApi() {
         return new RequestSpecBuilder()
-                .setBaseUri(ConfigReader.getProperty("api.url")) // https://reqres.in
-
+                .setBaseUri(ConfigReader.getProperty("api.url"))
                 .setContentType(ContentType.JSON)
                 .log(LogDetail.ALL)
                 .build();
