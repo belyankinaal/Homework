@@ -1,12 +1,10 @@
-package Task2;
-
-import Config.ConfigReader;
+package ifellow.belyankina.util;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class TestData {
+public class UserJsonProvider {
 
     public static final String USER_JSON;
 

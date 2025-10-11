@@ -1,4 +1,4 @@
-package Config;
+package ifellow.belyankina.util;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,6 +19,10 @@ public class ConfigReader {
     }
 
     public static String getProperty(String key) {
-        return properties.getProperty(key);
+        String value = properties.getProperty(key);
+        if (value == null) {
+            throw new RuntimeException("Свойство не найдено: " + key);
+        }
+        return value;
     }
 }

@@ -1,4 +1,4 @@
-package RickAndMortyTest;
+package ifellow.belyankina.dto;
 
 import io.restassured.response.Response;
 import lombok.Getter;
