@@ -1,23 +1,25 @@
 package steps;
 
 import io.cucumber.java.ru.*;
-import pages.ProjectPage;
-
+import pages.*;
 
 public class CreateAndPassingDefect {
 
+    private final TaskListPage taskListPage = new TaskListPage();
     private final ProjectPage projectPage = new ProjectPage();
+    private final NewTaskPage newTaskPage = new NewTaskPage();
+    private final WorkflowPage workflowPage = new WorkflowPage();
 
     @Когда("^пользователь создаёт дефект с заголовком \"([^\"]*)\"$")
     public void createBug(String summary) {
-        projectPage.clickCreateIssue()
-                .enterSummary(summary)
-                .ensureVisualEditorSelected();
+        taskListPage.clickCreateIssue();
+        newTaskPage.enterSummary(summary);
+        new VisualEditorPage(0).ensureVisualEditorSelected();
     }
 
     @И("^указывает описание \"([^\"]*)\"$")
     public void enterVisualDescription(String description) {
-        projectPage.enterTextInVisualEditor(description);
+        new VisualEditorPage(0).setContent(description);
     }
 
     @И("^выбирает Fix Version \"([^\"]*)\"$")
@@ -27,7 +29,7 @@ public class CreateAndPassingDefect {
 
     @И("^указывает DEV в среде тестирования$")
     public void enterSecondDescription() {
-        projectPage.enterTextInSecondVisualEditor("DEV");
+        new VisualEditorPage(1).setContent("DEV");
     }
 
     @И("^указывает связь с задачей \"([^\"]*)\"$")
@@ -47,13 +49,12 @@ public class CreateAndPassingDefect {
 
     @Затем("^сохраняет дефект и открывает его$")
     public void submitAndOpenIssue() {
-        projectPage.clickSubmitAndWaitForSuccessAndOpenIssue();
+        newTaskPage.clickSubmitAndWaitForSuccessAndOpenIssue();
     }
 
     @Пусть("^он меняет статус задачи на \"([^\"]*)\"$")
     @И("^меняет статус задачи на \"([^\"]*)\"$")
     public void changeIssueStatus(String status) {
-        projectPage.openBusinessProcessAndSelect(status);
+        workflowPage.openBusinessProcessAndSelect(status);
     }
-
 }

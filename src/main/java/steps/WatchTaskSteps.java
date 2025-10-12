@@ -3,25 +3,25 @@ package steps;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
 import pages.LoginPage;
-import pages.Project;
 import pages.ProjectPage;
+import pages.TaskSearchPage;
 
 public class WatchTaskSteps {
     private final LoginPage loginPage = new LoginPage();
-    private final Project project = new Project();
     private final ProjectPage projectPage = new ProjectPage();
+    private final TaskSearchPage taskSearchPage = new TaskSearchPage();
     private final AutorizationSteps autorizationSteps = new AutorizationSteps();
 
     private int issueCountBefore;
 
     @Когда("^он вводит в поиск задачу TestSeleniumATHomework$")
     public void searchForTask() {
-        projectPage.searchForTask("TestSeleniumATHomework");
+        taskSearchPage.searchForTask("TestSeleniumATHomework");
     }
 
     @Когда("^открывает задачу$")
     public void openTask() {
-        projectPage.openTask();
+        taskSearchPage.openTask();
     }
 
     @И("^видит статус задачи \"([^\"]*)\"$")

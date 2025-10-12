@@ -4,49 +4,53 @@ import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
 import pages.LoginPage;
-import pages.Project;
-import pages.ProjectPage;
+import pages.NewTaskPage;
+import pages.TaskListPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NewTaskSteps {
     private final LoginPage loginPage = new LoginPage();
-    private final Project project = new Project();
-    private final ProjectPage projectPage = new ProjectPage();
-    private final AutorizationSteps autorizationSteps = new AutorizationSteps();
+    private final TaskListPage taskListPage = new TaskListPage();
+    private final NewTaskPage newTaskPage = new NewTaskPage();
 
     private int issueCountBefore;
 
     @Когда("^он создаёт новую задачу с заголовком \"([^\"]*)\"$")
     public void createNewIssue(String summary) {
-        projectPage.clickViewAllIssues();
-        issueCountBefore = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
-        projectPage.clickCreateIssue()
-                .enterSummary(summary)
-                .submitIssue()
-                .navigateBackToIssues()
+        taskListPage.clickViewAllIssues();
+        issueCountBefore = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
+
+        taskListPage.clickCreateIssue();
+
+        newTaskPage.enterSummary(summary)
+                .submitIssue();
+
+        taskListPage.navigateBackToIssues()
                 .refreshIssuesList();
     }
 
     @Тогда("^количество задач увеличивается минимум на одну$")
     public void verifyIssueCountIncreased() {
-        int countAfter = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
+        int countAfter = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
         assertTrue(countAfter > issueCountBefore, "Количество задач должно увеличиться минимум на 1");
     }
 
     @И("^он создал новую задачу и убедился что количество задач стало минимум на одну больше$")
     public void createNewIssueAndVerifyCount() {
         String summary = "AT1";
-        projectPage.clickViewAllIssues();
-        issueCountBefore = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
+        taskListPage.clickViewAllIssues();
+        issueCountBefore = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
 
-        projectPage.clickCreateIssue()
-                .enterSummary(summary)
-                .submitIssue()
-                .navigateBackToIssues()
+        taskListPage.clickCreateIssue();
+
+        newTaskPage.enterSummary(summary)
+                .submitIssue();
+
+        taskListPage.navigateBackToIssues()
                 .refreshIssuesList();
 
-        int countAfter = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
+        int countAfter = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
         assertTrue(countAfter > issueCountBefore, "Количество задач должно увеличиться минимум на 1");
     }
 
