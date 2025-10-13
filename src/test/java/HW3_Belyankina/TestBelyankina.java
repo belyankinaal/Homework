@@ -1,10 +1,8 @@
 package HW3_Belyankina;
 
-import model.Project;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.LoginPage;
-import pages.ProjectPage;
+import pages.*;
 import util.CustomProperties;
 import util.WebHooks;
 
@@ -15,15 +13,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestBelyankina extends WebHooks {
 
     private final LoginPage loginPage = new LoginPage();
+    private final NavigationPage navigationPage = new NavigationPage();
+    private final TaskListPage taskListPage = new TaskListPage();
+    private final NewTaskPage newTaskPage = new NewTaskPage();
+    private final TaskSearchPage taskSearchPage = new TaskSearchPage();
     private final ProjectPage projectPage = new ProjectPage();
+    private final WorkFlowPage workFlowPage = new WorkFlowPage();
 
     private void loginAndOpenTestProject() {
         loginPage.login(CustomProperties.getProperty("user.name"),
                 CustomProperties.getProperty("user.password"));
         webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
-
-        new Project().openProjectsMenu()
-                .selectTestProject();
+        navigationPage.openProjectsMenu().selectTestProject();
     }
 
     @Test
@@ -44,18 +45,12 @@ public class TestBelyankina extends WebHooks {
     @DisplayName("3. Проверка увеличения количества задач")
     void issueCountTest() {
         loginAndOpenTestProject();
-        projectPage.clickViewAllIssues();
-
-        int countBefore = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
-
-        projectPage.clickCreateIssue()
-                .enterSummary("A1")
-                .submitIssue();
-
-        projectPage.navigateBackToIssues()
-                .refreshIssuesList();
-
-        int countAfter = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
+        taskListPage.clickViewAllIssues();
+        int countBefore = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
+        taskListPage.clickCreateIssue();
+        newTaskPage.enterSummary("A1").submitIssue();
+        taskListPage.navigateBackToIssues().refreshIssuesList();
+        int countAfter = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
         assertTrue(countAfter > countBefore,
                 "Количество задач должно увеличиться минимум на 1. Было: " + countBefore + ", стало: " + countAfter);
     }
@@ -64,16 +59,14 @@ public class TestBelyankina extends WebHooks {
     @DisplayName("4. Проверка созданной задачи и статуса")
     void checkTaskTest() {
         loginAndOpenTestProject();
-        projectPage.clickViewAllIssues()
-                .clickCreateIssue()
-                .enterSummary("A1")
-                .submitIssue()
-                .navigateBackToIssues()
-                .refreshIssuesList();
-
-        projectPage.searchForTask("TestSeleniumATHomework")
-                .openTask()
-                .verifyTaskStatus("Сделать")
+        taskListPage.clickViewAllIssues()
+                .clickCreateIssue();
+        newTaskPage.enterSummary("A1").submitIssue();
+        taskListPage.navigateBackToIssues().refreshIssuesList();
+        taskSearchPage.clickViewAllTasks()
+                .searchForTask("TestSeleniumATHomework")
+                .openTask();
+        projectPage.verifyTaskStatus("Сделать")
                 .verifyFixVersion("Version 2.0");
     }
 
@@ -81,36 +74,29 @@ public class TestBelyankina extends WebHooks {
     @DisplayName("5. Создание и прохождение дефекта")
     void createBugTest() {
         loginAndOpenTestProject();
-        projectPage.clickViewAllIssues();
-
-        int countBefore = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
-
-        projectPage.clickCreateIssue()
-                .enterSummary("A1")
-                .submitIssue()
-                .navigateBackToIssues()
-                .refreshIssuesList();
-
-        int countAfter = projectPage.extractNumberFromText(projectPage.getIssuesCountText());
+        taskListPage.clickViewAllIssues();
+        int countBefore = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
+        taskListPage.clickCreateIssue();
+        newTaskPage.enterSummary("A1").submitIssue();
+        taskListPage.navigateBackToIssues().refreshIssuesList();
+        int countAfter = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
         assertTrue(countAfter > countBefore,
                 "Количество задач должно увеличиться минимум на 1. Было: " + countBefore + ", стало: " + countAfter);
-
-        projectPage.searchForTask("TestSeleniumATHomework")
-                .openTask()
-                .verifyTaskStatus("Сделать")
+        taskSearchPage.clickViewAllTasks()
+                .searchForTask("TestSeleniumATHomework")
+                .openTask();
+        projectPage.verifyTaskStatus("Сделать")
                 .verifyFixVersion("Version 2.0");
-
-        projectPage.clickCreateIssue()
-                .enterSummary("A1")
-                .ensureVisualEditorSelected()
-                .enterTextInVisualEditor("Дефект")
-                .selectFixVersionByText("Version 2.0")
-                .enterTextInSecondVisualEditor("DEV")
-                .enterIssueLinkAndPressEnter("Test-207008")
-                .enterSprintAndPressEnter("Доска Спринт 1")
-                .selectSeverityByValue("10100")
-                .clickSubmitAndWaitForSuccessAndOpenIssue()
-                .openBusinessProcessAndSelect("В процессе")
+        taskListPage.clickCreateIssue();
+        newTaskPage.enterSummary("A1");
+        new VisualEditorPage(0).ensureVisualEditorSelected().setContent("Дефект");
+        projectPage.selectFixVersionByText("Version 2.0");
+        new VisualEditorPage(1).setContent("DEV");
+        projectPage.enterIssueLinkAndPressEnter("Test-207008");
+        projectPage.enterSprintAndPressEnter("Доска Спринт 1");
+        projectPage.selectSeverityByValue("10100");
+        newTaskPage.clickSubmitAndWaitForSuccessAndOpenIssue();
+        workFlowPage.openBusinessProcessAndSelect("В процессе")
                 .openBusinessProcessAndSelect("Исполнено")
                 .openBusinessProcessAndSelect("Подтверждено");
     }

@@ -1,21 +1,21 @@
-package model;
+package pages;
 
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class Project {
+public class NavigationPage {
 
     private final SelenideElement projectsButton = $x("//*[@id='browse_link']");
     private final SelenideElement testProjectLink = $x("//*[@id='admin_main_proj_link_lnk']");
 
-    public Project openProjectsMenu() {
+    public NavigationPage openProjectsMenu() {
         projectsButton.shouldBe(visible).click();
         return this;
     }
 
-    public Project selectTestProject() {
+    public NavigationPage selectTestProject() {
         testProjectLink.shouldBe(visible).click();
         return this;
     }
