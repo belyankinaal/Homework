@@ -3,10 +3,7 @@ package HW3_Belyankina;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.*;
-import steps.AuthSteps;
-import steps.NavigationSteps;
-import steps.TaskMoreSteps;
-import steps.WorkFlowSteps;
+import steps.*;
 import util.WebHooks;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -22,6 +19,7 @@ public class TestBelyankina extends WebHooks {
     private final TaskSearchPage taskSearchPage = new TaskSearchPage();
     private final ProjectPage projectPage = new ProjectPage();
     private final TaskMoreSteps taskMoreSteps = new TaskMoreSteps();
+    private final TaskStatusSteps taskStatusSteps = new TaskStatusSteps();
 
     private void loginAndOpenTestProject() {
         authSteps.login();
@@ -51,15 +49,7 @@ public class TestBelyankina extends WebHooks {
     @DisplayName("4. Проверка созданной задачи и статуса")
     void checkTaskTest() {
         loginAndOpenTestProject();
-        taskListPage.clickViewAllIssues()
-                .clickCreateIssue();
-        newTaskPage.enterSummary("A1").submitIssue();
-        taskListPage.navigateBackToIssues().refreshIssuesList();
-        taskSearchPage.clickViewAllTasks()
-                .searchForTask("TestSeleniumATHomework")
-                .openTask();
-        projectPage.verifyTaskStatus("Сделать")
-                .verifyFixVersion("Version 2.0");
+        taskStatusSteps.createAndVerifyTask();
     }
 
     @Test
