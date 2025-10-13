@@ -8,11 +8,8 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 
-
 public class ProjectPage {
 
-    private final SelenideElement projectsButton = $x("//*[@id='browse_link']");
-    private final SelenideElement testProjectLink = $x("//*[@id='admin_main_proj_link_lnk']");
     private final SelenideElement searchInput = $x("//input[@id='searcher-query']");
     private final SelenideElement firstFoundTask = $x("//a[contains(@class,'issue-link') and contains(@data-issue-key,'TEST-')]");
     private final SelenideElement severitySelect = $x("//select[@id='customfield_10400']");
@@ -23,15 +20,6 @@ public class ProjectPage {
     private final SprintPage sprintPages = new SprintPage();
     private final VersionPage versionPages = new VersionPage();
 
-    public ProjectPage openProjectsMenu() {
-        projectsButton.shouldBe(visible).click();
-        return this;
-    }
-
-    public ProjectPage selectTestProject() {
-        testProjectLink.shouldBe(visible).click();
-        return this;
-    }
 
     public ProjectPage verifyTaskStatus(String status) {
         taskStatus.shouldBe(visible).shouldHave(text(status));
@@ -65,12 +53,7 @@ public class ProjectPage {
 
     public TaskSearchPage searchForTask(String text) {
         searchInput.shouldBe(visible).setValue(text).pressEnter();
-        firstFoundTask.scrollIntoView(true).shouldBe(visible, Duration.ofSeconds(10));
-        return new TaskSearchPage();
-    }
-
-    public TaskSearchPage openTask() {
-        firstFoundTask.shouldBe(visible).click();
+        firstFoundTask.scrollTo().shouldBe(visible, Duration.ofSeconds(10));
         return new TaskSearchPage();
     }
 }

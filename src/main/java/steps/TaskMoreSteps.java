@@ -23,11 +23,4 @@ public class TaskMoreSteps {
         assertTrue(countAfter > countBefore,
                 "Количество задач должно увеличиться минимум на 1. Было: " + countBefore + ", стало: " + countAfter);
     }
-
-    public void createTaskWithSummary(String summary) {
-        taskListPage.clickViewAllIssues();
-        taskListPage.clickCreateIssue();
-        newTaskPage.enterSummary(summary).submitIssue();
-        taskListPage.navigateBackToIssues().refreshIssuesList();
-    }
 }

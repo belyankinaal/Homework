@@ -1,0 +1,55 @@
+{
+  "uuid": "66e211fc-2dc2-4225-8c49-dfe52060fe95",
+  "historyId": "7c7febf8dddabf76c011b62f145c6f54",
+  "testCaseId": "[engine:junit-jupiter]/[class:HW3_Belyankina.TestBelyankina]/[method:createBugTest()]",
+  "testCaseName": "5. Создание и прохождение дефекта",
+  "fullName": "HW3_Belyankina.TestBelyankina.createBugTest",
+  "labels": [
+    {
+      "name": "junit.platform.uniqueid",
+      "value": "[engine:junit-jupiter]/[class:HW3_Belyankina.TestBelyankina]/[method:createBugTest()]"
+    },
+    {
+      "name": "host",
+      "value": "Bilyashkina"
+    },
+    {
+      "name": "thread",
+      "value": "12812@Bilyashkina.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "junit-platform"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    },
+    {
+      "name": "package",
+      "value": "HW3_Belyankina.TestBelyankina"
+    },
+    {
+      "name": "testClass",
+      "value": "HW3_Belyankina.TestBelyankina"
+    },
+    {
+      "name": "testMethod",
+      "value": "createBugTest"
+    },
+    {
+      "name": "suite",
+      "value": "HW3_Belyankina.TestBelyankina"
+    }
+  ],
+  "links": [],
+  "name": "5. Создание и прохождение дефекта",
+  "status": "passed",
+  "stage": "finished",
+  "description": "",
+  "steps": [],
+  "attachments": [],
+  "parameters": [],
+  "start": 1760390237210,
+  "stop": 1760390278607
+}

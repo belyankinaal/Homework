@@ -4,10 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.NewTaskPage;
-import pages.ProjectPage;
-import pages.TaskListPage;
-import pages.TaskSearchPage;
 import steps.*;
 import util.WebHooks;
 
@@ -17,12 +13,6 @@ public class TestBelyankina extends WebHooks {
 
     private final AuthSteps authSteps = new AuthSteps();
     private final NavigationSteps navigationSteps = new NavigationSteps();
-    private final WorkFlowSteps workFlowSteps = new WorkFlowSteps();
-
-    private final TaskListPage taskListPage = new TaskListPage();
-    private final NewTaskPage newTaskPage = new NewTaskPage();
-    private final TaskSearchPage taskSearchPage = new TaskSearchPage();
-    private final ProjectPage projectPage = new ProjectPage();
     private final TaskMoreSteps taskMoreSteps = new TaskMoreSteps();
     private final TaskStatusSteps taskStatusSteps = new TaskStatusSteps();
     private final BugSteps bugSteps = new BugSteps();
