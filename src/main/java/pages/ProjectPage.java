@@ -4,8 +4,10 @@ import com.codeborne.selenide.SelenideElement;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
+
 
 public class ProjectPage {
 
@@ -14,6 +16,9 @@ public class ProjectPage {
     private final SelenideElement searchInput = $x("//input[@id='searcher-query']");
     private final SelenideElement firstFoundTask = $x("//a[contains(@class,'issue-link') and contains(@data-issue-key,'TEST-')]");
     private final SelenideElement severitySelect = $x("//select[@id='customfield_10400']");
+    private final SelenideElement taskStatus = $x("//div[@class='wrap']//span[@id='status-val']/span");
+    private final SelenideElement fixVersion = $x("//span[@id='fixVersions-field']//a");
+
     private final TaskLinksPage taskLinksPage = new TaskLinksPage();
     private final SprintPage sprintPages = new SprintPage();
     private final VersionPage versionPages = new VersionPage();
@@ -29,14 +34,12 @@ public class ProjectPage {
     }
 
     public ProjectPage verifyTaskStatus(String status) {
-        $x("//div[@class='wrap']//span[@id='status-val']/span[normalize-space(text())='" + status + "']")
-                .shouldBe(visible);
+        taskStatus.shouldBe(visible).shouldHave(text(status));
         return this;
     }
 
     public ProjectPage verifyFixVersion(String version) {
-        $x("//span[@id='fixVersions-field']//a[normalize-space(text())='" + version + "']")
-                .shouldBe(visible);
+        fixVersion.shouldBe(visible).shouldHave(text(version));
         return this;
     }
 
@@ -70,5 +73,4 @@ public class ProjectPage {
         firstFoundTask.shouldBe(visible).click();
         return new TaskSearchPage();
     }
-
 }
