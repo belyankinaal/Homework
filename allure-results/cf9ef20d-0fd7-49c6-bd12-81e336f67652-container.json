@@ -1,0 +1,11 @@
+{
+  "uuid": "cf9ef20d-0fd7-49c6-bd12-81e336f67652",
+  "name": "2. Открытие проекта Test",
+  "children": [
+    "d5e3b4cc-eee9-4d84-a406-8bbbb8159be3"
+  ],
+  "befores": [],
+  "afters": [],
+  "start": 1760381966889,
+  "stop": 1760381972890
+}
