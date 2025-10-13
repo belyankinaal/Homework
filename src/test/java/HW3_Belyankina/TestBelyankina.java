@@ -2,11 +2,12 @@ package HW3_Belyankina;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.*;
+import pages.NewTaskPage;
+import pages.ProjectPage;
+import pages.TaskListPage;
+import pages.TaskSearchPage;
 import steps.*;
 import util.WebHooks;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestBelyankina extends WebHooks {
 
@@ -20,6 +21,7 @@ public class TestBelyankina extends WebHooks {
     private final ProjectPage projectPage = new ProjectPage();
     private final TaskMoreSteps taskMoreSteps = new TaskMoreSteps();
     private final TaskStatusSteps taskStatusSteps = new TaskStatusSteps();
+    private final BugSteps bugSteps = new BugSteps();
 
     private void loginAndOpenTestProject() {
         authSteps.login();
@@ -56,31 +58,6 @@ public class TestBelyankina extends WebHooks {
     @DisplayName("5. Создание и прохождение дефекта")
     void createBugTest() {
         loginAndOpenTestProject();
-        taskListPage.clickViewAllIssues();
-        int countBefore = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
-        taskListPage.clickCreateIssue();
-        newTaskPage.enterSummary("A1").submitIssue();
-        taskListPage.navigateBackToIssues().refreshIssuesList();
-        int countAfter = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
-        assertTrue(countAfter > countBefore,
-                "Количество задач должно увеличиться минимум на 1. Было: " + countBefore + ", стало: " + countAfter);
-
-        taskSearchPage.clickViewAllTasks()
-                .searchForTask("TestSeleniumATHomework")
-                .openTask();
-        projectPage.verifyTaskStatus("Сделать")
-                .verifyFixVersion("Version 2.0");
-
-        taskListPage.clickCreateIssue();
-        newTaskPage.enterSummary("A1");
-        new VisualEditorPage(0).ensureVisualEditorSelected().setContent("Дефект");
-        projectPage.selectFixVersionByText("Version 2.0");
-        new VisualEditorPage(1).setContent("DEV");
-        projectPage.enterIssueLinkAndPressEnter("Test-207008");
-        projectPage.enterSprintAndPressEnter("Доска Спринт 1");
-        projectPage.selectSeverityByValue("10100");
-        newTaskPage.clickSubmitAndWaitForSuccessAndOpenIssue();
-
-        workFlowSteps.completeWorkflow("В процессе", "Исполнено", "Подтверждено");
+        bugSteps.createAndCompleteBug();
     }
 }
