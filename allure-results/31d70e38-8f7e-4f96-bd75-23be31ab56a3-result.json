@@ -1,0 +1,62 @@
+{
+  "uuid": "31d70e38-8f7e-4f96-bd75-23be31ab56a3",
+  "historyId": "8d052670faed25d6eb58da50df9eb664",
+  "testCaseId": "[engine:junit-jupiter]/[class:HW3_Belyankina.TestBelyankina]/[method:openProjectTest()]",
+  "testCaseName": "2. Открытие проекта Test",
+  "fullName": "HW3_Belyankina.TestBelyankina.openProjectTest",
+  "labels": [
+    {
+      "name": "junit.platform.uniqueid",
+      "value": "[engine:junit-jupiter]/[class:HW3_Belyankina.TestBelyankina]/[method:openProjectTest()]"
+    },
+    {
+      "name": "host",
+      "value": "Bilyashkina"
+    },
+    {
+      "name": "thread",
+      "value": "19344@Bilyashkina.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "junit-platform"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    },
+    {
+      "name": "package",
+      "value": "HW3_Belyankina.TestBelyankina"
+    },
+    {
+      "name": "testClass",
+      "value": "HW3_Belyankina.TestBelyankina"
+    },
+    {
+      "name": "testMethod",
+      "value": "openProjectTest"
+    },
+    {
+      "name": "suite",
+      "value": "HW3_Belyankina.TestBelyankina"
+    }
+  ],
+  "links": [],
+  "name": "2. Открытие проекта Test",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "Element not found {By.xpath: //a[normalize-space()='Test']}\r\nExpected: visible\r\nScreenshot: file:/C:/Users/belya/IdeaProjects/Homework/build/reports/tests/1760375532998.0.png\r\nPage source: file:/C:/Users/belya/IdeaProjects/Homework/build/reports/tests/1760375532998.0.html\r\nTimeout: 30 s.\r\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//a[normalize-space()='Test']\"}",
+    "trace": "Element not found {By.xpath: //a[normalize-space()='Test']}\r\nExpected: visible\r\nScreenshot: file:/C:/Users/belya/IdeaProjects/Homework/build/reports/tests/1760375532998.0.png\r\nPage source: file:/C:/Users/belya/IdeaProjects/Homework/build/reports/tests/1760375532998.0.html\r\nTimeout: 30 s.\r\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//a[normalize-space()='Test']\"}\r\n\tat com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:89)\r\n\tat com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:129)\r\n\tat com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:140)\r\n\tat com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:123)\r\n\tat com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:99)\r\n\tat com.codeborne.selenide.commands.Should.execute(Should.java:24)\r\n\tat com.codeborne.selenide.FluentCommand.execute(FluentCommand.java:27)\r\n\tat com.codeborne.selenide.FluentCommand.execute(FluentCommand.java:19)\r\n\tat com.codeborne.selenide.commands.Commands.execute(Commands.java:160)\r\n\tat com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:131)\r\n\tat com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:83)\r\n\tat jdk.proxy1/jdk.proxy1.$Proxy13.shouldBe(Unknown Source)\r\n\tat pages.NavigationPage.selectProjectByName(NavigationPage.java:18)\r\n\tat HW3_Belyankina.TestBelyankina.loginAndOpenTestProject(TestBelyankina.java:35)\r\n\tat HW3_Belyankina.TestBelyankina.openProjectTest(TestBelyankina.java:48)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\r\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\r\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\r\nCaused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//a[normalize-space()='Test']\"}\n  (Session info: chrome=141.0.7390.76)\nFor documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception\nBuild info: version: '4.35.0', revision: '1c58e5028b'\nSystem info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.16'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [0a0aaee43976ee80eba837d9dbac8d19, findElement {value=//a[normalize-space()='Test'], using=xpath}]\nCapabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 141.0.7390.76, chrome: {chromedriverVersion: 140.0.7339.185 (eeea00e459e..., userDataDir: C:\\Users\\belya\\AppData\\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59312}, networkConnectionEnabled: false, pageLoadStrategy: eager, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59312/devtoo..., se:cdpVersion: 141.0.7390.76, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}\nSession ID: 0a0aaee43976ee80eba837d9dbac8d19\r\n\tat jdk.internal.reflect.GeneratedConstructorAccessor14.newInstance(Unknown Source)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\r\n\tat org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)\r\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)\r\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)\r\n\tat com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:67)\r\n\tat com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:38)\r\n\tat com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:29)\r\n\tat com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:113)\r\n\tat com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:112)\r\n\t... 14 more\r\n"
+  },
+  "stage": "finished",
+  "description": "",
+  "steps": [],
+  "attachments": [],
+  "parameters": [],
+  "start": 1760375497685,
+  "stop": 1760375534155
+}

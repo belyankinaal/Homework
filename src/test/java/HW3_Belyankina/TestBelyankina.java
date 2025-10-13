@@ -1,38 +1,42 @@
 package HW3_Belyankina;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.*;
+import pages.NewTaskPage;
+import pages.ProjectPage;
+import pages.VisualEditorPage;
+import steps.AuthSteps;
+import steps.IssueSteps;
+import steps.NavigationSteps;
+import steps.WorkFlowSteps;
 import util.CustomProperties;
 import util.WebHooks;
 
-import static com.codeborne.selenide.Selenide.webdriver;
-import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestBelyankina extends WebHooks {
+    @BeforeAll
+    static void beforeAll() {
+        CustomProperties.loadProperties();
+    }
 
-    private final LoginPage loginPage = new LoginPage();
-    private final NavigationPage navigationPage = new NavigationPage();
-    private final TaskListPage taskListPage = new TaskListPage();
-    private final NewTaskPage newTaskPage = new NewTaskPage();
-    private final TaskSearchPage taskSearchPage = new TaskSearchPage();
+    private final AuthSteps authSteps = new AuthSteps();
+    private final NavigationSteps navigationSteps = new NavigationSteps();
+    private final WorkFlowSteps workFlowSteps = new WorkFlowSteps();
+    private final IssueSteps issueSteps = new IssueSteps();
+
     private final ProjectPage projectPage = new ProjectPage();
-    private final WorkFlowPage workFlowPage = new WorkFlowPage();
 
     private void loginAndOpenTestProject() {
-        loginPage.login(CustomProperties.getProperty("user.name"),
-                CustomProperties.getProperty("user.password"));
-        webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
-        navigationPage.openProjectsMenu().selectTestProject();
+        authSteps.login();
+        navigationSteps.openProjectByName("Test");
     }
 
     @Test
     @DisplayName("1. Авторизация")
     void authorizationTest() {
-        loginPage.login(CustomProperties.getProperty("user.name"),
-                CustomProperties.getProperty("user.password"));
-        webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
+        authSteps.login();
     }
 
     @Test
@@ -44,13 +48,13 @@ public class TestBelyankina extends WebHooks {
     @Test
     @DisplayName("3. Проверка увеличения количества задач")
     void issueCountTest() {
+        String issueSummary = CustomProperties.getProperty("issue.summary");
+
         loginAndOpenTestProject();
-        taskListPage.clickViewAllIssues();
-        int countBefore = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
-        taskListPage.clickCreateIssue();
-        newTaskPage.enterSummary("A1").submitIssue();
-        taskListPage.navigateBackToIssues().refreshIssuesList();
-        int countAfter = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
+        int countBefore = issueSteps.getIssueCount();
+        issueSteps.createIssue(issueSummary);
+        int countAfter = issueSteps.getIssueCount();
+
         assertTrue(countAfter > countBefore,
                 "Количество задач должно увеличиться минимум на 1. Было: " + countBefore + ", стало: " + countAfter);
     }
@@ -58,14 +62,12 @@ public class TestBelyankina extends WebHooks {
     @Test
     @DisplayName("4. Проверка созданной задачи и статуса")
     void checkTaskTest() {
+        String issueSummary = CustomProperties.getProperty("issue.summary");
+
         loginAndOpenTestProject();
-        taskListPage.clickViewAllIssues()
-                .clickCreateIssue();
-        newTaskPage.enterSummary("A1").submitIssue();
-        taskListPage.navigateBackToIssues().refreshIssuesList();
-        taskSearchPage.clickViewAllTasks()
-                .searchForTask("TestSeleniumATHomework")
-                .openTask();
+        issueSteps.createIssue(issueSummary);
+        issueSteps.searchAndOpenTask("TestSeleniumATHomework");
+
         projectPage.verifyTaskStatus("Сделать")
                 .verifyFixVersion("Version 2.0");
     }
@@ -73,31 +75,30 @@ public class TestBelyankina extends WebHooks {
     @Test
     @DisplayName("5. Создание и прохождение дефекта")
     void createBugTest() {
+        String issueSummary = CustomProperties.getProperty("issue.summary");
+
         loginAndOpenTestProject();
-        taskListPage.clickViewAllIssues();
-        int countBefore = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
-        taskListPage.clickCreateIssue();
-        newTaskPage.enterSummary("A1").submitIssue();
-        taskListPage.navigateBackToIssues().refreshIssuesList();
-        int countAfter = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
+        int countBefore = issueSteps.getIssueCount();
+        issueSteps.createIssue(issueSummary);
+        int countAfter = issueSteps.getIssueCount();
+
         assertTrue(countAfter > countBefore,
                 "Количество задач должно увеличиться минимум на 1. Было: " + countBefore + ", стало: " + countAfter);
-        taskSearchPage.clickViewAllTasks()
-                .searchForTask("TestSeleniumATHomework")
-                .openTask();
+
+        issueSteps.searchAndOpenTask("TestSeleniumATHomework");
         projectPage.verifyTaskStatus("Сделать")
                 .verifyFixVersion("Version 2.0");
-        taskListPage.clickCreateIssue();
-        newTaskPage.enterSummary("A1");
+
+        issueSteps.createIssue(issueSummary);
+
         new VisualEditorPage(0).ensureVisualEditorSelected().setContent("Дефект");
         projectPage.selectFixVersionByText("Version 2.0");
         new VisualEditorPage(1).setContent("DEV");
         projectPage.enterIssueLinkAndPressEnter("Test-207008");
         projectPage.enterSprintAndPressEnter("Доска Спринт 1");
         projectPage.selectSeverityByValue("10100");
-        newTaskPage.clickSubmitAndWaitForSuccessAndOpenIssue();
-        workFlowPage.openBusinessProcessAndSelect("В процессе")
-                .openBusinessProcessAndSelect("Исполнено")
-                .openBusinessProcessAndSelect("Подтверждено");
+        new NewTaskPage().clickSubmitAndWaitForSuccessAndOpenIssue();
+
+        workFlowSteps.completeWorkflow("В процессе", "Исполнено", "Подтверждено");
     }
 }
