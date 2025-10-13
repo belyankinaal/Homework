@@ -1,0 +1,55 @@
+{
+  "uuid": "f7f645fc-e100-4189-8917-de7abcade918",
+  "historyId": "e5a0728663fd49622e9144d11e3b191c",
+  "testCaseId": "[engine:junit-jupiter]/[class:HW3_Belyankina.TestBelyankina]/[method:authorizationTest()]",
+  "testCaseName": "1. Авторизация",
+  "fullName": "HW3_Belyankina.TestBelyankina.authorizationTest",
+  "labels": [
+    {
+      "name": "junit.platform.uniqueid",
+      "value": "[engine:junit-jupiter]/[class:HW3_Belyankina.TestBelyankina]/[method:authorizationTest()]"
+    },
+    {
+      "name": "host",
+      "value": "Bilyashkina"
+    },
+    {
+      "name": "thread",
+      "value": "10188@Bilyashkina.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "junit-platform"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    },
+    {
+      "name": "package",
+      "value": "HW3_Belyankina.TestBelyankina"
+    },
+    {
+      "name": "testClass",
+      "value": "HW3_Belyankina.TestBelyankina"
+    },
+    {
+      "name": "testMethod",
+      "value": "authorizationTest"
+    },
+    {
+      "name": "suite",
+      "value": "HW3_Belyankina.TestBelyankina"
+    }
+  ],
+  "links": [],
+  "name": "1. Авторизация",
+  "status": "passed",
+  "stage": "finished",
+  "description": "",
+  "steps": [],
+  "attachments": [],
+  "parameters": [],
+  "start": 1760363726100,
+  "stop": 1760363729974
+}
