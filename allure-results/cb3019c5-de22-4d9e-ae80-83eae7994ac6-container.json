@@ -1,0 +1,66 @@
+{
+  "uuid": "cb3019c5-de22-4d9e-ae80-83eae7994ac6",
+  "name": "1. Авторизация",
+  "children": [
+    "f7abb4d8-1817-4c32-8d0b-be25bfff4beb"
+  ],
+  "befores": [
+    {
+      "name": "initBrowser",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "$(\"open\") https://edujira.ifellow.ru/",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [
+            {
+              "name": "$(\"webdriver\") create()",
+              "status": "passed",
+              "stage": "finished",
+              "steps": [],
+              "attachments": [],
+              "parameters": [],
+              "start": 1760470898887,
+              "stop": 1760470900074
+            }
+          ],
+          "attachments": [],
+          "parameters": [],
+          "start": 1760470898887,
+          "stop": 1760470902163
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470898887,
+      "stop": 1760470902210
+    }
+  ],
+  "afters": [
+    {
+      "name": "closeBrowser",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "$(\"webdriver\") close()",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1760470902803,
+          "stop": 1760470903064
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470902803,
+      "stop": 1760470903064
+    }
+  ],
+  "start": 1760470898877,
+  "stop": 1760470903064
+}

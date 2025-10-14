@@ -1,0 +1,426 @@
+{
+  "uuid": "dc222601-433d-42d3-aae4-847ece07a134",
+  "historyId": "81a36b02fb4fffbf4c2cf6daf071d582",
+  "testCaseId": "[engine:junit-jupiter]/[class:HW3_Belyankina.BelyankinaTest]/[method:checkTaskTest()]",
+  "testCaseName": "4. Проверка созданной задачи и статуса",
+  "fullName": "HW3_Belyankina.BelyankinaTest.checkTaskTest",
+  "labels": [
+    {
+      "name": "junit.platform.uniqueid",
+      "value": "[engine:junit-jupiter]/[class:HW3_Belyankina.BelyankinaTest]/[method:checkTaskTest()]"
+    },
+    {
+      "name": "host",
+      "value": "Bilyashkina"
+    },
+    {
+      "name": "thread",
+      "value": "20628@Bilyashkina.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "junit-platform"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    },
+    {
+      "name": "package",
+      "value": "HW3_Belyankina.BelyankinaTest"
+    },
+    {
+      "name": "testClass",
+      "value": "HW3_Belyankina.BelyankinaTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "checkTaskTest"
+    },
+    {
+      "name": "suite",
+      "value": "HW3_Belyankina.BelyankinaTest"
+    }
+  ],
+  "links": [],
+  "name": "4. Проверка созданной задачи и статуса",
+  "status": "passed",
+  "stage": "finished",
+  "description": "",
+  "steps": [
+    {
+      "name": "$(\"By.xpath: //input[@id='login-form-username']\") set value(AT1)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471077983,
+      "stop": 1760471078177
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='login-form-username']\") should have(value=\"AT1\")",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471078177,
+      "stop": 1760471078198
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='login-form-password']\") set value(Qwerty123)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471078198,
+      "stop": 1760471078375
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='login-form-password']\") should have(value=\"Qwerty123\")",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471078375,
+      "stop": 1760471078399
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='login']\") click()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471078399,
+      "stop": 1760471078542
+    },
+    {
+      "name": "$(\"webdriver\") should have url containing /secure/Dashboard.jspa",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471078542,
+      "stop": 1760471078551
+    },
+    {
+      "name": "$(\"By.xpath: //*[@id='browse_link']\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471078551,
+      "stop": 1760471080055
+    },
+    {
+      "name": "$(\"By.xpath: //*[@id='browse_link']\") click()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471080055,
+      "stop": 1760471080259
+    },
+    {
+      "name": "$(\"By.xpath: //*[@id='admin_main_proj_link_lnk']\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471080262,
+      "stop": 1760471080581
+    },
+    {
+      "name": "$(\"By.xpath: //*[@id='admin_main_proj_link_lnk']\") click()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471080581,
+      "stop": 1760471081656
+    },
+    {
+      "name": "$(\"By.xpath: //a[@id='find_link']\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471081656,
+      "stop": 1760471081699
+    },
+    {
+      "name": "$(\"By.xpath: //a[@id='find_link']\") click()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471081699,
+      "stop": 1760471081899
+    },
+    {
+      "name": "$(\"By.xpath: //a[@id='issues_new_search_link_lnk']\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471081899,
+      "stop": 1760471082215
+    },
+    {
+      "name": "$(\"By.xpath: //a[@id='issues_new_search_link_lnk']\") click()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471082215,
+      "stop": 1760471083390
+    },
+    {
+      "name": "$(\"By.xpath: //a[@id='create_link']\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471083390,
+      "stop": 1760471083424
+    },
+    {
+      "name": "$(\"By.xpath: //a[@id='create_link']\") click()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471083424,
+      "stop": 1760471083673
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='summary']\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471083673,
+      "stop": 1760471084245
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='summary']\") set value(A1)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471084245,
+      "stop": 1760471084475
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='create-issue-submit']\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471084475,
+      "stop": 1760471084518
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='create-issue-submit']\") click()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471084518,
+      "stop": 1760471084924
+    },
+    {
+      "name": "$(\"By.xpath: //div[contains(@class,'aui-message-success')]\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471084924,
+      "stop": 1760471085249
+    },
+    {
+      "name": "$(\"refresh\") ",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471085265,
+      "stop": 1760471085384
+    },
+    {
+      "name": "$(\"By.xpath: //a[@id='find_link']\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471085384,
+      "stop": 1760471086032
+    },
+    {
+      "name": "$(\"By.xpath: //a[@id='find_link']\") click()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471086032,
+      "stop": 1760471086253
+    },
+    {
+      "name": "$(\"By.xpath: //a[@id='issues_new_search_link_lnk']\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471086262,
+      "stop": 1760471086525
+    },
+    {
+      "name": "$(\"By.xpath: //a[@id='issues_new_search_link_lnk']\") click()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471086525,
+      "stop": 1760471086708
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='searcher-query']\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471086708,
+      "stop": 1760471086744
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='searcher-query']\") set value(TestSeleniumATHomework)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471086745,
+      "stop": 1760471087482
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='searcher-query']\") press enter()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471087482,
+      "stop": 1760471087615
+    },
+    {
+      "name": "$(\"By.xpath: //a[contains(@class,'issue-link') and starts-with(@data-issue-key, 'TEST-') and text()=substring(@data-issue-key, 1, string-length(@data-issue-key))]\") scroll into view(true)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471087615,
+      "stop": 1760471087660
+    },
+    {
+      "name": "$(\"By.xpath: //a[contains(@class,'issue-link') and starts-with(@data-issue-key, 'TEST-') and text()=substring(@data-issue-key, 1, string-length(@data-issue-key))]\") should be([visible, 10 s.])",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471087660,
+      "stop": 1760471087987
+    },
+    {
+      "name": "$(\"By.xpath: //a[contains(@class,'issue-link') and starts-with(@data-issue-key, 'TEST-') and text()=substring(@data-issue-key, 1, string-length(@data-issue-key))]\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471087987,
+      "stop": 1760471088035
+    },
+    {
+      "name": "$(\"By.xpath: //a[contains(@class,'issue-link') and starts-with(@data-issue-key, 'TEST-') and text()=substring(@data-issue-key, 1, string-length(@data-issue-key))]\") click()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471088035,
+      "stop": 1760471088297
+    },
+    {
+      "name": "$(\"By.xpath: //div[@class='wrap']//span[@id='status-val']/span\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471088297,
+      "stop": 1760471089784
+    },
+    {
+      "name": "$(\"By.xpath: //div[@class='wrap']//span[@id='status-val']/span\") should have(text \"Сделать\")",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471089784,
+      "stop": 1760471089826
+    },
+    {
+      "name": "$(\"By.xpath: //span[@id='fixVersions-field']//a\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471089826,
+      "stop": 1760471089859
+    },
+    {
+      "name": "$(\"By.xpath: //span[@id='fixVersions-field']//a\") should have(text \"Version 2.0\")",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471089859,
+      "stop": 1760471089890
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1760471075222,
+  "stop": 1760471090199
+}

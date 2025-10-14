@@ -1,0 +1,156 @@
+{
+  "uuid": "643d402a-6e38-4b7e-9957-1ae3114ccdb8",
+  "historyId": "1c0ae15aa7e7707021c274e1702930b4",
+  "testCaseId": "[engine:junit-jupiter]/[class:HW3_Belyankina.BelyankinaTest]/[method:openProjectTest()]",
+  "testCaseName": "2. Открытие проекта Test",
+  "fullName": "HW3_Belyankina.BelyankinaTest.openProjectTest",
+  "labels": [
+    {
+      "name": "junit.platform.uniqueid",
+      "value": "[engine:junit-jupiter]/[class:HW3_Belyankina.BelyankinaTest]/[method:openProjectTest()]"
+    },
+    {
+      "name": "host",
+      "value": "Bilyashkina"
+    },
+    {
+      "name": "thread",
+      "value": "14148@Bilyashkina.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "junit-platform"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    },
+    {
+      "name": "package",
+      "value": "HW3_Belyankina.BelyankinaTest"
+    },
+    {
+      "name": "testClass",
+      "value": "HW3_Belyankina.BelyankinaTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "openProjectTest"
+    },
+    {
+      "name": "suite",
+      "value": "HW3_Belyankina.BelyankinaTest"
+    }
+  ],
+  "links": [],
+  "name": "2. Открытие проекта Test",
+  "status": "passed",
+  "stage": "finished",
+  "description": "",
+  "steps": [
+    {
+      "name": "$(\"By.xpath: //input[@id='login-form-username']\") set value(AT1)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470661219,
+      "stop": 1760470661418
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='login-form-username']\") should have(value=\"AT1\")",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470661418,
+      "stop": 1760470661440
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='login-form-password']\") set value(Qwerty123)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470661440,
+      "stop": 1760470661575
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='login-form-password']\") should have(value=\"Qwerty123\")",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470661575,
+      "stop": 1760470661594
+    },
+    {
+      "name": "$(\"By.xpath: //input[@id='login']\") click()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470661594,
+      "stop": 1760470661719
+    },
+    {
+      "name": "$(\"webdriver\") should have url containing /secure/Dashboard.jspa",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470661719,
+      "stop": 1760470661733
+    },
+    {
+      "name": "$(\"By.xpath: //*[@id='browse_link']\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470661733,
+      "stop": 1760470663397
+    },
+    {
+      "name": "$(\"By.xpath: //*[@id='browse_link']\") click()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470663398,
+      "stop": 1760470663599
+    },
+    {
+      "name": "$(\"By.xpath: //*[@id='admin_main_proj_link_lnk']\") should be(visible)",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470663599,
+      "stop": 1760470663854
+    },
+    {
+      "name": "$(\"By.xpath: //*[@id='admin_main_proj_link_lnk']\") click()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470663856,
+      "stop": 1760470665020
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1760470658222,
+  "stop": 1760470665213
+}
