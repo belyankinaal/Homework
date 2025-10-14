@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.actions;
 
 public class SprintPage {
 
-    private final SelenideElement sprintInput = $x("//input[@id='customfield_10104-field']");
+    private final SelenideElement sprintInput = $x("//input[@id='customfield_10104-field']").as("Выбор спринта");
 
     public SprintPage enterSprintAndPressEnter(String text) {
         sprintInput.shouldBe(visible).click();

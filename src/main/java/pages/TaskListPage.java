@@ -10,10 +10,10 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class TaskListPage {
 
-    private final SelenideElement createIssueButton = $x("//a[@id='create_link']");
-    private final SelenideElement issuesMenuLink = $x("//a[@id='find_link']");
-    private final SelenideElement issuesSearchLink = $x("//a[@id='issues_new_search_link_lnk']");
-    private final SelenideElement countElement = $x("//span[contains(@class,'results-count-total')]");
+    private final SelenideElement createIssueButton = $x("//a[@id='create_link']").as("Кнопка создать задачу");
+    private final SelenideElement issuesMenuLink = $x("//a[@id='find_link']").as("Меню задач");
+    private final SelenideElement issuesSearchLink = $x("//a[@id='issues_new_search_link_lnk']").as("Ссылка для поиска задач");
+    private final SelenideElement countElement = $x("//span[contains(@class,'results-count-total')]").as("Количество задач");
 
     public TaskListPage clickViewAllIssues() {
         issuesMenuLink.shouldBe(visible).click();

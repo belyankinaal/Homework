@@ -11,8 +11,8 @@ public class VisualEditorPage {
 
     private final int editorIndex;
 
-    private final SelenideElement visualTab = $x("//li[@data-mode='wysiwyg']//button[text()='Визуальный']");
-    private final SelenideElement textTab = $x("//li[@data-mode='source']//button[text()='Текст']");
+    private final SelenideElement visualTab = $x("//li[@data-mode='wysiwyg']//button[text()='Визуальный']").as("Визуальный редактор");
+    private final SelenideElement textTab = $x("//li[@data-mode='source']//button[text()='Текст']").as("Текстовый редактор");
 
     public VisualEditorPage(int editorIndex) {
         this.editorIndex = editorIndex;

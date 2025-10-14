@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.actions;
 
 public class TaskLinksPage {
 
-    private final SelenideElement issueLinksTextarea = $x("//textarea[@id='issuelinks-issues-textarea']");
+    private final SelenideElement issueLinksTextarea = $x("//textarea[@id='issuelinks-issues-textarea']").as("Ссылка на задачу");
 
     public TaskLinksPage enterIssueLinkAndPressEnter(String text) {
         issueLinksTextarea.shouldBe(visible).click();

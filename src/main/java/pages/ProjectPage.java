@@ -10,11 +10,12 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class ProjectPage {
 
-    private final SelenideElement searchInput = $x("//input[@id='searcher-query']");
-    private final SelenideElement firstFoundTask = $x("//a[contains(@class,'issue-link') and contains(@data-issue-key,'TEST-')]");
-    private final SelenideElement severitySelect = $x("//select[@id='customfield_10400']");
-    private final SelenideElement taskStatus = $x("//div[@class='wrap']//span[@id='status-val']/span");
-    private final SelenideElement fixVersion = $x("//span[@id='fixVersions-field']//a");
+    private final SelenideElement searchInput = $x("//input[@id='searcher-query']").as("Поле поиск задач");
+    private final SelenideElement firstFoundTask = $x("//a[contains(@class,'issue-link') and contains(@data-issue-key,'TEST-')]").as("Нашли задачу по поиску");
+    private final SelenideElement severitySelect = $x("//select[@id='customfield_10400']").as("Приоритет задачи");
+    private final SelenideElement taskStatus = $x("//div[@class='wrap']//span[@id='status-val']/span").as("Статус задачи");
+    private final SelenideElement fixVersion = $x("//span[@id='fixVersions-field']//a").as("Fix Version задачи");
+
 
     private final TaskLinksPage taskLinksPage = new TaskLinksPage();
     private final SprintPage sprintPages = new SprintPage();

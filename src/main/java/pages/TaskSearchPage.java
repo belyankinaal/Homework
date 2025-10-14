@@ -9,10 +9,10 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class TaskSearchPage {
 
-    private final SelenideElement issuesMenuLink = $x("//a[@id='find_link']");
-    private final SelenideElement issuesSearchLink = $x("//a[@id='issues_new_search_link_lnk']");
-    private final SelenideElement searchInput = $x("//input[@id='searcher-query']");
-    private final SelenideElement firstFoundTask = $x("//a[contains(@class,'issue-link') and starts-with(@data-issue-key, 'TEST-') and text()=substring(@data-issue-key, 1, string-length(@data-issue-key))]");
+    private final SelenideElement issuesMenuLink = $x("//a[@id='find_link']").as("Меню задач");
+    private final SelenideElement issuesSearchLink = $x("//a[@id='issues_new_search_link_lnk']").as("Ссылка поиска задач");
+    private final SelenideElement searchInput = $x("//input[@id='searcher-query']").as("Поле поиска задач");
+    private final SelenideElement firstFoundTask = $x("//a[contains(@class,'issue-link') and starts-with(@data-issue-key, 'TEST-') and text()=substring(@data-issue-key, 1, string-length(@data-issue-key))]").as("Первая найденная задача");
 
 
     public TaskSearchPage clickViewAllTasks() {
