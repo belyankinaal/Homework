@@ -5,11 +5,10 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import steps.*;
-import util.WebHooks;
 
-public class TestBelyankina extends WebHooks {
+public class BelyankinaTest extends BaseTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestBelyankina.class);
+    private static final Logger logger = LoggerFactory.getLogger(BelyankinaTest.class);
 
     private final AuthSteps authSteps = new AuthSteps();
     private final NavigationSteps navigationSteps = new NavigationSteps();

@@ -1,0 +1,36 @@
+{
+  "uuid": "22127d5c-dd5d-4df9-b849-281426ce7243",
+  "name": "BelyankinaTest",
+  "children": [
+    "17b10b33-7a83-4e69-8661-362ad254ccf1",
+    "93423de8-5e8a-4f9d-b944-9d9fa19c39f7",
+    "aa467bd6-9146-4c71-8c96-84daab4cdee7",
+    "16ee7481-326c-4b12-a93b-0d2343c3589c",
+    "d97c071a-a928-457d-bbc8-4a8bce089972"
+  ],
+  "befores": [
+    {
+      "name": "globalSetup",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470333144,
+      "stop": 1760470333149
+    },
+    {
+      "name": "before",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470333151,
+      "stop": 1760470333153
+    }
+  ],
+  "afters": [],
+  "start": 1760470333109,
+  "stop": 1760470420874
+}

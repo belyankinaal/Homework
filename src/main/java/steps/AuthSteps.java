@@ -1,5 +1,6 @@
 package steps;
 
+import io.qameta.allure.Step;
 import pages.LoginPage;
 import util.CustomProperties;
 
@@ -13,6 +14,7 @@ public class AuthSteps {
     private final String userName = CustomProperties.getProperty("user.name");
     private final String userPassword = CustomProperties.getProperty("user.password");
 
+    @Step("Авторизация")
     public void login() {
         loginPage.login(userName, userPassword);
         webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));

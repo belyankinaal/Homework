@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,7 +15,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <junit.jupiter.version>5.10.0</junit.jupiter.version>
         <allure.version>2.28.1</allure.version>
-        <allure.report.version>2.6.0</allure.report.version>
+        <allure.report.version>2.30.0</allure.report.version>
     </properties>
 
     <dependencies>
@@ -34,6 +34,12 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
             <version>${allure.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>2.20.0</version>
         </dependency>
 
         <dependency>
@@ -68,6 +74,10 @@
                         <include>**/*Test.java</include>
                     </includes>
                     <useModulePath>false</useModulePath>
+                    <properties>
+                        <configurationParameters>junit.jupiter.extensions.autodetection.enabled=true
+                        </configurationParameters>
+                    </properties>
                 </configuration>
             </plugin>
 

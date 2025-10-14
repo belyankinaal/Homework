@@ -1,0 +1,66 @@
+{
+  "uuid": "678c0a2e-89b0-4233-94e8-053c6dfb0376",
+  "name": "5. Создание и прохождение дефекта",
+  "children": [
+    "17b10b33-7a83-4e69-8661-362ad254ccf1"
+  ],
+  "befores": [
+    {
+      "name": "initBrowser",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "$(\"open\") https://edujira.ifellow.ru/",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [
+            {
+              "name": "$(\"webdriver\") create()",
+              "status": "passed",
+              "stage": "finished",
+              "steps": [],
+              "attachments": [],
+              "parameters": [],
+              "start": 1760470333366,
+              "stop": 1760470334767
+            }
+          ],
+          "attachments": [],
+          "parameters": [],
+          "start": 1760470333361,
+          "stop": 1760470336874
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470333346,
+      "stop": 1760470336908
+    }
+  ],
+  "afters": [
+    {
+      "name": "closeBrowser",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "$(\"webdriver\") close()",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1760470381766,
+          "stop": 1760470382164
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470381766,
+      "stop": 1760470382164
+    }
+  ],
+  "start": 1760470333291,
+  "stop": 1760470382392
+}
