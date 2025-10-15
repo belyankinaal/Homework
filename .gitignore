@@ -10,7 +10,7 @@ pom.xml.versionsBackup
 .allure/
 allure-results/
 allure-report/
-Homework.iml
+Homework.iml/
 .DS_Store
 Thumbs.db
 *.log

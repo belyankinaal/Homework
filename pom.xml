@@ -15,7 +15,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <junit.jupiter.version>5.10.0</junit.jupiter.version>
         <allure.version>2.28.1</allure.version>
-        <allure.report.version>2.30.0</allure.report.version>
+        <allure.maven.version>2.13.0</allure.maven.version>
     </properties>
 
     <dependencies>
@@ -70,7 +70,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M8</version>
                 <configuration>
-                    <argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.22/aspectjweaver-1.9.22.jar"
+                        -Dfile.encoding=${project.build.sourceEncoding}
+                    </argLine>
                     <includes>
                         <include>**/*Test.java</include>
                     </includes>
@@ -79,7 +82,8 @@
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                     <properties>
-                        <configurationParameters>junit.jupiter.extensions.autodetection.enabled=true
+                        <configurationParameters>
+                            junit.jupiter.extensions.autodetection.enabled=true
                         </configurationParameters>
                     </properties>
                 </configuration>
@@ -88,10 +92,7 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.9</version>
-                <configuration>
-                    <reportVersion>${allure.report.version}</reportVersion>
-                </configuration>
+                <version>${allure.maven.version}</version>
             </plugin>
 
             <plugin>
