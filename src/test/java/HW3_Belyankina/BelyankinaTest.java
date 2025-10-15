@@ -2,13 +2,13 @@ package HW3_Belyankina;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import steps.*;
+
+import java.util.logging.Logger;
 
 public class BelyankinaTest extends BaseTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(BelyankinaTest.class);
+    private static final Logger logger = Logger.getLogger(BelyankinaTest.class.getName());
 
     private final AuthSteps authSteps = new AuthSteps();
     private final NavigationSteps navigationSteps = new NavigationSteps();
@@ -16,11 +16,7 @@ public class BelyankinaTest extends BaseTest {
     private final TaskStatusSteps taskStatusSteps = new TaskStatusSteps();
     private final BugSteps bugSteps = new BugSteps();
 
-    private void loginAndOpenTestProject() {
-        logger.info("Выполнение логина и открытие проекта Test");
-        authSteps.login();
-        navigationSteps.openProjectByName("Test");
-    }
+
 
     @Test
     @DisplayName("1. Авторизация")
@@ -34,7 +30,7 @@ public class BelyankinaTest extends BaseTest {
     @DisplayName("2. Открытие проекта Test")
     void openProjectTest() {
         logger.info("Запуск теста открытия проекта Test");
-        loginAndOpenTestProject();
+        navigationSteps.loginAndOpenTestProject();
         logger.info("Тест открытия проекта Test завершен");
     }
 
@@ -42,7 +38,7 @@ public class BelyankinaTest extends BaseTest {
     @DisplayName("3. Проверка увеличения количества задач")
     void issueCountTest() {
         logger.info("Запуск теста проверки увеличения количества задач");
-        loginAndOpenTestProject();
+        navigationSteps.loginAndOpenTestProject();
         taskMoreSteps.shouldIncreaseIssueCountAfterCreating();
         logger.info("Тест проверки увеличения количества задач завершен");
     }
@@ -51,7 +47,7 @@ public class BelyankinaTest extends BaseTest {
     @DisplayName("4. Проверка созданной задачи и статуса")
     void checkTaskTest() {
         logger.info("Запуск теста проверки созданной задачи и статуса");
-        loginAndOpenTestProject();
+        navigationSteps.loginAndOpenTestProject();
         taskStatusSteps.createAndVerifyTask();
         logger.info("Тест проверки созданной задачи и статуса завершен");
     }
@@ -60,7 +56,7 @@ public class BelyankinaTest extends BaseTest {
     @DisplayName("5. Создание и прохождение дефекта")
     void createBugTest() {
         logger.info("Запуск теста создания и прохождения дефекта");
-        loginAndOpenTestProject();
+        navigationSteps.loginAndOpenTestProject();
         bugSteps.createAndCompleteBug();
         logger.info("Тест создания и прохождения дефекта завершен");
     }

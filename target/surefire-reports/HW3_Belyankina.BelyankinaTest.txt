@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: HW3_Belyankina.BelyankinaTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 89.695 s - in HW3_Belyankina.BelyankinaTest
