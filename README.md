@@ -24,6 +24,7 @@
 - Maven 3.8+
 - Java 17
 - Google Chrome
+- В config.properties в user.name и user.password выставлены логин и пароль
 
 ## Тестовые сценарии
 

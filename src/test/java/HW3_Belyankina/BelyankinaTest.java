@@ -2,21 +2,19 @@ package HW3_Belyankina;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import steps.*;
-
-import java.util.logging.Logger;
 
 public class BelyankinaTest extends BaseTest {
 
-    private static final Logger logger = Logger.getLogger(BelyankinaTest.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(BelyankinaTest.class);
 
     private final AuthSteps authSteps = new AuthSteps();
     private final NavigationSteps navigationSteps = new NavigationSteps();
     private final TaskMoreSteps taskMoreSteps = new TaskMoreSteps();
     private final TaskStatusSteps taskStatusSteps = new TaskStatusSteps();
     private final BugSteps bugSteps = new BugSteps();
-
-
 
     @Test
     @DisplayName("1. Авторизация")
