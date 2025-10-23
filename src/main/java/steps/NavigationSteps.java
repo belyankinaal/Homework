@@ -10,17 +10,16 @@ public class NavigationSteps {
 
     private final NavigationPage navigationPage = new NavigationPage();
     private final AuthSteps authSteps = new AuthSteps();
-    private final NavigationSteps navigationSteps = this;
 
-    @Step("Открываем проект {projectName}")
+    @Step("Открываем тестовый проект")
     @Story("Пользователь открывает проект")
-    public void openProjectByName(String projectName) {
+    public void openTestProject() {
         navigationPage.openProjectsMenu();
         navigationPage.selectTestProject();
     }
 
     public void loginAndOpenTestProject() {
         authSteps.login();
-        navigationSteps.openProjectByName("Test");
+        openTestProject();
     }
 }
