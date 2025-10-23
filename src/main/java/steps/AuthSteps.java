@@ -13,16 +13,14 @@ import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 public class AuthSteps {
 
     private final LoginPage loginPage = new LoginPage();
-
     private final String userName = CustomProperties.getProperty("user.name");
-    private final String userPassword = CustomProperties.getProperty("user.password");
 
     @Step("Авторизация пользователя с логином {userName}")
     @Story("Ввод логина и пароля для авторизации")
     public void login() {
-        loginPage.login(userName, userPassword);
+        loginPage.enterUsername(userName);
+        loginPage.enterPassword();
+        loginPage.clickLogin();
         webdriver().shouldHave(urlContaining("/secure/Dashboard.jspa"));
     }
-
-
 }
