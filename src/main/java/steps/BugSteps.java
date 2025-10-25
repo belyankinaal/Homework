@@ -6,44 +6,33 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import pages.*;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 @Epic("Работа с дефектом")
 @Feature("Создание и прохождение дефекта")
 public class BugSteps {
 
-    private final TaskListPage taskListPage = new TaskListPage();
-    private final NewTaskPage newTaskPage = new NewTaskPage();
+    private final TaskListPage taskListPage;
+    private final NewTaskPage newTaskPage;
+    private final TaskMoreSteps taskMoreSteps;
     private final TaskSearchPage taskSearchPage = new TaskSearchPage();
     private final ProjectPage projectPage = new ProjectPage();
     private final WorkFlowSteps workFlowSteps = new WorkFlowSteps();
 
+    public BugSteps(TaskListPage taskListPage, NewTaskPage newTaskPage) {
+        this.taskListPage = taskListPage;
+        this.newTaskPage = newTaskPage;
+        this.taskMoreSteps = new TaskMoreSteps(taskListPage, newTaskPage);
+    }
+
     @Step("Создание и прохождение дефекта")
-    @Story("Создание дефект и проведение по статусам")
+    @Story("Создание дефекта и проведение по статусам")
     public void createAndCompleteBug() {
-
-        verifyIssueCountIncrease();
-
+        taskMoreSteps.shouldIncreaseIssueCountAfterCreating();
         verifyCreatedTask();
-
         createAndConfigureBug();
-
         completeBugWorkflow();
     }
 
-    @Step("Проверка, что после создания задачи увеличилось количество задач")
-    private void verifyIssueCountIncrease() {
-        taskListPage.clickViewAllIssues();
-        int countBefore = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
-        taskListPage.clickCreateIssue();
-        newTaskPage.enterSummary("A1").submitIssue();
-        taskListPage.navigateBackToIssues().refreshIssuesList();
-        int countAfter = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
-        assertTrue(countAfter > countBefore,
-                "Количество задач должно увеличиться минимум на 1. Было: " + countBefore + ", стало: " + countAfter);
-    }
-
-    @Step("Находим задачу,проверяем статус и версию")
+    @Step("Находим задачу, проверяем статус и версию")
     private void verifyCreatedTask() {
         taskSearchPage.clickViewAllTasks()
                 .searchForTask("TestSeleniumATHomework")

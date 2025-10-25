@@ -12,7 +12,7 @@ public class BaseTest extends WebHooks {
 
     @BeforeAll
     public static void before() {
-        logger.info("=== Настройка BaseTest ===");
+        logger.info("Запуск настроек для BaseTest");
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide()
                         .screenshots(true)

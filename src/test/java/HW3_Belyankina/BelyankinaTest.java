@@ -4,6 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pages.NewTaskPage;
+import pages.TaskListPage;
 import steps.*;
 
 public class BelyankinaTest extends BaseTest {
@@ -12,9 +14,11 @@ public class BelyankinaTest extends BaseTest {
 
     private final AuthSteps authSteps = new AuthSteps();
     private final NavigationSteps navigationSteps = new NavigationSteps();
-    private final TaskMoreSteps taskMoreSteps = new TaskMoreSteps();
+    private final TaskListPage taskListPage = new TaskListPage();
+    private final NewTaskPage newTaskPage = new NewTaskPage();
+    private final TaskMoreSteps taskMoreSteps = new TaskMoreSteps(taskListPage, newTaskPage);
     private final TaskStatusSteps taskStatusSteps = new TaskStatusSteps();
-    private final BugSteps bugSteps = new BugSteps();
+    private final BugSteps bugSteps = new BugSteps(taskListPage, newTaskPage);
 
     @Test
     @DisplayName("1. Авторизация")
