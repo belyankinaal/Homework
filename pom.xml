@@ -11,23 +11,25 @@
     <packaging>jar</packaging>
 
     <name>Homework</name>
-    <url>http://maven.apache.org</url>
+    <url>https://maven.apache.org</url>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <h2.version>2.3.232</h2.version>
         <postgres.version>42.7.5</postgres.version>
-        <spring.version>3.3.5</spring.version>
+        <spring.version>3.3.6</spring.version>
         <junit.version>5.10.0</junit.version>
         <allure.version>2.28.1</allure.version>
         <allure.maven.version>2.13.0</allure.maven.version>
         <commons-codec.version>1.17.0</commons-codec.version>
-        <logback.version>1.5.14</logback.version>
+        <logback.version>1.5.19</logback.version>
         <json-smart.version>2.5.2</json-smart.version>
         <xmlunit.version>2.10.0</xmlunit.version>
+        <spring.beans.fixed.version>6.2.10</spring.beans.fixed.version>
     </properties>
 
     <dependencies>
@@ -94,6 +96,10 @@
                     <groupId>ch.qos.logback</groupId>
                     <artifactId>logback-core</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-beans</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 
@@ -122,6 +128,18 @@
         </dependency>
 
         <dependency>
+            <groupId>net.minidev</groupId>
+            <artifactId>json-smart</artifactId>
+            <version>${json-smart.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.xmlunit</groupId>
+            <artifactId>xmlunit-core</artifactId>
+            <version>${xmlunit.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
             <version>${allure.version}</version>
@@ -132,6 +150,12 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-selenide</artifactId>
             <version>2.20.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.beans.fixed.version}</version>
         </dependency>
     </dependencies>
 
