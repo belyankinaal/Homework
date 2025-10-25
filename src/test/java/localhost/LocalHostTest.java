@@ -4,6 +4,7 @@ import ifellow.belyankina.service.AuthService;
 import ifellow.belyankina.service.LogoutService;
 import ifellow.belyankina.service.RegistrationService;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.logging.Logger;
@@ -22,6 +23,7 @@ public class LocalHostTest extends BaseTest {
 
     @Test
     @DisplayName("Тест localhost")
+    @Tag("Test_2")
     public void testAuthFlow() {
         log.info("Начало теста");
 
