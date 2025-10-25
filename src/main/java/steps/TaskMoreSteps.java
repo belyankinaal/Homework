@@ -20,7 +20,7 @@ public class TaskMoreSteps {
         int countBefore = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());
 
         taskListPage.clickCreateIssue();
-        newTaskPage.enterSummary("A1").submitIssue();
+        newTaskPage.enterSummary("A1").submitNewTask();
 
         taskListPage.navigateBackToIssues().refreshIssuesList();
         int countAfter = taskListPage.extractNumberFromText(taskListPage.getIssuesCountText());

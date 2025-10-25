@@ -8,8 +8,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class VersionPage {
     private final SelenideElement fixVersionSelect = $x("//select[@id='fixVersions']").as("Fix Version");
 
-    public VersionPage selectFixVersionByText(String version) {
+    public void selectFixVersionByText(String version) {
         fixVersionSelect.shouldBe(visible).selectOption(version);
-        return this;
     }
 }

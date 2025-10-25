@@ -26,9 +26,8 @@ public class VisualEditorPage {
         return this;
     }
 
-    public VisualEditorPage setContent(String text) {
+    public void setContent(String text) {
         ((JavascriptExecutor) webdriver().object())
                 .executeScript("tinymce.get(arguments[0]).setContent(arguments[1]);", editorIndex, text);
-        return this;
     }
 }

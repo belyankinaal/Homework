@@ -21,7 +21,7 @@ public class WorkFlowPage {
         return $x("//input[@id='issue-workflow-transition-submit' and @value='" + actionText + "']");
     }
 
-    public WorkFlowPage openBusinessProcessAndSelect(String actionText) {
+    public void openBusinessProcessAndSelect(String actionText) {
         transitionsMoreButton.shouldBe(visible, Duration.ofSeconds(10)).click();
 
         triggerLabels.findBy(text(actionText))
@@ -32,7 +32,5 @@ public class WorkFlowPage {
 
         successMessage.shouldBe(visible, Duration.ofSeconds(10));
         successMessage.shouldNotBe(visible, Duration.ofSeconds(15));
-
-        return this;
     }
 }

@@ -23,12 +23,11 @@ public class TaskSearchPage {
 
     public TaskSearchPage searchForTask(String text) {
         searchInput.shouldBe(visible).setValue(text).pressEnter();
-        firstFoundTask.scrollIntoView(true).shouldBe(visible, Duration.ofSeconds(10));
+        firstFoundTask.scrollTo().shouldBe(visible, Duration.ofSeconds(10));
         return this;
     }
 
-    public TaskSearchPage openTask() {
+    public void openTask() {
         firstFoundTask.shouldBe(visible).click();
-        return this;
     }
 }

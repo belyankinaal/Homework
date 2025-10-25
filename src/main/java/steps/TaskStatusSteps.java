@@ -24,7 +24,7 @@ public class TaskStatusSteps {
 
         taskListPage.clickViewAllIssues()
                 .clickCreateIssue();
-        newTaskPage.enterSummary(getTaskSummaryForCreation()).submitIssue();
+        newTaskPage.enterSummary(getTaskSummaryForCreation()).submitNewTask();
         taskListPage.navigateBackToIssues().refreshIssuesList();
 
         verifyCreatedTaskStatus();

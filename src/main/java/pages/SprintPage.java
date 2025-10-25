@@ -10,10 +10,9 @@ public class SprintPage {
 
     private final SelenideElement sprintInput = $x("//input[@id='customfield_10104-field']").as("Выбор спринта");
 
-    public SprintPage enterSprintAndPressEnter(String text) {
+    public void enterSprintAndPressEnter(String text) {
         sprintInput.shouldBe(visible).click();
         sprintInput.setValue(text);
         actions().sendKeys(org.openqa.selenium.Keys.ENTER).perform();
-        return this;
     }
 }

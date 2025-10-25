@@ -21,14 +21,12 @@ public class TaskListPage {
         return this;
     }
 
-    public TaskListPage clickCreateIssue() {
+    public void clickCreateIssue() {
         createIssueButton.shouldBe(visible).click();
-        return this;
     }
 
-    public TaskListPage refreshIssuesList() {
+    public void refreshIssuesList() {
         refresh();
-        return this;
     }
 
     public TaskListPage navigateBackToIssues() {

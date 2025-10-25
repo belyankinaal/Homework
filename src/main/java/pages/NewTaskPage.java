@@ -18,16 +18,14 @@ public class NewTaskPage {
         return this;
     }
 
-    public NewTaskPage submitIssue() {
+    public void submitNewTask() {
         submitButton.shouldBe(visible).click();
         successMessage.shouldBe(visible);
-        return this;
     }
 
-    public NewTaskPage clickSubmitAndWaitForSuccessAndOpenIssue() {
+    public void submitAndOpenNewTask() {
         submitButton.shouldBe(visible).click();
         successMessage.shouldBe(visible);
         successMessageLink.shouldBe(visible).click();
-        return this;
     }
 }

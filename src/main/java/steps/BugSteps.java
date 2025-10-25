@@ -51,7 +51,7 @@ public class BugSteps {
         projectPage.enterIssueLinkAndPressEnter("Test-207008");
         projectPage.enterSprintAndPressEnter("Доска Спринт 1");
         projectPage.selectSeverityByValue("10100");
-        newTaskPage.clickSubmitAndWaitForSuccessAndOpenIssue();
+        newTaskPage.submitAndOpenNewTask();
     }
 
     @Step("Проверка прохождения дефекта по статусам")
