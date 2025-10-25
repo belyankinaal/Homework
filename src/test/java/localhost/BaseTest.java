@@ -24,8 +24,8 @@ public class BaseTest {
         });
     }
 
-    protected void attach(String name, String content) {
-        Allure.addAttachment(name, content);
-        logger.info("{}: {}", name, content);
+    protected void attachToken(String token) {
+        Allure.addAttachment("Token", token);
+        logger.info("Token: {}", token);
     }
 }

@@ -44,7 +44,7 @@ public class LocalHostTest extends BaseTest {
 
         step("Успешная авторизация", () -> {
             String token = authorization.successCredentialsAuth();
-            attach("Token", token);
+            attachToken(token);
             assertThat(token, not(emptyString()));
             log.info("Токен: " + token);
 
