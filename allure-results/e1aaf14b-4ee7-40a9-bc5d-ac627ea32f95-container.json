@@ -1,0 +1,66 @@
+{
+  "uuid": "e1aaf14b-4ee7-40a9-bc5d-ac627ea32f95",
+  "name": "4. Проверка созданной задачи и статуса",
+  "children": [
+    "1a184d90-610f-44ad-a5e6-2ec4e0123d1c"
+  ],
+  "befores": [
+    {
+      "name": "initBrowser",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "$(\"open\") https://edujira.ifellow.ru/",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [
+            {
+              "name": "$(\"webdriver\") create()",
+              "status": "passed",
+              "stage": "finished",
+              "steps": [],
+              "attachments": [],
+              "parameters": [],
+              "start": 1760470922360,
+              "stop": 1760470923160
+            }
+          ],
+          "attachments": [],
+          "parameters": [],
+          "start": 1760470922360,
+          "stop": 1760470925184
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470922360,
+      "stop": 1760470925225
+    }
+  ],
+  "afters": [
+    {
+      "name": "closeBrowser",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "$(\"webdriver\") close()",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1760470937327,
+          "stop": 1760470937645
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760470937327,
+      "stop": 1760470937645
+    }
+  ],
+  "start": 1760470922351,
+  "stop": 1760470937649
+}

@@ -1,0 +1,66 @@
+{
+  "uuid": "24b60b29-0f04-46a3-95c7-0c1079afe3f0",
+  "name": "2. Открытие проекта Test",
+  "children": [
+    "e7f905af-ee48-4dc2-9e9d-5eafd580c3a6"
+  ],
+  "befores": [
+    {
+      "name": "initBrowser",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "$(\"open\") https://edujira.ifellow.ru/",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [
+            {
+              "name": "$(\"webdriver\") create()",
+              "status": "passed",
+              "stage": "finished",
+              "steps": [],
+              "attachments": [],
+              "parameters": [],
+              "start": 1760471057164,
+              "stop": 1760471057985
+            }
+          ],
+          "attachments": [],
+          "parameters": [],
+          "start": 1760471057164,
+          "stop": 1760471058239
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471057164,
+      "stop": 1760471060049
+    }
+  ],
+  "afters": [
+    {
+      "name": "closeBrowser",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "$(\"webdriver\") close()",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1760471063485,
+          "stop": 1760471063713
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1760471063485,
+      "stop": 1760471063713
+    }
+  ],
+  "start": 1760471057148,
+  "stop": 1760471063716
+}

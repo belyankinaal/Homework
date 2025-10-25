@@ -1,0 +1,11 @@
+{
+  "uuid": "aa92a270-8e23-4a5d-b999-6a7bbfffe5ad",
+  "name": "1. Авторизация",
+  "children": [
+    "8cf90442-aa2e-43cb-b1c4-92edce597475"
+  ],
+  "befores": [],
+  "afters": [],
+  "start": 1760385671995,
+  "stop": 1760385674655
+}
