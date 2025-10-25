@@ -1,6 +1,7 @@
 package HW3_Belyankina;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,7 @@ public class BelyankinaTest extends BaseTest {
 
     @Test
     @DisplayName("1. Авторизация")
+    @Tag("Test_1")
     void authorizationTest() {
         logger.info("Запуск теста авторизации");
         authSteps.login();
@@ -30,6 +32,7 @@ public class BelyankinaTest extends BaseTest {
 
     @Test
     @DisplayName("2. Открытие проекта Test")
+    @Tag("Test_2")
     void openProjectTest() {
         logger.info("Запуск теста открытия проекта Test");
         navigationSteps.loginAndOpenTestProject();
@@ -38,6 +41,7 @@ public class BelyankinaTest extends BaseTest {
 
     @Test
     @DisplayName("3. Проверка увеличения количества задач")
+    @Tag("Test_3")
     void issueCountTest() {
         logger.info("Запуск теста проверки увеличения количества задач");
         navigationSteps.loginAndOpenTestProject();
@@ -47,6 +51,7 @@ public class BelyankinaTest extends BaseTest {
 
     @Test
     @DisplayName("4. Проверка созданной задачи и статуса")
+    @Tag("Test_4")
     void checkTaskTest() {
         logger.info("Запуск теста проверки созданной задачи и статуса");
         navigationSteps.loginAndOpenTestProject();
@@ -56,6 +61,7 @@ public class BelyankinaTest extends BaseTest {
 
     @Test
     @DisplayName("5. Создание и прохождение дефекта")
+    @Tag("Test_5")
     void createBugTest() {
         logger.info("Запуск теста создания и прохождения дефекта");
         navigationSteps.loginAndOpenTestProject();
