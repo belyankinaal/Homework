@@ -1,5 +1,3 @@
-package localhost;
-
 import ifellow.belyankina.util.Specification;
 import io.qameta.allure.Allure;
 import io.restassured.RestAssured;

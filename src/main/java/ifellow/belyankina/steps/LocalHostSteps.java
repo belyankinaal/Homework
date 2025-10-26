@@ -8,7 +8,6 @@ import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
-import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 
@@ -36,38 +35,52 @@ public class LocalHostSteps {
 
     @Когда("^выполняется регистрация пользователя$")
     public void registerUser() {
-        Allure.step("Регистрация пользователя", () -> registration.successRegistration());
+        performRegistration();
     }
 
     @И("^выполняется неуспешная авторизация с неверным логином и паролем$")
     public void unsuccessfulAuth() {
-        Allure.step("Неуспешная авторизация", () -> {
-            authorization.unsuccessLoginAuth();
-            authorization.unsuccessPassAuth();
-        });
+        performUnsuccessfulAuth();
     }
 
     @И("^выполняется успешная авторизация и получение токена$")
     public void successfulAuth() {
-        Allure.step("Успешная авторизация", () -> {
-            token = authorization.successCredentialsAuth();
-            attachToken(token);
-            assertThat(token, not(emptyString()));
-            log.info("Токен: " + token);
-        });
+        performSuccessfulAuth();
     }
 
     @Тогда("^выполняется проверка выхода пользователя$")
     public void logoutUser() {
-        Allure.step("Выход пользователя", () -> {
-            logout.logoutUnsuccessTest();
-            logout.logoutSuccessTest(token);
-        });
+        performLogout();
+    }
+
+    @Step("Регистрация пользователя")
+    private void performRegistration() {
+        registration.successRegistration();
+    }
+
+    @Step("Неуспешная авторизация с неверным логином и паролем")
+    private void performUnsuccessfulAuth() {
+        authorization.unsuccessLoginAuth();
+        authorization.unsuccessPassAuth();
+    }
+
+    @Step("Успешная авторизация и получение токена")
+    private void performSuccessfulAuth() {
+        token = authorization.successCredentialsAuth();
+        attachToken(token);
+        assertThat(token, not(emptyString()));
+        log.info("Токен: " + token);
+    }
+
+    @Step("Выход пользователя")
+    private void performLogout() {
+        logout.logoutUnsuccessTest();
+        logout.logoutSuccessTest(token);
         log.info("Тест сценария аутентификации завершен");
     }
 
     @Step("Сохранение токена")
     private void attachToken(String token) {
-        Allure.addAttachment("Token", token);
+        io.qameta.allure.Allure.addAttachment("Token", token);
     }
 }

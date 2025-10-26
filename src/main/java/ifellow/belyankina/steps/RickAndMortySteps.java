@@ -9,7 +9,6 @@ import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
-import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 
@@ -32,30 +31,52 @@ public class RickAndMortySteps {
 
     @Когда("^выполняется поиск персонажа \"([^\"]*)\"$")
     public void findCharacterByName(String name) {
-        morty = service.getFirstCharacterByName(name);
-        attachJson("Morty JSON", morty.toString());
+        searchCharacter(name);
     }
 
     @И("^находится последний эпизод с этим персонажем$")
     public void findLastEpisodeOfCharacter() {
-        episode = service.getLastEpisodeOfCharacter(morty);
-        attachJson("Episode JSON", episode.toString());
+        findLastEpisode();
     }
 
     @И("^находится последний персонаж из этого эпизода$")
     public void findLastCharacterOfEpisode() {
-        character = service.getLastCharacterOfEpisode(episode);
-        attachJson("Last Character JSON", character.toString());
+        findLastCharacter();
     }
 
     @Тогда("^выполняется сравнение найденных данных персонажей и эпизода$")
     public void compareData() {
+        performComparison();
+    }
+
+    // --------- Методы с аннотацией @Step для Allure ---------
+
+    @Step("Поиск персонажа по имени: {name}")
+    private void searchCharacter(String name) {
+        morty = service.getFirstCharacterByName(name);
+        attachJson("Morty JSON", morty.toString());
+    }
+
+    @Step("Поиск последнего эпизода с персонажем")
+    private void findLastEpisode() {
+        episode = service.getLastEpisodeOfCharacter(morty);
+        attachJson("Episode JSON", episode.toString());
+    }
+
+    @Step("Поиск последнего персонажа из эпизода")
+    private void findLastCharacter() {
+        character = service.getLastCharacterOfEpisode(episode);
+        attachJson("Last Character JSON", character.toString());
+    }
+
+    @Step("Сравнение найденных данных персонажей и эпизода")
+    private void performComparison() {
         RickAndMortyAssertions.assertFullComparison(morty, character, episode, log);
         log.info("Сравнение завершено успешно");
     }
 
     @Step("{name}")
     private void attachJson(String name, String json) {
-        Allure.addAttachment(name, "application/json", json, ".json");
+        io.qameta.allure.Allure.addAttachment(name, "application/json", json, ".json");
     }
 }
