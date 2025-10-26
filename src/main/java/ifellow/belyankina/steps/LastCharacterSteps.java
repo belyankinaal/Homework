@@ -18,15 +18,12 @@ public class LastCharacterSteps {
     private Episode episode;
 
     @Дано("^установлен эпизод для анализа$")
-    public void setEpisodeForAnalysis() {
-        log.info("Эпизод для анализа установлен: " + (episode != null ? episode.getName() : "не задан"));
+    public void setEpisodeForAnalysis(Episode episode) {
+        this.episode = episode;
     }
 
     @И("^находится последний персонаж из этого эпизода$")
     public void findLastCharacterOfEpisode() {
-        if (episode == null) {
-            throw new IllegalStateException("Эпизод для анализа не установлен");
-        }
         lastCharacter = service.getLastCharacterOfEpisode(episode);
         attachJson("Last Character JSON", lastCharacter.toString());
     }
