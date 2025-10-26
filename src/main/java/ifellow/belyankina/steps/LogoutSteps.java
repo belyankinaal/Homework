@@ -24,7 +24,7 @@ public class LogoutSteps {
     private String lastResponse;
 
     @И("токен передан для выхода")
-    @Step("Передача токена для выхода")
+    @Step("Получение токена для выхода")
     public void receiveTokenFromAuth() {
         token = TestContext.getToken();
         log.info("Токен получен для выхода: " + token);
@@ -36,7 +36,7 @@ public class LogoutSteps {
         Response response = logout.logoutWithTokenForStep(token);
         lastStatus = response.statusCode();
         lastResponse = response.asString();
-        log.info("Выход выполнен с корректным токеном: " + token);
+        log.info("Выход выполнен с корректным токеном");
     }
 
     @Когда("выполняется выход с неверным токеном")
@@ -62,5 +62,4 @@ public class LogoutSteps {
         assertThat(lastResponse, containsString(expectedText));
         log.info("Проверка успешна: ответ содержит текст = " + expectedText);
     }
-
 }

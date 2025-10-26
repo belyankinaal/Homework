@@ -1,14 +1,12 @@
 package ifellow.belyankina.steps;
 
 import ifellow.belyankina.service.AuthService;
+import ifellow.belyankina.util.ConfigReader;
 import ifellow.belyankina.util.TestContext;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
 import io.qameta.allure.Step;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
 import java.util.logging.Logger;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,25 +19,12 @@ public class AutorizationSteps {
     private String token;
     private int lastStatus;
     private String lastResponse;
-    private final Properties prop = new Properties();
-
-    public AutorizationSteps() {
-        try {
-            prop.load(new FileInputStream("src/test/resources/config.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Когда("выполняется авторизация с корректными учетными данными")
     @Step("Успешная авторизация")
     public void authSuccess() {
-        // Авторизация и получение токена
         token = authorization.successCredentialsAuth();
-
-        // Сохраняем токен в общий контекст для LogoutSteps
         TestContext.setToken(token);
-
         attachToken(token);
         assertThat("Токен не должен быть пустым", token, not(emptyString()));
         log.info("Токен успешно получен: " + token);
@@ -48,7 +33,7 @@ public class AutorizationSteps {
     @Когда("выполняется авторизация с неверным логином")
     @Step("Авторизация с неверным логином")
     public void authWrongLogin() {
-        String invalidUsername = prop.getProperty("test.invalid.username");
+        String invalidUsername = ConfigReader.getProperty("test.invalid.username");
         var response = authorization.wrongLoginAuth(invalidUsername);
         lastResponse = response.getBody().asString();
         lastStatus = response.getStatusCode();
@@ -58,7 +43,7 @@ public class AutorizationSteps {
     @Когда("выполняется авторизация с неверным паролем")
     @Step("Авторизация с неверным паролем")
     public void authWrongPassword() {
-        String invalidPassword = prop.getProperty("test.invalid.password");
+        String invalidPassword = ConfigReader.getProperty("test.invalid.password");
         var response = authorization.wrongPasswordAuth(invalidPassword);
         lastResponse = response.getBody().asString();
         lastStatus = response.getStatusCode();

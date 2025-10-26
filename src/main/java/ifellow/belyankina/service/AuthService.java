@@ -12,7 +12,7 @@ public class AuthService {
     private static final String BAD_PASS = ConfigReader.getProperty("test.invalid.password");
     private final LocalHostService api = new LocalHostService();
     private final ObjectMapper mapper = new ObjectMapper();
-    private int lastStatus; // добавим хранение последнего статуса
+    private int lastStatus;
 
     public Response wrongLoginAuth(String invalidUsername) {
         Response r = modifiedLogin("username", invalidUsername);
