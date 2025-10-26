@@ -4,7 +4,6 @@ import ifellow.belyankina.assertions.RickAndMortyAssertions;
 import ifellow.belyankina.dto.Character;
 import ifellow.belyankina.dto.Episode;
 import ifellow.belyankina.service.RickAndMortyService;
-import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Тогда;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
@@ -18,12 +17,6 @@ public class RickAndMortySteps {
     private Character character;
     private Episode episode;
     private Character morty;
-
-    @И("^находится последний персонаж из этого эпизода$")
-    public void findLastCharacterOfEpisode() {
-        character = service.getLastCharacterOfEpisode(episode);
-        attachJson("Last Character JSON", character.toString());
-    }
 
     @Тогда("^выполняется сравнение найденных данных персонажей и эпизода$")
     public void compareData() {
@@ -42,5 +35,9 @@ public class RickAndMortySteps {
 
     public void setEpisode(Episode episode) {
         this.episode = episode;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
     }
 }
