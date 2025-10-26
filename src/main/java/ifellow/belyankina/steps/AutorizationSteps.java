@@ -20,7 +20,7 @@ public class AutorizationSteps {
     private int lastStatus;
     private String lastResponse;
 
-    @Когда("выполняется авторизация с корректными учетными данными")
+    @Когда("выполняется авторизация с валидными учетными данными")
     @Step("Успешная авторизация")
     public void authSuccess() {
         token = authorization.successCredentialsAuth();
@@ -30,24 +30,24 @@ public class AutorizationSteps {
         log.info("Токен успешно получен: " + token);
     }
 
-    @Когда("выполняется авторизация с неверным логином")
-    @Step("Авторизация с неверным логином")
+    @Когда("вводится невалидный логин при авторизации")
+    @Step("Авторизация с невалидным логином")
     public void authWrongLogin() {
         String invalidUsername = ConfigReader.getProperty("test.invalid.username");
         var response = authorization.wrongLoginAuth(invalidUsername);
         lastResponse = response.getBody().asString();
         lastStatus = response.getStatusCode();
-        log.info("Ответ при неверном логине: " + lastResponse);
+        log.info("Ответ при невалидном логине: " + lastResponse);
     }
 
-    @Когда("выполняется авторизация с неверным паролем")
-    @Step("Авторизация с неверным паролем")
+    @Когда("вводится невалидный пароль при авторизации")
+    @Step("Авторизация с невалидным паролем")
     public void authWrongPassword() {
         String invalidPassword = ConfigReader.getProperty("test.invalid.password");
         var response = authorization.wrongPasswordAuth(invalidPassword);
         lastResponse = response.getBody().asString();
         lastStatus = response.getStatusCode();
-        log.info("Ответ при неверном пароле: " + lastResponse);
+        log.info("Ответ при невалидном пароле: " + lastResponse);
     }
 
     @Тогда("токен получен и сохранен")

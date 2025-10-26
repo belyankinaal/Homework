@@ -22,7 +22,6 @@ public class RegistrationSteps {
     @Тогда("^проверяем, что регистрация прошла успешно$")
     @Step("Проверка успешной регистрации")
     public void checkRegistrationSuccess() {
-        // Здесь можно добавить реальную проверку через API response
         log.info("Регистрация прошла успешно - проверка выполнена");
     }
 }

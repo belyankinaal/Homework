@@ -23,29 +23,29 @@ public class LogoutSteps {
     private int lastStatus;
     private String lastResponse;
 
-    @И("токен передан для выхода")
-    @Step("Получение токена для выхода")
+    @И("токен передан для входа")
+    @Step("Получение токена для входа")
     public void receiveTokenFromAuth() {
         token = TestContext.getToken();
-        log.info("Токен получен для выхода: " + token);
+        log.info("Токен получен для входа: " + token);
     }
 
-    @Когда("выполняется выход с корректным токеном")
-    @Step("Выход с корректным токеном")
+    @Когда("выполняется вход с корректным токеном")
+    @Step("Вход с корректным токеном")
     public void logoutSuccess() {
         Response response = logout.logoutWithTokenForStep(token);
         lastStatus = response.statusCode();
         lastResponse = response.asString();
-        log.info("Выход выполнен с корректным токеном");
+        log.info("Вход выполнен с корректным токеном");
     }
 
-    @Когда("выполняется выход с неверным токеном")
-    @Step("Выход с неверным токеном")
+    @Когда("выполняется вход с неверным токеном")
+    @Step("Вход с неверным токеном")
     public void logoutWrongToken() {
         Response response = logout.logoutWithTokenForStep("invalid-token");
         lastStatus = response.statusCode();
         lastResponse = response.asString();
-        log.info("Выход с неверным токеном выполнен");
+        log.info("Вход с неверным токеном выполнен");
     }
 
     @Тогда("проверяем, что получен статус {int} и текст {string}")

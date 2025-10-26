@@ -1,15 +1,13 @@
 package ifellow.belyankina.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ifellow.belyankina.util.ConfigReader;
 import ifellow.belyankina.util.UserJsonProvider;
 import io.restassured.response.Response;
 
 import java.util.Map;
 
 public class AuthService {
-    private static final String BAD_USER = ConfigReader.getProperty("test.invalid.username");
-    private static final String BAD_PASS = ConfigReader.getProperty("test.invalid.password");
+
     private final LocalHostService api = new LocalHostService();
     private final ObjectMapper mapper = new ObjectMapper();
     private int lastStatus;
@@ -33,9 +31,6 @@ public class AuthService {
         return token;
     }
 
-    public int getLastStatus() {
-        return lastStatus;
-    }
 
     private Response modifiedLogin(String field, String value) {
         try {

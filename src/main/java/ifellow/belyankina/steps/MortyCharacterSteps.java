@@ -43,13 +43,4 @@ public class MortyCharacterSteps {
     private void attachJson(String name, String json) {
         Allure.addAttachment(name, "application/json", json, ".json");
     }
-
-    // Геттеры для использования в следующих шагах
-    public Character getMorty() {
-        return morty;
-    }
-
-    public Episode getEpisode() {
-        return episode;
-    }
 }

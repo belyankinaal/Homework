@@ -14,13 +14,13 @@ import java.util.logging.Logger;
 public class LastCharacterSteps {
 
     private static final Logger log = Logger.getLogger(LastCharacterSteps.class.getName());
-    private RickAndMortyService service = new RickAndMortyService();
+    private static final String ATTACHMENT_NAME = "LastCharacter";
+    private final RickAndMortyService service = new RickAndMortyService();
     private Episode episode;
     private Character lastCharacter;
 
     @Дано("^установлен эпизод для анализа$")
     public void setEpisodeForAnalysis() {
-        // Например, берём последний эпизод первого персонажа "Morty"
         Character morty = service.getFirstCharacterByName("Morty");
         this.episode = service.getLastEpisodeOfCharacter(morty);
         log.info("Эпизод для анализа установлен: " + episode.getName());
@@ -39,11 +39,11 @@ public class LastCharacterSteps {
         log.info("Раса: " + lastCharacter.getSpecies());
         log.info("Местоположение: " + lastCharacter.getLocationName());
 
-        attachJson("LastCharacter", lastCharacter.toString());
+        attachJson(lastCharacter.toString());
     }
 
-    @Step("{name}")
-    private void attachJson(String name, String json) {
-        Allure.addAttachment(name, "application/json", json, ".json");
+    @Step("Добавление JSON")
+    private void attachJson(String json) {
+        Allure.addAttachment(ATTACHMENT_NAME, "application/json", json, ".json");
     }
 }

@@ -4,17 +4,15 @@ import ifellow.belyankina.util.Specification;
 import io.cucumber.java.ru.Дано;
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.logging.Logger;
-
+@Slf4j
 public class SpecSteps {
 
-    private static final Logger log = Logger.getLogger(SpecSteps.class.getName());
-
-    @Дано("^установлена спецификация localhost API$")
-    @Step("Установка спецификации localhost API")
+    @Дано("^RestAssured настроен для работы с локальным API$")
+    @Step("RestAssured настроен для работы с локальным API")
     public void setupSpecification() {
         RestAssured.requestSpecification = Specification.forLocalApi();
-        log.info("Спецификация localhost установлена");
+        log.info("RestAssured настроен для работы с локальным API");
     }
 }

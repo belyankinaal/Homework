@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class CharacterComparisonSteps {
 
     private static final Logger log = Logger.getLogger(CharacterComparisonSteps.class.getName());
-    private RickAndMortyService service = new RickAndMortyService();
+    private final RickAndMortyService service = new RickAndMortyService();
     private Character morty;
     private Character lastCharacter;
 

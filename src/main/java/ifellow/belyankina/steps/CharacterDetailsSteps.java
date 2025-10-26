@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class CharacterDetailsSteps {
 
     private static final Logger log = Logger.getLogger(CharacterDetailsSteps.class.getName());
-    private RickAndMortyService service = new RickAndMortyService();
+    private final RickAndMortyService service = new RickAndMortyService();
     private Character character;
 
     @Когда("^получаем данные персонажа по имени \"([^\"]*)\"$")
@@ -29,7 +29,7 @@ public class CharacterDetailsSteps {
         attachJson("Location", location);
     }
 
-    @Тогда("^проверяем расу персонажа$")
+    @Тогда("^проверяем расу$")
     public void checkSpecies() {
         String species = character.getSpecies();
         log.info("Раса персонажа: " + species);
