@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-
 public class RickAndMortyAssertions {
 
     public static void assertCharacterData(Character character) {
@@ -21,17 +20,19 @@ public class RickAndMortyAssertions {
         assertFalse(episode.getCharacterUrls().isEmpty(), "В эпизоде нет персонажей");
     }
 
-    public static void assertCharactersComparison(Character char1, Character char2, Logger logger) {
-        logger.info("Сравнение персонажей:");
-        logger.info(char1.getName() + " vs " + char2.getName());
-        logger.info("Одинаковая раса: " + char1.getSpecies().equals(char2.getSpecies()));
-        logger.info("Одинаковая локация: " + char1.getLocationName().equals(char2.getLocationName()));
-    }
-
-    public static void assertFullComparison(Character char1, Character char2, Episode episode, Logger logger) {
-        assertCharacterData(char1);
-        assertCharacterData(char2);
+    // Метод сравнения персонажа с эпизодом
+    public static void assertFullComparison(Character character, Episode episode, Logger logger) {
+        assertCharacterData(character);
         assertEpisodeHasCharacters(episode);
-        assertCharactersComparison(char1, char2, logger);
+
+        logger.info("Сравнение персонажа с эпизодом:");
+        logger.info("Персонаж: " + character.getName());
+        boolean isInEpisode = episode.getCharacterUrls().stream()
+                .anyMatch(url -> url.contains(character.getName()));
+        logger.info("Персонаж присутствует в эпизоде: " + isInEpisode);
+
+        if (!isInEpisode) {
+            throw new AssertionError("Персонаж " + character.getName() + " отсутствует в эпизоде " + episode.getName());
+        }
     }
 }

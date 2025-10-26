@@ -16,21 +16,16 @@ public class RickAndMortySteps {
     private RickAndMortyService service = new RickAndMortyService();
     private Character character;
     private Episode episode;
-    private Character morty;
 
     @Тогда("^выполняется сравнение найденных данных персонажей и эпизода$")
     public void compareData() {
-        RickAndMortyAssertions.assertFullComparison(morty, character, episode, log);
+        RickAndMortyAssertions.assertFullComparison(character, episode, log);
         log.info("Сравнение завершено успешно");
     }
 
     @Step("{name}")
     private void attachJson(String name, String json) {
         Allure.addAttachment(name, "application/json", json, ".json");
-    }
-
-    public void setMorty(Character morty) {
-        this.morty = morty;
     }
 
     public void setEpisode(Episode episode) {
