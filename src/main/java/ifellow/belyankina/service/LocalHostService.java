@@ -23,4 +23,5 @@ public class LocalHostService {
     public Response logout(String token) {
         return stepsApi.sendRequest("GET", logoutUrl, null, token);
     }
+
 }

@@ -24,4 +24,15 @@ public class LogoutService {
             AuthAssertions.assertLogoutFail(response);
         }
     }
+
+    public Response logoutWithTokenForStep(String token, boolean shouldSucceed) {
+        Response response = localHostService.logout(token);
+        if (shouldSucceed) {
+            AuthAssertions.assertLogoutSuccess(response);
+        } else {
+            AuthAssertions.assertLogoutFail(response);
+        }
+        return response;
+    }
+
 }
