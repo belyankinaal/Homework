@@ -1,6 +1,7 @@
 package ifellow.belyankina.steps;
 
 import ifellow.belyankina.service.AuthService;
+import ifellow.belyankina.util.TestContext;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
 import io.qameta.allure.Step;
@@ -14,6 +15,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class AutorizationSteps {
+
     private static final Logger log = Logger.getLogger(AutorizationSteps.class.getName());
     private final AuthService authorization = new AuthService();
     private String token;
@@ -32,19 +34,24 @@ public class AutorizationSteps {
     @Когда("выполняется авторизация с корректными учетными данными")
     @Step("Успешная авторизация")
     public void authSuccess() {
+        // Авторизация и получение токена
         token = authorization.successCredentialsAuth();
+
+        // Сохраняем токен в общий контекст для LogoutSteps
+        TestContext.setToken(token);
+
         attachToken(token);
-        assertThat(token, not(emptyString()));
-        log.info("Токен: " + token);
+        assertThat("Токен не должен быть пустым", token, not(emptyString()));
+        log.info("Токен успешно получен: " + token);
     }
 
     @Когда("выполняется авторизация с неверным логином")
     @Step("Авторизация с неверным логином")
     public void authWrongLogin() {
         String invalidUsername = prop.getProperty("test.invalid.username");
-        var response = authorization.wrongLoginAuth(invalidUsername); // Response
-        lastResponse = response.getBody().asString();                 // String
-        lastStatus = response.getStatusCode();                        // int
+        var response = authorization.wrongLoginAuth(invalidUsername);
+        lastResponse = response.getBody().asString();
+        lastStatus = response.getStatusCode();
         log.info("Ответ при неверном логине: " + lastResponse);
     }
 
@@ -52,12 +59,11 @@ public class AutorizationSteps {
     @Step("Авторизация с неверным паролем")
     public void authWrongPassword() {
         String invalidPassword = prop.getProperty("test.invalid.password");
-        var response = authorization.wrongPasswordAuth(invalidPassword); // Response
-        lastResponse = response.getBody().asString();                     // String
-        lastStatus = response.getStatusCode();                             // int
+        var response = authorization.wrongPasswordAuth(invalidPassword);
+        lastResponse = response.getBody().asString();
+        lastStatus = response.getStatusCode();
         log.info("Ответ при неверном пароле: " + lastResponse);
     }
-
 
     @Тогда("токен получен и сохранен")
     @Step("Проверка получения токена")
@@ -71,11 +77,7 @@ public class AutorizationSteps {
     public void checkStatusAndResponse(int expectedStatus, String expectedResponse) {
         assertThat(lastStatus, equalTo(expectedStatus));
         assertThat(lastResponse, equalTo(expectedResponse));
-        log.info("Статус: " + lastStatus + ", Ответ: " + lastResponse);
-    }
-
-    public String getToken() {
-        return token;
+        log.info("Проверка успешна: статус = " + lastStatus + ", ответ = " + lastResponse);
     }
 
     @Step("Сохранение токена")

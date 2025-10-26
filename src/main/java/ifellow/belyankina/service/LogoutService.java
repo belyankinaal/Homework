@@ -1,38 +1,29 @@
 package ifellow.belyankina.service;
 
-import ifellow.belyankina.assertions.AuthAssertions;
 import io.restassured.response.Response;
 
-import java.util.UUID;
-
 public class LogoutService {
+
     private final LocalHostService localHostService = new LocalHostService();
 
-    public void logoutUnsuccessTest() {
-        logoutWithToken(UUID.randomUUID().toString(), false);
+    /**
+     * Для шагов Cucumber — возвращаем Response без assert
+     */
+    public Response logoutWithTokenForStep(String token) {
+        return localHostService.logout(token);
     }
 
     public void logoutSuccessTest(String token) {
-        logoutWithToken(token, true);
-    }
-
-    private void logoutWithToken(String token, boolean shouldSucceed) {
         Response response = localHostService.logout(token);
-        if (shouldSucceed) {
-            AuthAssertions.assertLogoutSuccess(response);
-        } else {
-            AuthAssertions.assertLogoutFail(response);
+        if (response.statusCode() != 200 || !"success logout".equals(response.getBody().asString())) {
+            throw new AssertionError("Logout success assertion failed");
         }
     }
 
-    public Response logoutWithTokenForStep(String token, boolean shouldSucceed) {
-        Response response = localHostService.logout(token);
-        if (shouldSucceed) {
-            AuthAssertions.assertLogoutSuccess(response);
-        } else {
-            AuthAssertions.assertLogoutFail(response);
+    public void logoutUnsuccessTest() {
+        Response response = localHostService.logout("invalid-token");
+        if (response.statusCode() != 401 || !"not found".equals(response.getBody().asString())) {
+            throw new AssertionError("Logout fail assertion failed");
         }
-        return response;
     }
-
 }
