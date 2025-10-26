@@ -1,7 +1,6 @@
 package ifellow.belyankina.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ifellow.belyankina.assertions.AuthAssertions;
 import ifellow.belyankina.util.ConfigReader;
 import ifellow.belyankina.util.UserJsonProvider;
 import io.restassured.response.Response;
@@ -13,23 +12,29 @@ public class AuthService {
     private static final String BAD_PASS = ConfigReader.getProperty("test.invalid.password");
     private final LocalHostService api = new LocalHostService();
     private final ObjectMapper mapper = new ObjectMapper();
+    private int lastStatus; // добавим хранение последнего статуса
 
-    public void unsuccessLoginAuth() {
-        Response r = modifiedLogin("username", BAD_USER);
-        AuthAssertions.assertLoginUserNotFound(r);
+    public Response wrongLoginAuth(String invalidUsername) {
+        Response r = modifiedLogin("username", invalidUsername);
+        lastStatus = r.getStatusCode();
+        return r;
     }
 
-    public void unsuccessPassAuth() {
-        Response r = modifiedLogin("password", BAD_PASS);
-        AuthAssertions.assertLoginWrongPassword(r);
+    public Response wrongPasswordAuth(String invalidPassword) {
+        Response r = modifiedLogin("password", invalidPassword);
+        lastStatus = r.getStatusCode();
+        return r;
     }
 
     public String successCredentialsAuth() {
         Response r = api.login(UserJsonProvider.USER_JSON);
-        AuthAssertions.assertLoginSuccess(r);
         String token = r.getBody().asString().replace("token : ", "");
-        AuthAssertions.assertTokenValid(token);
+        lastStatus = r.getStatusCode();
         return token;
+    }
+
+    public int getLastStatus() {
+        return lastStatus;
     }
 
     private Response modifiedLogin(String field, String value) {
